@@ -1,0 +1,40 @@
+[global_config]
+  inactive_color_offset = 1.0
+  tab_position = bottom
+  title_hide_sizetext = True
+  title_inactive_bg_color = "#eee8d5"
+  title_inactive_fg_color = "#657b83"
+  title_receive_bg_color = "#268bd2"
+  title_receive_fg_color = "#657b83"
+  title_transmit_bg_color = "#073642"
+  title_transmit_fg_color = "#fdf6e3"
+  window_state = maximise
+[keybindings]
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_next = <Alt>q
+  go_right = <Alt>l
+  go_up = <Alt>k
+  layout_launcher = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#fdf6e3"
+    background_darkness = 0.94
+    cursor_color = "#aaaaaa"
+    custom_command = TERM=xterm-256color bash -l
+    font = Fira Code weight=450 11
+    foreground_color = "#657b83"
+    login_shell = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_custom_command = True
+    use_system_font = False

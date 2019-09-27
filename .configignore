@@ -1,6 +1,7 @@
 # gitignore file for config repo that acts as a whitelist
 *
 
+!.config/
 !.config/terminator/config
 
 !.aliases
