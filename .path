@@ -10,7 +10,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # garmin
-export PATH="$HOME/.sdk/connectiq/bin:$PATH"
+export PATH="$HOME/.local/connectiq/bin:$PATH"
 
 # java
 export JAVA_HOME=$HOME/.local/java/jdk-12.0.2
@@ -19,10 +19,13 @@ export JRE_HOME
 
 # composer
 PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+#a ws
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # go
-export PATH=$PATH:/usr/local/go/bin:~/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # node
 export NVM_DIR="$HOME/.nvm"
