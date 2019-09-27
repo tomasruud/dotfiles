@@ -1,19 +1,22 @@
 #!/bin/bash
+# for config
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# real stuff
 alias ..="cd .."
 alias ...="cd ../.."
+alias ll='ls -alF'
 
-# Folders
+# folders
 alias projects='cd ~/projects'
 
-# Axo
+# axo
 alias axo='cd ~/work/axo'
 alias axo@slack='slack-term -token $AXO_SLACK_TOKEN'
 alias axo@vpn:start='nmcli con up id Axo'
 alias axo@vpn:stop='nmcli con down id Axo'
 
-# Adera
+# adera
 alias work='cd ~/work'
 alias adera@slack='slack-term -token $ADERA_SLACK_TOKEN'
 alias adera@flt:disconnect='f5fpc --stop'
