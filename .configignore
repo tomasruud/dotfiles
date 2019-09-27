@@ -1,0 +1,18 @@
+# gitignore file for config repo that acts as a whitelist
+*
+
+!.config/terminator/config
+
+!.aliases
+!.bash_profile
+!.bash_prompt
+!.bashrc
+!.configignore
+!.env.example
+!.functions
+!.gitignore
+!.gitconfig
+!.path
+!.screenrc
+!.slack-term
+!README.md
