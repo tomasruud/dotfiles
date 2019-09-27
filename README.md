@@ -4,11 +4,7 @@ Using setup from https://www.atlassian.com/git/tutorials/dotfiles
 
 Heavy inspiration from https://github.com/jessfraz/dotfiles
 
-## Initialize
+## Install
 ```
-git init --bare $HOME/.cfg
-touch $HOME/.config/git/config
-cp $HOME/.env.example $HOME/.env
-source $HOME/.bash_profile
-config config --local core.excludesfile $HOME/.configignore
+curl https://raw.githubusercontent.com/tomasruud/dot/master/.bin/install.sh | bash
 ```
