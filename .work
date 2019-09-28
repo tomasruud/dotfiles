@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# axo
+alias axo="cd ~/work/axo"
+alias axo@slack="slack-term -token $AXO_SLACK_TOKEN"
+alias axo@vpn:start="nmcli con up id Axo"
+alias axo@vpn:stop="nmcli con down id Axo"
+
+# adera
+alias work='cd ~/work'
+alias adera@slack="slack-term -token $ADERA_SLACK_TOKEN"
+alias adera@flt:disconnect="f5fpc --stop"
+alias adera@flt:connect="f5fpc --start -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
