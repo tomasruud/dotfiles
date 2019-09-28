@@ -1,10 +1,9 @@
-# Dotfiles
+# dotfiles
+Setup inspired by https://www.atlassian.com/git/tutorials/dotfiles
 
-Using setup from https://www.atlassian.com/git/tutorials/dotfiles
+Lots of other stuff taken from from https://github.com/jessfraz/dotfiles
 
-Heavy inspiration from https://github.com/jessfraz/dotfiles
-
-## Install
+## install
 ```
 curl https://raw.githubusercontent.com/tomasruud/dot/master/.bin/install.sh | bash
 ```

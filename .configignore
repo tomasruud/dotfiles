@@ -1,8 +1,8 @@
 # gitignore file for config repo that acts as a whitelist
-*
+/**
 
 !.bin/
-!.bin/install.sh
+!.bin/**
 !.config/
 !.config/terminator/config
 
