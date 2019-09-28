@@ -5,5 +5,5 @@ Lots of other stuff taken from from https://github.com/jessfraz/dotfiles
 
 ## install
 ```
-curl https://raw.githubusercontent.com/tomasruud/dot/master/.bin/install.sh | bash
+curl https://raw.githubusercontent.com/tomasruud/dot/master/install.sh | bash
 ```

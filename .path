@@ -20,7 +20,7 @@ export JRE_HOME
 # composer
 PATH=$PATH:$HOME/.config/composer/vendor/bin
 
-#a ws
+# aws
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # go

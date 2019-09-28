@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Dislocker binary can be downloaded from https://pkgs.org/download/dislocker
+# All credits to Cesário Garcia Mil-Homens - www.cesariogarcia.com
+ 
+if [ ! -d "/media/mount" ] && [ ! -d "/media/bitlocker" ]; then
+        sudo mkdir /media/bitlocker
+        sudo mkdir /media/mount
+    else
+        sudo fdisk -l
+        read -n1 -r -p "Press any key to continue..." key
+        echo "Insert volume and partition eg. sdaX"
+        read volume
+        echo "Enter password"
+        read -s password
+        sudo dislocker -V /dev/$volume -u$password -- /media/bitlocker
+        sudo mount /media/bitlocker/dislocker-file /media/mount/ -o loop
+        echo "Press u to umount device"
+        read key
+        if echo "$key" | grep -iq "^u" ;then
+                sudo umount /media/mount
+                sudo umount /media/bitlocker
+        fi
+fi
