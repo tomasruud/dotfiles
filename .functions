@@ -3,7 +3,7 @@
 # function for launching applications in the background
 function l() {
   if [[ -n "$*" ]]; then
-    "$@" 2>&1 &
+    eval "$* 2>&1 &"
   elif [[ -z "$*" ]]; then
     echo "No parameters passed"
   fi
