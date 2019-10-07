@@ -1,13 +1,35 @@
 #!/bin/bash
 
-# axo
-alias axo="cd ~/work/axo"
-alias axo@slack="slack-term -token $AXO_SLACK_TOKEN"
-alias axo@vpn:start="nmcli con up id Axo"
-alias axo@vpn:stop="nmcli con down id Axo"
+function work() {
+	local commands=(
+		"flt vpn start:f5fpc --start -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
+		"flt vpn stop:f5fpc --stop"
 
-# adera
-alias work='cd ~/work'
-alias adera@slack="slack-term -token $ADERA_SLACK_TOKEN"
-alias adera@flt:disconnect="f5fpc --stop"
-alias adera@flt:connect="f5fpc --start -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
+		"axo slack:slack-term -token $AXO_SLACK_TOKEN"
+		"axo vpn start:nmcli con up id Axo"
+		"axo vpn stop:nmcli con down id Axo"
+		"axo:cd ~/work/axo"
+
+		"adera slack:slack-term -token $ADERA_SLACK_TOKEN"
+
+		":cd ~/work"
+	)
+
+	for command in "${commands[@]}"; do
+		IFS=":" read -r args cmd <<< "$command"
+		
+		if [[ $@ == $args ]]; then
+			eval $cmd
+			return 0
+		fi
+	done
+
+	echo "command not found. commands:"
+
+	for command in "${commands[@]}"; do
+		IFS=":" read -r args cmd <<< "$command"
+		echo "  \"$args\""
+	done
+
+	return 1
+}
