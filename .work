@@ -4,6 +4,9 @@ function work() {
 	local commands=(
 		"flt vpn start:f5fpc --start -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
 		"flt vpn stop:f5fpc --stop"
+		"flt:cd ~/work/flt"
+
+		"nmf:cd ~/work/nmf"
 
 		"axo slack:slack-term -token $AXO_SLACK_TOKEN"
 		"axo vpn start:nmcli con up id Axo"

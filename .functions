@@ -8,3 +8,8 @@ function l() {
     echo "No parameters passed"
   fi
 }
+
+# silent launch
+function sl() {
+  l $@ > /dev/null
+}
