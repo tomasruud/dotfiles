@@ -44,7 +44,7 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # go
 export GOPATH=$PROJECTS/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # node
 export NVM_DIR="$HOME/.nvm"

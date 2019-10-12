@@ -1,0 +1,27 @@
+" colors
+syntax enable
+set background=light
+colorscheme solarized
+
+" tabs
+set tabstop=2
+set softtabstop=4
+set expandtab
+
+" show line number
+set number
+
+set showcmd
+
+set cursorline
+
+filetype indent on
+
+set wildmenu
+
+set lazyredraw
+
+set showmatch
+
+set incsearch
+set hlsearch
