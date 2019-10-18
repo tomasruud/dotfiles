@@ -17,7 +17,7 @@ set cursorline
 
 filetype indent on
 
-set wildmenu
+" set wildmenu
 
 set lazyredraw
 

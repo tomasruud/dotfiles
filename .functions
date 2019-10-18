@@ -13,3 +13,19 @@ function l() {
 function sl() {
   l $@ > /dev/null
 }
+
+# replace crontab to use home-folder-file
+# from: https://blog.chmd.fr/saving-your-crontab-in-your-dotfiles.html
+if [[ -z $CRONTABCMD ]]; then
+  export CRONTABCMD=$(which crontab)
+
+  function crontab() {
+    if [[ $@ == "-e" ]]; then
+      vim "$HOME/.crontab" && $CRONTABCMD "$HOME/.crontab"
+    else
+      $CRONTABCMD $@
+    fi
+  }
+
+  $CRONTABCMD "$HOME/.crontab"
+fi

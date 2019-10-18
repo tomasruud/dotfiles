@@ -53,3 +53,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # travis completion
 [ -f "${HOME}/.travis/travis.sh" ] && source "${HOME}/.travis/travis.sh"
+
+# source personal anacrontab file
+/usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
