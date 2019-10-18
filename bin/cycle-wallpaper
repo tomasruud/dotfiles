@@ -28,7 +28,7 @@ output="$destination/$id.jpg"
 wget "$raw" -q -O "$output"
 
 # send download track event
-curl -s "$apiBase/photos/$id/download?client_id=$client"
+curl -s "$apiBase/photos/$id/download?client_id=$client" > /dev/null
 
 # set wallpaper
 gsettings set org.gnome.desktop.background picture-uri "file://$output"
