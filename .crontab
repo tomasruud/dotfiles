@@ -1,1 +1,2 @@
 0   *   *   *   *   /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
+0   *   *   *   *   /bin/bash $HOME/bin/relax
