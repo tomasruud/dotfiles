@@ -1,3 +1,0 @@
-#!/bin/bash
-notify-send -c health "Friendly reminder" "Take a break and relax"
-

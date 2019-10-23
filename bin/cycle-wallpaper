@@ -33,4 +33,4 @@ curl -s "$apiBase/photos/$id/download?client_id=$client" > /dev/null
 # set wallpaper
 gsettings set org.gnome.desktop.background picture-uri "file://$output"
 
-notify-send "Hey Tomas!" "I just changed your wallpaper"
+notify-send -u critical "Hey Tomas!" "I just changed your wallpaper"

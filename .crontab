@@ -1,2 +1,2 @@
 0   *   *   *   *   /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
-0   *   *   *   *   /bin/bash $HOME/bin/relax
+0   *   *   *   *   DISPLAY=:0.0 /usr/bin/notify-send -u critical -i "$HOME/.icon.png" "Friendly reminder" "Take a break and relax"

@@ -1,1 +1,1 @@
-1 0 change-background-image /bin/bash "$HOME/bin/cycle-wallpaper"
+1 0 change-background-image DISPLAY=0.0 /bin/bash "$HOME/bin/cycle-wallpaper"
