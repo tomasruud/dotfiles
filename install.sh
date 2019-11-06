@@ -3,7 +3,7 @@
 # https://www.atlassian.com/git/tutorials/dotfiles
 
 # add the alias
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # add gitignore thing
 echo ".dotfiles" >> $HOME/.gitignore
