@@ -3,11 +3,11 @@
   tab_position = bottom
   title_hide_sizetext = True
   title_inactive_bg_color = "#eee8d5"
-  title_inactive_fg_color = "#657b83"
+  title_inactive_fg_color = "#93a1a1"
   title_receive_bg_color = "#268bd2"
   title_receive_fg_color = "#657b83"
-  title_transmit_bg_color = "#073642"
-  title_transmit_fg_color = "#fdf6e3"
+  title_transmit_bg_color = "#eee8d5"
+  title_transmit_fg_color = "#657b83"
   window_state = maximise
 [keybindings]
   go_down = <Alt>j
@@ -28,11 +28,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#fdf6e3"
+    background_color = "#282828"
     background_darkness = 0.94
     cursor_color = "#aaaaaa"
     custom_command = bash -l
     font = Fira Code weight=450 11
-    foreground_color = "#657b83"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    foreground_color = "#ebdbb2"
+    icon_bell = False
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scrollbar_position = hidden
+    show_titlebar = False
     use_system_font = False
