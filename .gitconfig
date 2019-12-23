@@ -4,3 +4,5 @@
 	autocrlf = input
 [help]
 	autocorrect = 1
+[alias]
+	slog = log --oneline
