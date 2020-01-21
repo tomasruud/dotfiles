@@ -17,3 +17,6 @@ alias ll='ls -alF'
 
 # folders
 alias projects="cd $PROJECTS"
+
+# shortcut for disabling ipv6
+alias ipv6="sudo sysctl -p"
