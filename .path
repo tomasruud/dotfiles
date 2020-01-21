@@ -32,7 +32,7 @@ fi
 export PATH="$HOME/.local/connectiq/bin:$PATH"
 
 # java
-export JAVA_HOME=$HOME/.local/java/jdk-12.0.2
+export JAVA_HOME=$HOME/.local/java/jdk-13.0.1
 export JRE_HOME
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -40,7 +40,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
 # aws
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # go
 export GOPATH=$PROJECTS/go
