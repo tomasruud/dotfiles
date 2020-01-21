@@ -90,21 +90,21 @@ fi;
 if [[ "${USER}" == "root" ]]; then
 	userStyle="${red}";
 else
-	userStyle="${bold}${violet}";
+	userStyle="${bold}${orange}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
 	hostStyle="${bold}${cyan}";
 else
-	hostStyle="${bold}${violet}";
+	hostStyle="${bold}${bold}";
 fi;
 
 # Set the terminal title to the current working directory.
 PS1="\\[\\033]0;\\w\\007\\]";
 PS1+="\\[${bold}\\]";
 PS1+="\\[${userStyle}\\]\\u"; # username
-PS1+="\\[${reset}\\]\\[${bold}\\]\\[${violet}\\]@";
+PS1+="\\[${reset}\\]\\[${bold}\\]\\[${bold}\\]@";
 PS1+="\\[${hostStyle}\\]${cloud}\\h"; # host
 PS1+="\\[${reset}\\]:";
 PS1+="\\w"; # working directory
