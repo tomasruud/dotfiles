@@ -1,2 +1,2 @@
 0   *   *   *   *   /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
-0   *   *   *   *   DISPLAY=:0.0 /usr/bin/notify-send -u critical -i "$HOME/.icon.png" "Friendly reminder" "Take a break and relax"
+0   *   *   *   *   eval "export $(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $LOGNAME gnome-session)/environ)" && /usr/bin/notify-send -u critical -i "$HOME/.icon.png" "Friendly reminder" "Take a break and relax"
