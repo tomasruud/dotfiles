@@ -29,3 +29,8 @@ if [[ -z $CRONTABCMD ]]; then
 
   $CRONTABCMD "$HOME/.crontab"
 fi
+
+# get remote ip
+function remote-ip() {
+  curl https://icanhazip.com/
+}

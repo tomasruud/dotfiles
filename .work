@@ -8,12 +8,11 @@ function work() {
 
 		"nmf:cd ~/work/adera/nmf"
 
-		"axo slack:slack-term -token $AXO_SLACK_TOKEN"
+		"norsea:cd ~/work/adera/norsea"
+
 		"axo vpn start:nmcli con up id Axo"
 		"axo vpn stop:nmcli con down id Axo"
 		"axo:cd ~/work/axo"
-
-		"adera slack:slack-term -token $ADERA_SLACK_TOKEN"
 
 		":cd ~/work"
 	)
@@ -36,3 +35,7 @@ function work() {
 
 	return 1
 }
+
+if [ -d "$HOME/work/axo/etc/scripts" ]; then
+    export PATH="$HOME/work/axo/etc/scripts:$PATH"
+fi
