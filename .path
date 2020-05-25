@@ -56,3 +56,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # source personal anacrontab file
 /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
+
+# php
+[[ -e "${HOME}/.phpbrew/bashrc" ]] && source "${HOME}/.phpbrew/bashrc"
+
+# ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
