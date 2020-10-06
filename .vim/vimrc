@@ -1,18 +1,12 @@
-" colors
-syntax enable
+syntax on
 set background=light
 colorscheme solarized
 
 " tabs
-set tabstop=2
-set softtabstop=4
-set expandtab
+autocmd Filetype go setlocal tabstop=2  softtabstop=4 expandtab
 
-" show line number
 set number
-
 set showcmd
-
 set cursorline
 
 filetype indent on
@@ -25,3 +19,12 @@ set showmatch
 
 set incsearch
 set hlsearch
+
+" go stuff
+filetype plugin indent on
+let g:go_fmt_command = "goimports"     
+let g:go_auto_type_info = 1 
+
+" NERDTree plugin specific commands
+:nnoremap <C-g> :NERDTreeToggle<CR>
+
