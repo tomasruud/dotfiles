@@ -8,3 +8,5 @@
 [alias]
 	oneline = log --oneline
 	slog = log --oneline
+[init]
+	defaultBranch = main
