@@ -10,3 +10,5 @@
 	slog = log --oneline
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
