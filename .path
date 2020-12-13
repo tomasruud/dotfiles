@@ -58,7 +58,8 @@ export NVM_DIR="$HOME/.nvm"
 /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
 
 # php
-[[ -e "${HOME}/.phpbrew/bashrc" ]] && source "${HOME}/.phpbrew/bashrc"
+export PATH="$HOME/.phpenv/bin:$PATH"
+eval "$(phpenv init -)"
 
 # ruby
 export PATH="$HOME/.rbenv/bin:$PATH"

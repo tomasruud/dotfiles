@@ -6,7 +6,7 @@ function work() {
 		"flt vpn stop:f5fpc --stop"
 		"flt:cd ~/work/adera/flt"
 
-		"nmf:cd ~/work/adera/nmf"
+		"nmf:cd ~/work/adera/musikkforlagene"
 
 		"norsea:cd ~/work/adera/norsea"
 
