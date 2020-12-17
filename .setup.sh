@@ -1,8 +1,7 @@
 #!/bin/bash
-sudo apt update
 
 # install stuff
-sudo apt install -y git vim openssh curl
+sudo apt install -y git vim
 
 # install jb mono
 curl -o /tmp/jbmono.zip -L "https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip"
