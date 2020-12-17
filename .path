@@ -1,17 +1,10 @@
 #!/bin/bash
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-  export PATH="$HOME/bin:$PATH"
+# include .bin if exists
+if [ -d "$HOME/.bin" ] ; then
+  export PATH="$HOME/.bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-  export PATH="$HOME/.local/bin:$PATH"
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -28,39 +21,6 @@ fi
 	grep -v "[?*]" | cut -d " " -f2 | \
 	tr ' ' '\n')" scp sftp ssh
 
-# garmin
-export PATH="$HOME/.local/connectiq/bin:$PATH"
-
-# java
-export JAVA_HOME=$HOME/.local/java/jdk-13.0.1
-export JRE_HOME
-export PATH=$JAVA_HOME/bin:$PATH
-
-# composer
-export PATH=$HOME/.config/composer/vendor/bin:$PATH
-
-# aws
-# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-# go
-export GOPATH=$PROJECTS/go
-export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
-
-# node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# travis completion
-[ -f "${HOME}/.travis/travis.sh" ] && source "${HOME}/.travis/travis.sh"
-
 # source personal anacrontab file
 /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
 
-# php
-export PATH="$HOME/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
-
-# ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
