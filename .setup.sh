@@ -10,7 +10,7 @@ rm -f /tmp/jbmono.zip
 sudo fc-cache -f -v
 
 # remove ubuntu dock
-sudo apt removegnome-shell-extension-ubuntu-dock
+sudo apt remove gnome-shell-extension-ubuntu-dock
 
 # set up shortcuts
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Alt>Tab']"
