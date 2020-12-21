@@ -36,6 +36,6 @@ function work() {
 	return 1
 }
 
-if [ -d "$HOME/work/axo/etc/scripts" ]; then
-    export PATH="$HOME/work/axo/etc/scripts:$PATH"
+if [ -d "$HOME/work/axo/axs/bin" ]; then
+    export PATH="$HOME/work/axo/axs/bin:$PATH"
 fi

@@ -21,9 +21,11 @@ gsettings set org.gnome.desktop.wm.preferences audible-bell false
 gsettings set org.gnome.gedit.preferences.editor scheme "'solarized-light'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys calculator "['<Primary><Alt>k']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
-# install spotify
-snap install spotify
+# install handy apps
+snap install spotify boxy-svg
 
 # install docker
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
