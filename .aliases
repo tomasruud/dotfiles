@@ -20,3 +20,6 @@ alias projects="cd $PROJECTS"
 
 # shortcut for disabling ipv6
 alias ipv6="sudo sysctl -p"
+
+# docker
+alias dc="docker-compose"
