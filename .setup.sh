@@ -25,7 +25,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # install handy apps
-snap install spotify boxy-svg insomnia
+snap install spotify boxy-svg insomnia slack
 
 # install docker
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
