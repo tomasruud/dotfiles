@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install stuff
-sudo apt install git vim gnome-tweaks terminator dislocker
+sudo apt install git vim gnome-tweaks terminator dislocker caffeine
 
 # install jb mono
 curl -o /tmp/jbmono.zip -L "https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip"
@@ -25,7 +25,8 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>e']"
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # install handy apps
-snap install spotify boxy-svg insomnia slack
+snap install spotify boxy-svg insomnia
+snap install slack --classic
 
 # install docker
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
