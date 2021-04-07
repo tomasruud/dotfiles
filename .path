@@ -24,3 +24,5 @@ fi
 # source personal anacrontab file
 /usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
 
+# include garmin sdk if present
+[ -f "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" ] && export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
