@@ -23,9 +23,13 @@ alias ipv6="sudo sysctl -p"
 
 # docker
 alias dc="docker-compose"
+alias dcomposer="docker run --rm --interactive --tty --volume $PWD:/app composer"
+alias d="docker-compose run --rm"
+alias ds="docker-compose run --service-ports --rm"
 
 # laravel sail
 alias sail="bash vendor/bin/sail"
 
 # shortcut for fixing spotify on snap window fuckup
-alias spotifix="sed -i '/app.window/d' ~/.config/spotify/prefs"
+alias spotifix="sed -i '/app.window/d' ~/.var/app/com.spotify.Client/config/spotify/prefs"
+

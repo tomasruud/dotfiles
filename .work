@@ -2,7 +2,7 @@
 
 function work() {
 	local commands=(
-		"flt vpn start:f5fpc --start -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
+		"flt vpn start:f5fpc --start -x -t $FLT_VPN_HOST -u $FLT_VPN_USER -p $FLT_VPN_PASS"
 		"flt vpn stop:f5fpc --stop"
 		"flt:cd ~/work/adera/flt"
 
