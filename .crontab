@@ -1,2 +1,1 @@
 # Min   Hour    mday    month   wday(0=sun)     command
-0	*	*	*	*		/usr/sbin/anacron -t "$HOME/.anacron/anacrontab" -S "$HOME/.anacron/spool"
