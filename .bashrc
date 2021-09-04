@@ -35,7 +35,7 @@ shopt -s checkwinsize
 git config -f ~/.config/git/config user.name "$GIT_AUTHOR_NAME"
 git config -f ~/.config/git/config user.email "$GIT_AUTHOR_EMAIL"
 
-for file in ~/.{env,bash_prompt,aliases,functions,path,work}; do
+for file in ~/.{env,bash_prompt,aliases,path,work}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi

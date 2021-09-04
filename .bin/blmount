@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Dislocker binary can be downloaded from https://pkgs.org/download/dislocker
 # All credits to Cesário Garcia Mil-Homens - www.cesariogarcia.com
