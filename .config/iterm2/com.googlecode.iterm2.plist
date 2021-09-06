@@ -780,6 +780,8 @@
 	</dict>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SwitchPaneModifier</key>
+	<integer>5</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
