@@ -35,6 +35,10 @@ shopt -s checkwinsize
 git config -f ~/.config/git/config user.name "$GIT_AUTHOR_NAME"
 git config -f ~/.config/git/config user.email "$GIT_AUTHOR_EMAIL"
 
+if [ -f "$HOME/.git-completion.bash" ]; then
+  . "$HOME/.git-completion.bash"
+fi
+
 for file in ~/.{env,bash_prompt,aliases,path,work}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
