@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # dotfiles
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -29,6 +30,25 @@ alias dc="docker-compose"
 alias dcomposer="docker run --rm --interactive --tty --volume $PWD:/app composer"
 alias d="docker-compose run --rm"
 alias ds="docker-compose run --service-ports --rm"
+
+# crazy docker compose aliases
+runifdocker()
+{
+	for file in {docker-compose,compose}.{yaml,yml}
+	do
+		if [[ -f $file ]]
+		then
+			d "$1" "${@:2}"
+			return
+		fi
+	done
+
+	eval "/usr/bin/env $@"
+	return
+}
+
+alias composer="runifdocker composer"
+alias npm="runifdocker npm"
 
 # laravel sail
 alias sail="bash vendor/bin/sail"
