@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-while true
-do
-	for ANGLE in 0 90 180 270
-	do
-		xdotool mousemove_relative --polar $ANGLE 100
-		sleep 10
-	done
-done
