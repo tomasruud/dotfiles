@@ -50,6 +50,8 @@ runifdocker()
 alias composer="runifdocker composer"
 alias npm="runifdocker npm"
 alias artisan="runifdocker artisan"
+alias php="runifdocker php"
+alias npx="runifdocker npx"
 
 # laravel sail
 alias sail="bash vendor/bin/sail"
