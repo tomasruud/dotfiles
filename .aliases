@@ -19,9 +19,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ll='ls -alF'
 
-# folders
-alias projects="cd $PROJECTS"
-
 # shortcut for disabling ipv6
 alias ipv6="sudo sysctl -p"
 
@@ -59,3 +56,6 @@ alias sail="bash vendor/bin/sail"
 # shortcut for fixing spotify on snap window fuckup
 alias spotifix="sed -i '/app.window/d' ~/.var/app/com.spotify.Client/config/spotify/prefs"
 
+# handy shortcuts
+alias work="cd $HOME/work"
+alias projects="cd $HOME/projects"
