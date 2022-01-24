@@ -39,7 +39,7 @@ if [ -f "$HOME/.git-completion.bash" ]; then
   . "$HOME/.git-completion.bash"
 fi
 
-for file in ~/.{env,bash_prompt,aliases,path}; do
+for file in ~/.{env,bash_prompt,aliases,path,iterm}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi

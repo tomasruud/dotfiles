@@ -29,4 +29,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # go
 export PATH="$HOME/sdk/go1.17.2/bin:$PATH"
-export GOPRIVATE="gitlab.com/a2755"
+export GOPRIVATE="gitlab.com/a2755,go.axofinance.io"
