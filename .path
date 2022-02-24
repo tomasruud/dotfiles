@@ -1,4 +1,3 @@
-#!/bin/bash
 # include .bin if exists
 if [ -d "$HOME/.bin" ] ; then
   export PATH="$HOME/.bin:$PATH"
@@ -26,7 +25,3 @@ fi
 
 # mac stuff
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# go
-export PATH="$HOME/sdk/go1.17.2/bin:$PATH"
-export GOPRIVATE="gitlab.com/a2755,go.axofinance.io"

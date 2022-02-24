@@ -1,4 +1,5 @@
-#!/bin/bash
+# enable bash integration
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # adjust theme based on os settings
 if [[ "$(uname -s)" == "Darwin" ]]; then
