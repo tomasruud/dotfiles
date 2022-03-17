@@ -53,3 +53,6 @@ alias spotifix="sed -i '/app.window/d' ~/.var/app/com.spotify.Client/config/spot
 # handy shortcuts
 alias work="cd $HOME/work"
 alias projects="cd $HOME/projects"
+
+# deployer
+alias deployer="vendor/bin/dep"
