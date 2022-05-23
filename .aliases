@@ -8,6 +8,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# typos
+alias gti="git"
+alias got="git"
+
 # handy stuff
 alias ..="cd .."
 alias ...="cd ../.."
@@ -22,33 +26,8 @@ alias dcomposer="docker run --rm --interactive --tty --volume $PWD:/app composer
 alias d="docker-compose run --rm"
 alias ds="docker-compose run --service-ports --rm"
 
-# crazy docker compose aliases
-runifdocker()
-{
-	for file in {docker-compose,compose}.{yaml,yml}
-	do
-		if [[ -f $file ]]
-		then
-			d "$1" "${@:2}"
-			return
-		fi
-	done
-
-	eval "/usr/bin/env $@"
-	return
-}
-
-alias composer="runifdocker composer"
-alias npm="runifdocker npm"
-alias artisan="runifdocker artisan"
-alias php="runifdocker php"
-alias npx="runifdocker npx"
-
 # laravel sail
 alias sail="bash vendor/bin/sail"
-
-# shortcut for fixing spotify on snap window fuckup
-alias spotifix="sed -i '/app.window/d' ~/.var/app/com.spotify.Client/config/spotify/prefs"
 
 # handy shortcuts
 alias work="cd $HOME/work"

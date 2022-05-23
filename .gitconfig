@@ -8,6 +8,8 @@
 [alias]
 	oneline = log --oneline
 	slog = log --oneline
+	cleanup = "!git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
+	fullclean = "!git checkout main && git cleanup && git pull"
 [init]
 	defaultBranch = main
 [pull]
