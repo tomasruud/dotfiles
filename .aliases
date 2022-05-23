@@ -22,9 +22,9 @@ alias ipv6="sudo sysctl -p"
 
 # docker
 alias dc="docker-compose"
-alias dcomposer="docker run --rm --interactive --tty --volume $PWD:/app composer"
-alias d="docker-compose run --rm"
-alias ds="docker-compose run --service-ports --rm"
+alias d="dc run --rm"
+alias dx="docker run --rm --interactive --tty --volume $PWD:/app --workdir /app"
+alias ds="dc run --service-ports --rm"
 
 # laravel sail
 alias sail="bash vendor/bin/sail"
