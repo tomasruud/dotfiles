@@ -12,6 +12,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi 
+
 # tab completion for SSH hostnames based on ~/.ssh/config
 # ignoring wildcards
 [[ -e "$HOME/.ssh/config" ]] && complete -o "default" \
@@ -24,7 +28,7 @@ if [ -f "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" ] ; then
   export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
 fi
 
-if [ -f "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ] ; then
+if [ -d "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ] ; then
   export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 fi
 
@@ -32,5 +36,7 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # heroku
-eval "$(heroku autocomplete:script bash)"
+if command -v heroku &> /dev/null; then
+  eval "$(heroku autocomplete:script bash)"
+fi
 
