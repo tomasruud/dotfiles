@@ -20,8 +20,13 @@ fi
 	grep -v "[?*]" | cut -d " " -f2 | \
 	tr ' ' '\n')" scp sftp ssh
 
-# include garmin sdk if present
-[ -f "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" ] && export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
+if [ -f "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" ] ; then
+  export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
+fi
+
+if [ -f "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ] ; then
+  export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+fi
 
 # mac stuff
 eval "$(/opt/homebrew/bin/brew shellenv)"

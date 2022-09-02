@@ -34,4 +34,4 @@ alias work="cd $HOME/work"
 alias projects="cd $HOME/projects"
 
 # deployer
-alias deployer="vendor/bin/dep"
+alias deployer="vendor/bin/deployer.phar"
