@@ -1,6 +1,4 @@
-source "$HOME/.bashrc"
-
-for file in ~/.{env,aliases,path,iterm}; do
+for file in ~/.{env,aliases,path}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
