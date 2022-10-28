@@ -16,6 +16,5 @@ dot config --local status.showUntrackedFiles no
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install go java php neovim node ripgrep fd visual-studio-code
-brew install --cask gnucash warp tidal jetbrains-toolbox firefox microsoft-teams slack insomnia docker
-```
+brew install go java php neovim node ripgrep fd 
+brew install --cask gnucash warp tidal jetbrains-toolbox firefox microsoft-teams slack insomnia docker monitorcontrol visual-studio-code
