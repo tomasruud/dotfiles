@@ -1,5 +1,15 @@
+function do_if_exists() {
+    local loc="$1"
+    shift
+    local do="$@"
+
+    if [[ -e "$loc" ]]; then
+        eval "$do"
+    fi
+}
+
 # --- load env
-[[ -e "$HOME/.env" ]] && source "$HOME/.env" || echo "Seems like you don't have .env set up"
+do_if_exists "$HOME/.env" 'source "$HOME/.env"'
 
 # --- aliases
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -21,9 +31,9 @@ alias remote-ip="curl https://icanhazip.com"
 alias dot-backup="tar -zcvf dotfile-backup.tar.gz $HOME/.ssh $HOME/.netrc $HOME/.env"
 
 # --- path entries
-[[ -e "$HOME/.bin" ]] && export PATH="$HOME/.bin:$PATH"
-[[ -e "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" ]] && export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
-[[ -e "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]] && export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
-[[ -e "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-[[ -e "$HOME/.cargo/bin" ]] && export PATH="$PATH:$HOME/.cargo/bin"
-[[ -e "/opt/homebrew/opt/go/libexec" ]] && export GOROOT="/opt/homebrew/opt/go/libexec"
+do_if_exists "/opt/homebrew/bin/brew" 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+do_if_exists "/opt/homebrew/opt/go/libexec" 'export GOROOT="/opt/homebrew/opt/go/libexec"'
+do_if_exists "$HOME/.cargo/bin" 'export PATH="$PATH:$HOME/.cargo/bin"'
+do_if_exists "$HOME/.bin" 'export PATH="$HOME/.bin:$PATH"'
+do_if_exists "$HOME/.Garmin/ConnectIQ/current-sdk.cfg" 'export PATH="$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin"'
+do_if_exists "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" 'export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"'
