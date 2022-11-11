@@ -26,3 +26,4 @@ alias dot-backup="tar -zcvf dotfile-backup.tar.gz $HOME/.ssh $HOME/.netrc $HOME/
 [[ -e "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]] && export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 [[ -e "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -e "$HOME/.cargo/bin" ]] && export PATH="$PATH:$HOME/.cargo/bin"
+[[ -e "/opt/homebrew/opt/go/libexec" ]] && export GOROOT="/opt/homebrew/opt/go/libexec"
