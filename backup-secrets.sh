@@ -1,0 +1,1 @@
+tar -zcvf backup.tgz $HOME/.ssh $HOME/.netrc $HOME/.env

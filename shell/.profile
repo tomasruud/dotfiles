@@ -8,24 +8,11 @@ function do_if_exists() {
     fi
 }
 
-function decode_base64_url() {
-  local len=$((${#1} % 4))
-  local result="$1"
-  if [ $len -eq 2 ]; then result="$1"'=='
-  elif [ $len -eq 3 ]; then result="$1"'=' 
-  fi
-  echo "$result" | tr '_-' '/+' | openssl enc -d -base64
-}
-
-function decode_jwt(){
-   decode_base64_url $(echo -n $2 | cut -d "." -f $1)
-}
-
-# --- load env
+# --- load external files
 do_if_exists "$HOME/.env" 'source "$HOME/.env"'
+do_if_exists "$HOME/.functions" 'source "$HOME/.functions"'
 
 # --- aliases
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias gti="git"
 alias got="git"
 alias cat="bat"
@@ -43,8 +30,6 @@ alias home="cd $HOME"
 alias deployer="vendor/bin/dep"
 alias nv="nvim"
 alias remote-ip="curl https://icanhazip.com"
-alias dot-backup="tar -zcvf dotfile-backup.tar.gz $HOME/.ssh $HOME/.netrc $HOME/.env"
-alias jwt="decode_jwt 2"
 alias gl="goland ."
 alias ws="webstorm ."
 alias f="open ."

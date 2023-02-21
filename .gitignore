@@ -1,4 +1,2 @@
-.idea
-.vscode
-.DS_Store
-.fleet
+backup.tgz
+.env

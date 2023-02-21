@@ -2,7 +2,7 @@
 	autocrlf = input
 	editor = nvim
 	excludesfile = ~/.gitignore
-	hooksPath = .githooks
+	hooksPath = ~/.githooks
 [help]
 	autocorrect = 1
 [alias]

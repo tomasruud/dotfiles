@@ -1,9 +1,5 @@
-#!/usr/bin/env bash
-
-# Dislocker binary can be downloaded from https://pkgs.org/download/dislocker
-# All credits to Cesário Garcia Mil-Homens - www.cesariogarcia.com
- 
-if [ ! -d "/media/mount" ] && [ ! -d "/media/bitlocker" ]; then
+function blmount() {
+    if [ ! -d "/media/mount" ] && [ ! -d "/media/bitlocker" ]; then
         sudo mkdir /media/bitlocker
         sudo mkdir /media/mount
     else
@@ -21,4 +17,5 @@ if [ ! -d "/media/mount" ] && [ ! -d "/media/bitlocker" ]; then
                 sudo umount /media/mount
                 sudo umount /media/bitlocker
         fi
-fi
+    fi
+}
