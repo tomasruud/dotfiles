@@ -1,5 +1,5 @@
 function linkdotfile {
-  root="$HOME/dot"
+  root="$HOME/dotfiles"
   from="$1"
   to="$2"
   if [ ! -e "$HOME/$to" -a ! -L "$HOME/$to" ]; then
