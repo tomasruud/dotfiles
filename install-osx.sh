@@ -10,13 +10,13 @@ function linkdotfile {
   fi
 }
 
-linkdotfile warp .warp
+linkdotfile bash/.functions .functions
+linkdotfile bash/.inputrc .inputrc
+linkdotfile bash/.profile .profile
+linkdotfile brew/Brewfile Brewfile
 linkdotfile git/.gitconfig .gitconfig
 linkdotfile git/.githooks .githooks
 linkdotfile git/.gitignore .gitignore
-linkdotfile shell/.functions .functions
-linkdotfile shell/.hushlogin .hushlogin
-linkdotfile shell/.inputrc .inputrc
-linkdotfile shell/.profile .profile
-linkdotfile shell/.zprofile .zprofile
-linkdotfile brew/Brewfile Brewfile
+linkdotfile osx/.hushlogin .hushlogin
+linkdotfile warp .warp
+linkdotfile zsh/.zprofile .zprofile
