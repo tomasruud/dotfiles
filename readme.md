@@ -15,6 +15,4 @@ touch $HOME/.config/git/config
 dot config --local status.showUntrackedFiles no
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-brew install go java php neovim node ripgrep fd 
-brew install --cask gnucash warp spotify jetbrains-toolbox firefox microsoft-teams slack insomnia docker monitorcontrol visual-studio-code
+brew bundle
