@@ -20,3 +20,4 @@ linkdotfile git/.gitignore .gitignore
 linkdotfile osx/.hushlogin .hushlogin
 linkdotfile warp .warp
 linkdotfile zsh/.zprofile .zprofile
+linkdotfile zsh/.zshrc .zshrc
