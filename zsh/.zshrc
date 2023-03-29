@@ -1,3 +1,9 @@
+# autocompletion
 autoload -U compinit; compinit
 
-export PS1="%~$ "
+# git related
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b'
+
+# prompt style
+export PROMPT='%~$ '
