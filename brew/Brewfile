@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 brew "bat"
+brew "cocoapods"
 brew "php"
 brew "composer"
 brew "fd"
@@ -36,9 +37,11 @@ mas "Logic Pro", id: 634148309
 mas "Messenger", id: 1480068668
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Motion", id: 434290957
 mas "Plain Text Editor", id: 1572202501
 mas "Slack", id: 803453959
+mas "Tot", id: 1491071483
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
