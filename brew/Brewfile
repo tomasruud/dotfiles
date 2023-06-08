@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 brew "bat"
+brew "ruby"
 brew "cocoapods"
 brew "php"
 brew "composer"
@@ -45,3 +46,10 @@ mas "Slack", id: 803453959
 mas "Tot", id: 1491071483
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
+vscode "42Crunch.vscode-openapi"
+vscode "Garmin.monkey-c"
+vscode "k--kato.intellij-idea-keybindings"
+vscode "mermade.openapi-lint"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "redhat.vscode-yaml"

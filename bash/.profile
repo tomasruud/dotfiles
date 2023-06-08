@@ -39,6 +39,8 @@ alias f="open ."
 do_if_exists "/opt/homebrew/bin/brew" 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 do_if_exists "/opt/homebrew/opt/go/libexec" 'export GOROOT="/opt/homebrew/opt/go/libexec"'
 do_if_exists "/opt/homebrew/opt/nvm/nvm.sh" '. "/opt/homebrew/opt/nvm/nvm.sh"'
+do_if_exists "/opt/homebrew/opt/ruby" 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"'
+do_if_exists "/opt/homebrew/opt/nvm/nvm.sh" '. "/opt/homebrew/opt/nvm/nvm.sh"'
 do_if_exists "$HOME/.cargo/bin" 'export PATH="$PATH:$HOME/.cargo/bin"'
 do_if_exists "$HOME/.bin" 'export PATH="$HOME/.bin:$PATH"'
 do_if_exists "$HOME/go/bin" 'export PATH="$HOME/go/bin:$PATH"'
