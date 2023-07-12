@@ -1,9 +1,8 @@
-# autocompletion
-autoload -U compinit; compinit
+if type brew &>/dev/null; then
+	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
 
-# git related
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b'
+autoload -Uz compinit
+compinit
 
-# prompt style
 export PROMPT='%~$ '
