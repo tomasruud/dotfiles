@@ -1,4 +1,4 @@
-function zsh-plugin() {
+function zplugin() {
 	local root="$HOME/.zsh/plugins"
 
 	local name="$1"
@@ -15,11 +15,12 @@ function zsh-plugin() {
 	source "$plugin/$name.plugin.zsh"
 }
 
-zsh-plugin git-prompt https://github.com/woefe/git-prompt.zsh.git v2.3.0
-zsh-plugin zsh-completions https://github.com/zsh-users/zsh-completions.git 0.34.0
-zsh-plugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git v0.7.0
+zplugin git-prompt https://github.com/woefe/git-prompt.zsh.git v2.3.0
+zplugin zsh-completions https://github.com/zsh-users/zsh-completions.git 0.34.0
+zplugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git v0.7.0
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
 
 export PROMPT='%~$(gitprompt)\$ '
