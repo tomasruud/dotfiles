@@ -22,5 +22,6 @@ zplugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git
 autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _list _complete _expand _oldlist
 
 export PROMPT='%~$(gitprompt)\$ '
