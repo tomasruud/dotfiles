@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+local root="nvim/.nvim/pack"
+
+function __install() {
+    git submodule add -f "$2" "$root/$1"
+}
+
+function __uninstall() {
+    local plugin="$root/$1"
+    git submodule deinit -f "$plugin"
+    git rm -f "$plugin"
+}
+
+case "$1" in
+install)
+    shift
+    __install "$@"
+    ;;
+
+uninstall)
+    shift
+    __uninstall "$@"
+    ;;
+
+*)
+    echo "Usage: $0 <command> <args>
+
+Available commands:
+  install <name> <repo>
+  uninstall <name>"
+    exit 1
+esac

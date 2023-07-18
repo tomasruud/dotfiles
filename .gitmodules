@@ -1,0 +1,12 @@
+[submodule "zsh/.zsh/plugins/git-prompt"]
+	path = zsh/.zsh/plugins/git-prompt
+	url = https://github.com/woefe/git-prompt.zsh.git
+[submodule "zsh/.zsh/plugins/zsh-autosuggestions"]
+	path = zsh/.zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "zsh/.zsh/plugins/zsh-completions"]
+	path = zsh/.zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "nvim/.nvim/pack/neo-tree.nvim"]
+	path = nvim/.nvim/pack/neo-tree.nvim
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim.git

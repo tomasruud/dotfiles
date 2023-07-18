@@ -1,10 +1,16 @@
-.PHONY: all
+.PHONY: install
 
-all:
-	@echo "hi mom"
+install:
+	stow --verbose --target=${HOME} --restow */
 
-backup:
+uninstall:
+	stow --verbose --target=${HOME} --delete */
+
+secrets:
 	tar -zcvf backup.tgz ${HOME}/.ssh ${HOME}/.netrc ${HOME}/.env
 
-brewfile:
+brew-dump:
 	brew bundle dump --force --file ./brew/Brewfile
+
+brew-install:
+	brew bundle --file ${HOME}/Brewfile

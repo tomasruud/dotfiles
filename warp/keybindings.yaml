@@ -1,6 +1,0 @@
----
-"workspace:activate_next_tab": shift-cmd-right
-"workspace:activate_prev_tab": shift-cmd-left
-"pane_group:navigate_next": alt-l
-"input:toggle_natural_language_command_search": alt-i
-"pane_group:navigate_prev": alt-h
