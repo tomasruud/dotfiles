@@ -21,3 +21,4 @@ linkdotfile osx/.hushlogin .hushlogin
 linkdotfile warp .warp
 linkdotfile zsh/.zprofile .zprofile
 linkdotfile zsh/.zshrc .zshrc
+linkdotfile nvim .config/nvim
