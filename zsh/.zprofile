@@ -1,7 +1,8 @@
 source "$HOME/.env"
+PATH="$HOME/bin:$PATH"
 
-if [[ -e "$HOME/.zsh/plugins" ]]; then
-    find "$HOME/.zsh/plugins" -path "*" -name "*.plugin.zsh" | while read plugin; do
+if [[ -e "$HOME/.config/zsh/plugins" ]]; then
+    find "$HOME/.config/zsh/plugins" -path "*" -name "*.plugin.zsh" | while read plugin; do
         source "$plugin"
     done
 fi

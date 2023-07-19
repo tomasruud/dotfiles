@@ -12,7 +12,7 @@ Available commands:
     exit 1
 }
 
-local root="common/.zsh/plugins"
+local root="$HOME/dotfiles/zsh/.zsh/plugins"
 
 function __install() {
     if [[ "$#" -ne 2 ]]; then

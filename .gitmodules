@@ -1,12 +1,12 @@
 [submodule "zsh/.zsh/plugins/git-prompt"]
-	path = common/.zsh/plugins/git-prompt
+	path = zsh/.config/zsh/plugins/git-prompt
 	url = https://github.com/woefe/git-prompt.zsh.git
 [submodule "zsh/.zsh/plugins/zsh-autosuggestions"]
-	path = common/.zsh/plugins/zsh-autosuggestions
+	path = zsh/.config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "zsh/.zsh/plugins/zsh-completions"]
-	path = common/.zsh/plugins/zsh-completions
+	path = zsh/.config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "nvim/.config/nvim/pack/plugins/start/plenary.nvim"]
-	path = common/.config/nvim/pack/plugins/start/plenary.nvim
+	path = nvim/.config/nvim/pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git

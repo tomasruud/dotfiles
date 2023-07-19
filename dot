@@ -3,23 +3,23 @@ set -e
 
 case "$1" in
 install)
-    stow --verbose --target="$HOME" --restow common
+    stow --verbose --target="$HOME" --restow */
     ;;
 
 uninstall)
-    stow --verbose --target="$HOME" --delete common
+    stow --verbose --target="$HOME" --delete */
     ;;
 
 secrets:backup)
-    tar -zcvf secrets.backup.tgz ${HOME}/.ssh ${HOME}/.netrc ${HOME}/.env
+    tar -zcvf secrets.backup.tgz $HOME/.ssh $HOME/.netrc $HOME/.env
     ;;
 
 brew:backup)
-    brew bundle dump --force --file ./common/Brewfile
+    brew bundle dump --force --file "$HOME/dotfiles/brew/Brewfile"
     ;;
 
 brew:setup)
-    brew bundle --file ${HOME}/Brewfile
+    brew bundle --file "$HOME/Brewfile"
     ;;
 
 *)

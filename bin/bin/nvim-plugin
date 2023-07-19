@@ -12,7 +12,7 @@ Available commands:
     exit 1
 }
 
-local root="common/.config/nvim/pack/plugins/start"
+local root="$HOME/dotfiles/nvim/.config/nvim/pack/plugins/start"
 
 function __install() {
     if [[ "$#" -ne 2 ]]; then
