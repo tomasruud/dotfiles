@@ -1,7 +1,6 @@
 autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*' completer _list _complete _expand _oldlist
 
 PROMPT='%~$(gitprompt)\$ '
 

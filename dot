@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+set -e
+
+case "$1" in
+install)
+    stow --verbose --target="$HOME" --restow common
+    ;;
+
+uninstall)
+	stow --verbose --target="$HOME" --delete common
+    ;;
+
+secrets:backup)
+	tar -zcvf secrets.backup.tgz ${HOME}/.ssh ${HOME}/.netrc ${HOME}/.env
+    ;;
+
+brew:backup)
+	brew bundle dump --force --file ./common/Brewfile
+    ;;
+
+brew:setup)
+	brew bundle --file ${HOME}/Brewfile
+    ;;
+
+*)
+    echo "dotfiles manager
+
+Usage:
+    dot <command>
+
+Available commands:
+    install - installs dotfiles
+    uninstall - uninstalls dotfiles
+    secrets:backup - creates backup of secrets
+    brew:backup - dumps installed brew packages to Brewfile
+    brew:setup - installs brew packages from Brewfile"
+    exit 1
+esac

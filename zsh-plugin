@@ -1,11 +1,34 @@
 #!/usr/bin/env zsh
-local root="zsh/.zsh/plugins"
+set -e
+
+function __usage() {
+    echo "
+Usage:
+    zsh-plugin <command>
+
+Available commands:
+    install <name> <repo> - install plugin from specified repo
+    uninstall <name> - uninstall plugin"
+    exit 1
+}
+
+local root="common/.zsh/plugins"
 
 function __install() {
+    if [[ "$#" -ne 2 ]]; then
+        echo "Error: illegal number of arguments"
+        __usage
+    fi
+
     git submodule add -f "$2" "$root/$1"
 }
 
 function __uninstall() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "Error: illegal number of arguments"
+        __usage
+    fi
+
     local plugin="$root/$1"
     git submodule deinit -f "$plugin"
     git rm -f "$plugin"
@@ -23,10 +46,6 @@ uninstall)
     ;;
 
 *)
-    echo "Usage: $0 <command> <args>
-
-Available commands:
-  install <name> <repo>
-  uninstall <name>"
-    exit 1
+    echo "zsh plugin manager"
+    __usage
 esac

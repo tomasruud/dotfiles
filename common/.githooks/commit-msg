@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 COMMIT_FILE=$1
 COMMIT_MSG=$(cat $1)
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
