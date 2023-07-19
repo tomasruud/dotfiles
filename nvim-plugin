@@ -4,15 +4,15 @@ set -e
 function __usage() {
     echo "
 Usage:
-    zsh-plugin <command>
+    nvim-plugin <command>
 
 Available commands:
-    install <name> <repo> - install plugin from specified repo
+    install <name> <repo> - install plugin from repo
     uninstall <name> - uninstall plugin"
     exit 1
 }
 
-local root="$HOME/dotfiles/zsh/.zsh/plugins"
+local root="nvim/.config/nvim/pack/plugins/start"
 
 function __install() {
     if [[ "$#" -ne 2 ]]; then
@@ -46,6 +46,6 @@ uninstall)
     ;;
 
 *)
-    echo "zsh plugin manager"
+    echo "nvim plugin manager"
     __usage
 esac
