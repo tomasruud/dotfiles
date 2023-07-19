@@ -7,19 +7,19 @@ install)
     ;;
 
 uninstall)
-	stow --verbose --target="$HOME" --delete common
+    stow --verbose --target="$HOME" --delete common
     ;;
 
 secrets:backup)
-	tar -zcvf secrets.backup.tgz ${HOME}/.ssh ${HOME}/.netrc ${HOME}/.env
+    tar -zcvf secrets.backup.tgz ${HOME}/.ssh ${HOME}/.netrc ${HOME}/.env
     ;;
 
 brew:backup)
-	brew bundle dump --force --file ./common/Brewfile
+    brew bundle dump --force --file ./common/Brewfile
     ;;
 
 brew:setup)
-	brew bundle --file ${HOME}/Brewfile
+    brew bundle --file ${HOME}/Brewfile
     ;;
 
 *)
