@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-local root="nvim/.nvim/pack"
+local root="nvim/.config/nvim/pack/plugins/start"
 
 function __install() {
     git submodule add -f "$2" "$root/$1"
