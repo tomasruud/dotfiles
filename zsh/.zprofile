@@ -42,3 +42,8 @@ fi
 if [[ -e "$HOME/Applications/Sublime Text.app/Contents/SharedSupport/bin" ]]; then
 	PATH="$PATH:$HOME/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 fi
+
+if [[ -e "$HOME/.opam/opam-init/init.zsh" ]]; then
+    source "$HOME/.opam/opam-init/init.zsh"
+fi
+
