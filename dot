@@ -2,7 +2,7 @@
 set -e
 
 case "$1" in
-install)
+sync | install)
     stow --verbose --target="$HOME" --restow */
     ;;
 
@@ -29,8 +29,9 @@ Usage:
     dot <command>
 
 Available commands:
-    install - installs dotfiles
+    install - install dotfiles
     uninstall - uninstalls dotfiles
+    sync - sync dotfiles
     secrets:backup - creates backup of secrets
     brew:backup - dumps installed brew packages to Brewfile
     brew:setup - installs brew packages from Brewfile"
