@@ -1,30 +1,37 @@
+-- shared config
 vim.cmd("source $HOME/.vimrc")
 
+-- general
 vim.opt.clipboard = 'unnamedplus'
 
+-- lsp
+local lspconfig = require 'lspconfig'
 
-lspconfig = require'lspconfig'
-util = require'lspconfig/util'
-
-lspconfig.tsserver.setup{}
-
-lspconfig.gopls.setup{
+-- lsp/lua
+lspconfig.lua_ls.setup {
     settings = {
-        gopls = {
-            analyses = {unusedparams = true},
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            },
         },
     },
 }
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-})
+-- lsp/typescript
+lspconfig.tsserver.setup {}
 
-vim.api.nvim_create_autocmd({'BufWritePre', 'InsertLeave'}, {
-    pattern = '*.go',
-    callback = function()
-        vim.lsp.buf.code_action({context = {only = {'source.organizeImports'}}, apply = true})
-    end,
-})
+-- lsp/go
+lspconfig.gopls.setup {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+        },
+    },
+}
+
+-- keymaps
+vim.keymap.set('n', '<Leader>/', ':noh<cr>')
+vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format)
