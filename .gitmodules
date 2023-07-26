@@ -7,9 +7,9 @@
 [submodule "zsh/.zsh/plugins/zsh-completions"]
 	path = zsh/.config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
-[submodule "nvim/.config/nvim/pack/plugins/start/plenary.nvim"]
-	path = nvim/.config/nvim/pack/plugins/start/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
 [submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "nvim/.config/nvim/pack/plugins/start/nvim-lspconfig"]
+	path = nvim/.config/nvim/pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig

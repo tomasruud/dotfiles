@@ -13,3 +13,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+let g:netrw_keepdir=0
+
+nmap <Leader>e :Explore<CR>
