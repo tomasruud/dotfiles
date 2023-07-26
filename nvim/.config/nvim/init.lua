@@ -4,6 +4,10 @@ vim.cmd("source $HOME/.vimrc")
 -- general
 vim.opt.clipboard = 'unnamedplus'
 
+
+-- local plugins
+require("statusline")
+
 -- lsp
 local lspconfig = require 'lspconfig'
 

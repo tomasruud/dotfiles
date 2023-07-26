@@ -13,12 +13,3 @@
 [submodule "nvim/.config/nvim/pack/plugins/start/nvim-lspconfig"]
 	path = nvim/.config/nvim/pack/plugins/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
-[submodule "nvim/.config/nvim/pack/plugins/start/vim-airline"]
-	path = nvim/.config/nvim/pack/plugins/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule "nvim/.config/nvim/pack/plugins/start/auto-dark-mode.nvim"]
-	path = nvim/.config/nvim/pack/plugins/start/auto-dark-mode.nvim
-	url = https://github.com/f-person/auto-dark-mode.nvim
-[submodule "nvim/.config/nvim/colors/base16-vim"]
-	path = nvim/.config/nvim/colors/base16-vim
-	url = https://github.com/chriskempson/base16-vim.git
