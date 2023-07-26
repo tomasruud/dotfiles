@@ -9,10 +9,10 @@ vim.opt.clipboard = 'unnamedplus'
 require("statusline")
 
 -- lsp
-local lspconfig = require 'lspconfig'
+local lspconfig = require('lspconfig')
 
 -- lsp/lua
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
     settings = {
         Lua = {
             diagnostics = {
@@ -20,13 +20,13 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
+})
 
 -- lsp/typescript
-lspconfig.tsserver.setup {}
+lspconfig.tsserver.setup({})
 
 -- lsp/go
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
     settings = {
         gopls = {
             analyses = {
@@ -34,7 +34,7 @@ lspconfig.gopls.setup {
             },
         },
     },
-}
+})
 
 -- keymaps
 vim.keymap.set('n', '<Leader>/', ':noh<cr>')
