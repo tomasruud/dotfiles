@@ -6,8 +6,7 @@ set showmode
 set scrolloff=5
 set incsearch
 set ignorecase
-
-set colorcolumn=80
+set nohlsearch
 
 set mouse="a"
 
