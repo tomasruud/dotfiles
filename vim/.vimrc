@@ -1,4 +1,4 @@
-let mapleader="\<Space>"
+let mapleader="\<space>"
 
 set number
 
@@ -21,4 +21,7 @@ set expandtab
 let g:netrw_keepdir=0
 let g:netrw_fastbrowse=0
 
-nmap <Leader>e :Explore<CR>
+nmap <leader>e :Explore<cr>
+nmap <leader>sv :source $MYVIMRC<cr>
+nmap - :m +1<cr>
+nmap _ :m -2<cr>

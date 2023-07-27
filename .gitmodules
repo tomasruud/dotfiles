@@ -13,3 +13,9 @@
 [submodule "nvim/.config/nvim/pack/plugins/start/nvim-lspconfig"]
 	path = nvim/.config/nvim/pack/plugins/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+[submodule "nvim/.config/nvim/pack/plugins/start/gitsigns.nvim"]
+	path = nvim/.config/nvim/pack/plugins/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "nvim/.config/nvim/colors/vim-colors-paramount"]
+	path = nvim/.config/nvim/colors/vim-colors-paramount
+	url = https://github.com/owickstrom/vim-colors-paramount.git
