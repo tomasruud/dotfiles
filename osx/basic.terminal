@@ -4,6 +4,8 @@
 <dict>
 	<key>Bell</key>
 	<false/>
+	<key>CursorBlink</key>
+	<true/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -15,19 +17,25 @@
 	</data>
 	<key>FontAntialias</key>
 	<true/>
+	<key>FontHeightSpacing</key>
+	<real>1.1299031575520835</real>
 	<key>FontWidthSpacing</key>
 	<real>1.004032258064516</real>
 	<key>ProfileCurrentVersion</key>
 	<real>2.0699999999999998</real>
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<false/>
+	<key>ShowActiveProcessInTabTitle</key>
+	<false/>
 	<key>ShowActiveProcessInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLInTitle</key>
+	<true/>
+	<key>ShowRepresentedURLPathInTitle</key>
 	<true/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
@@ -40,7 +48,7 @@
 	<key>columnCount</key>
 	<integer>138</integer>
 	<key>name</key>
-	<string>Basic</string>
+	<string>basic</string>
 	<key>rowCount</key>
 	<integer>45</integer>
 	<key>shellExitAction</key>

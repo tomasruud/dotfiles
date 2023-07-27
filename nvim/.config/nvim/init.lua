@@ -5,12 +5,11 @@ require("2ms.statusline")
 
 -- colors
 vim.cmd("colorscheme paramount")
-vim.opt.background = "light"
 
 local auto_dark_mode = require("auto-dark-mode")
 
 auto_dark_mode.setup({
-    update_interval = 10000,
+    update_interval = 1000,
     set_dark_mode = function()
         vim.opt.background = "dark"
     end,
@@ -23,6 +22,9 @@ auto_dark_mode.init()
 
 -- general
 vim.opt.clipboard = 'unnamedplus'
+
+-- neodev
+require("neodev").setup({})
 
 -- lsp
 local lspconfig = require('lspconfig')

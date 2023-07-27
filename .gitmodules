@@ -22,3 +22,6 @@
 [submodule "nvim/.config/nvim/pack/plugins/start/auto-dark-mode.nvim"]
 	path = nvim/.config/nvim/pack/plugins/start/auto-dark-mode.nvim
 	url = https://github.com/f-person/auto-dark-mode.nvim.git
+[submodule "nvim/.config/nvim/pack/plugins/start/neodev.nvim"]
+	path = nvim/.config/nvim/pack/plugins/start/neodev.nvim
+	url = https://github.com/folke/neodev.nvim.git
