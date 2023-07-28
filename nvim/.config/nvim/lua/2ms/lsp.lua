@@ -1,18 +1,7 @@
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
 -- lua
-lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' },
-            },
-        },
-    },
-})
-
--- typescript
-lspconfig.tsserver.setup({})
+lspconfig.lua_ls.setup({})
 
 -- go
 lspconfig.gopls.setup({
@@ -24,5 +13,4 @@ lspconfig.gopls.setup({
         },
     },
 })
-
 
