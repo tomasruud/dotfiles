@@ -1,6 +1,6 @@
 # dotfiles
 
-## Install
+## Setting up
 
 1. Restore secrets backup.
 1. Install xcode command line tools. Homebrew might try to install this for you.
@@ -10,3 +10,8 @@
 1. Install the dotfiles using `./dot install`
 1. Setup Homebrew bundle using `./dot brew:setup`
 
+## Installing zsh plugins
+Use `git submodule add -f <repo-url> ./zsh/.config/zsh/plugins/<plugin-name>` to install.
+
+## Installing nvim plugins
+Use `git submodule add -f <repo-url> ./nvim/.config/nvim/pack/plugins/start/<plugin-name>` to install.
