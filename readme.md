@@ -13,5 +13,3 @@
 ## Installing zsh plugins
 Use `git submodule add -f <repo-url> ./zsh/.config/zsh/plugins/<plugin-name>` to install.
 
-## Installing nvim plugins
-Use `git submodule add -f <repo-url> ./nvim/.config/nvim/pack/plugins/start/<plugin-name>` to install.
