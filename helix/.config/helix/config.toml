@@ -1,7 +1,4 @@
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+theme = "ttox"
 
 [editor.file-picker]
 hidden = false

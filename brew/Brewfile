@@ -1,6 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 brew "bat"
 brew "ruby"
 brew "cocoapods"
@@ -11,15 +9,20 @@ brew "flyctl"
 brew "glab"
 brew "go"
 brew "grep"
+brew "helix"
+brew "lua-language-server"
 brew "mas"
 brew "neovim"
 brew "node"
 brew "nvm"
+brew "opam"
 brew "openjdk"
 brew "ripgrep"
 brew "rustup-init"
 brew "sevenzip"
 brew "stow"
+brew "tree"
+cask "alacritty"
 cask "docker"
 cask "firefox"
 cask "gnucash"
@@ -31,7 +34,6 @@ cask "monitorcontrol"
 cask "spotify"
 cask "sublime-text"
 cask "visual-studio-code"
-cask "warp"
 mas "Bitwarden", id: 1352778147
 mas "Boxy SVG", id: 611658502
 mas "Compressor", id: 424390742
@@ -42,7 +44,6 @@ mas "Motion", id: 434290957
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Xcode", id: 497799835
 vscode "42Crunch.vscode-openapi"
 vscode "Garmin.monkey-c"
 vscode "k--kato.intellij-idea-keybindings"

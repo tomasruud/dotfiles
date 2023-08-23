@@ -12,6 +12,7 @@ zstyle ':completion:*' menu select
 PROMPT='%~$(gitprompt)\$ '
 
 # aliases
+alias dot="./dot"
 alias gti="git"
 alias got="git"
 alias ..="cd .."
@@ -31,3 +32,4 @@ alias remote-ip="curl https://icanhazip.com"
 alias gl="goland ."
 alias ws="webstorm ."
 alias f="open ."
+alias note="hx ~/notes.txt"
