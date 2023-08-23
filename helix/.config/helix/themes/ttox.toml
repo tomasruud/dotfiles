@@ -1,7 +1,6 @@
 # Author : Tomas Ruud <git@me.2ms.no>
 
 "ui.background" = { bg = "white", fg = "black" }
-# "ui.text" = "black"
 "ui.selection" = { bg = "black", fg = "white" }
 "ui.background.separator" = "gray"
 "ui.linenr" = "gray"
