@@ -1,6 +1,6 @@
 [core]
 	autocrlf = input
-	editor = nvim
+	editor = hx
 	excludesfile = ~/.gitignore
 	hooksPath = ~/.githooks
 [help]
