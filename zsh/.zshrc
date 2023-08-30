@@ -1,9 +1,6 @@
 # allows for matching dotfiles
 setopt globdots
 
-# enable vim mode
-bindkey -v
-
 autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
