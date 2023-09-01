@@ -12,3 +12,28 @@ font:
     family: "SF Mono"
   offset:
     y: 6
+
+colors:
+  primary:
+    background: "#EEEDED"
+    foreground: "#261E1C"
+
+  normal:
+    black:   "#3E3635"
+    red:     "#BD4E36"
+    green:   "#617934"
+    yellow:  "#896D35"
+    blue:    "#4C6EBF"
+    magenta: "#9856B1"
+    cyan:    "#3D7C6A"
+    white:   "#D6D4D4"
+
+  bright:
+    black:   "#655E5C"
+    red:     "#F4AB9A"
+    green:   "#90CE62"
+    yellow:  "#E0B850"
+    blue:    "#A7BCF5"
+    magenta: "#C6B4EC"
+    cyan:    "#70CEB2"
+    white:   "#EEEDED"
