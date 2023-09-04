@@ -1,5 +1,0 @@
-require("2ms.options")
-require("2ms.lazy")
-require("2ms.statusline")
-require("2ms.keymaps")
-require("2ms.autocmds")
