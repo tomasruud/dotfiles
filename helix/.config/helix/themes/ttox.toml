@@ -10,6 +10,7 @@
 "ui.menu.selected" = { bg = "light-gray", fg = "black" }
 "ui.popup" = { fg = "white", bg = "black" }
 "ui.help" = { fg = "white", bg = "black" }
+"ui.virtual.ruler" = { bg = "light-gray" }
 
 "string" = { bg = "light-green", fg = "black" }
 "constant" = { bg = "light-cyan", fg = "black" }

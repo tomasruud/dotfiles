@@ -1,5 +1,8 @@
 theme = "ttox"
 
+[editor]
+rulers = [100]
+
 [editor.file-picker]
 hidden = false
 
