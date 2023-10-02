@@ -24,13 +24,13 @@ brew "roswell"
 brew "rustup-init"
 brew "sevenzip"
 brew "stow"
+brew "tmux"
 brew "tree"
 brew "openresty/brew/openresty"
 cask "alacritty"
 cask "docker"
 cask "firefox"
 cask "gnucash"
-cask "insomnia"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "microsoft-teams"
@@ -47,3 +47,4 @@ mas "Motion", id: 434290957
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
+mas "Xcode", id: 497799835
