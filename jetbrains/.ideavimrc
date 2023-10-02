@@ -1,0 +1,6 @@
+source ~/.vimrc
+
+:nmap <leader>r <Action>(RenameElement)
+:nmap <leader>? <Action>(GotoAction)
+:nmap <leader>f <Action>(GotoFile)
+:nmap gr <Action>(FindUsages)

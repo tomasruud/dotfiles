@@ -6,13 +6,14 @@
 [help]
 	autocorrect = 1
 [alias]
-	pus = push
-	oneline = log --oneline
 	slog = log --oneline
 	cleanup = "!git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
 	fullclean = "!git checkout ${1:-main} && git cleanup && git pull"
     fc = fullclean
-    sdiff = diff --staged
+    sd = diff --staged
+	cm = commit -m
+	cb = checkout -b
+	co = checkout
 [init]
 	defaultBranch = main
 [pull]
