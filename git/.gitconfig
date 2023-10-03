@@ -1,22 +1,31 @@
+[user]
+	name = Tomas Ruud
+	email = git@me.2ms.no
+
 [core]
 	autocrlf = input
 	editor = hx
 	excludesfile = ~/.gitignore
 	hooksPath = ~/.githooks
+
 [help]
 	autocorrect = 1
+
 [alias]
 	slog = log --oneline
 	cleanup = "!git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
 	fullclean = "!git checkout ${1:-main} && git cleanup && git pull"
-    fc = fullclean
-    sd = diff --staged
+	fc = fullclean
+	sd = diff --staged
 	cm = commit -m
 	cb = checkout -b
 	co = checkout
+
 [init]
 	defaultBranch = main
+
 [pull]
 	rebase = true
+
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = true
