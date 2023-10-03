@@ -1,4 +1,4 @@
-theme = "ttox"
+theme = "ttox-dynamic"
 
 [editor]
 rulers = [100]
