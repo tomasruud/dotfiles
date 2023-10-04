@@ -30,3 +30,9 @@ alias ws="webstorm ."
 alias f="open ."
 alias note="hx ~/notes.txt"
 alias notes="note"
+
+# work related aliases
+alias axp="(cd $HOME/work/a2755 && fd '.git$' --prune -u -t d --strip-cwd-prefix -x echo {//}) | fzf | xargs -I {} echo $HOME/work/a2755/{}"
+alias axpc="cd \$(axp)"
+alias axpw="tmux new-window -c \$(axp)"
+alias axph="hx \$(axp)"
