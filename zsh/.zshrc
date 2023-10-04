@@ -8,6 +8,22 @@ zstyle ':completion:*' menu select
 # prompt style
 PROMPT='%~$(gitprompt)\$ '
 
+# function that locates git repos within a root folder
+function fzfproj() {
+  if [ -z "$1" ]; then
+    echo "folder argument must be provided"
+    return 1
+  fi
+  
+  project=$(cd "$1" && fd '.git$' --strip-cwd-prefix --prune -u -t d -x echo {//} | fzf --query="$2")
+
+  if [ -z "$project" ]; then
+    return 1
+  fi
+  
+  echo "$1/$project"
+}
+
 # aliases
 alias dot="./dot"
 alias gti="git"
@@ -31,8 +47,7 @@ alias f="open ."
 alias note="hx ~/notes.txt"
 alias notes="note"
 
-# work related aliases
-alias axp="(cd $HOME/work/a2755 && fd '.git$' --prune -u -t d --strip-cwd-prefix -x echo {//}) | fzf | xargs -I {} echo $HOME/work/a2755/{}"
-alias axpc="cd \$(axp)"
-alias axpw="tmux new-window -c \$(axp)"
-alias axph="hx \$(axp)"
+alias pr="cd \$(fzfproj $HOME/projects || pwd)"
+alias axpc="cd \$(fzfproj $HOME/work/a2755 || pwd)"
+alias axpw="fzfproj $HOME/work/a2755 | xargs -I {} tmux new-window -c {}"
+alias axph="fzfproj $HOME/work/a2755 | xargs -I {} hx {}"
