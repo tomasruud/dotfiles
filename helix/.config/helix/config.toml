@@ -2,6 +2,7 @@ theme = "ttox-dynamic"
 
 [editor]
 rulers = [100]
+line-number = "relative"
 
 [editor.file-picker]
 hidden = false
