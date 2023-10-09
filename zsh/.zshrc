@@ -46,6 +46,7 @@ alias ws="webstorm ."
 alias f="open ."
 alias note="hx ~/notes.txt"
 alias notes="note"
+alias exa="exa --group-directories-first"
 alias lt="exa --tree"
 
 alias pr="cd \$(fzfproj $HOME/projects || pwd)"
