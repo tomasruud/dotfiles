@@ -24,6 +24,15 @@ function fzfproj() {
   echo "$1/$project"
 }
 
+function killport() {
+  if [ -z "$1" ]; then
+    echo "port agrument must be provided"
+    return 1
+  fi
+
+  lsof -i tcp:$1 | awk 'NR!=1 {print $2}' | xargs kill
+}
+
 # aliases
 alias dot="./dot"
 alias gti="git"
