@@ -6,7 +6,7 @@ autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
 # prompt style
-PROMPT='%~$(gitprompt)\$ '
+PROMPT='%1~$(gitprompt)\$ '
 
 # function that locates git repos within a root folder
 function fzfproj() {
