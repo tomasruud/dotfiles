@@ -11,12 +11,33 @@
       "complex_modifications": {
         "rules": [
           {
-            "description": "caps lock modifiers",
+            "description": "caps lock -> left_control + esacpe",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
                   "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "left_control -> hyper",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_control"
                 },
                 "to": [
                   {
@@ -26,11 +47,6 @@
                       "control",
                       "shift"
                     ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
                   }
                 ]
               }

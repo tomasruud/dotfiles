@@ -6,8 +6,12 @@ import {
 } from "karabiner.ts"
 
 const rules = [
-  rule("caps lock modifiers").manipulators([
-    map("caps_lock").toHyper().toIfAlone("escape"),
+  rule("caps lock -> left_control + esacpe").manipulators([
+    map("caps_lock").to("left_control").toIfAlone("escape"),
+  ]),
+
+  rule("left_control -> hyper").manipulators([
+    map("left_control").toHyper()
   ]),
 
   rule("hyper modifiers").manipulators([
