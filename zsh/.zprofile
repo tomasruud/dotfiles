@@ -47,3 +47,6 @@ if [[ -e "$HOME/.opam/opam-init/init.zsh" ]]; then
     source "$HOME/.opam/opam-init/init.zsh"
 fi
 
+if [[ -e "$HOME/.ghcup/env" ]]; then
+	source "$HOME/.ghcup/env"
+fi
