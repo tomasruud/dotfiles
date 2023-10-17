@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 set -e
 
 case "$1" in
@@ -19,7 +19,7 @@ brew:backup)
     ;;
 
 brew:setup)
-    brew bundle --file "$HOME/Brewfile"
+    brew bundle --file "$HOME/dotfiles/brew/Brewfile"
     ;;
 
 *)
