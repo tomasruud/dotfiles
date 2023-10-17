@@ -8,6 +8,9 @@ zstyle ':completion:*' menu select
 # prompt style
 PROMPT='%1~$(gitprompt)\$ '
 
+# bind <C-r> to resume suspended job
+bindkey -s '^r' 'fg\n'
+
 # function that locates git repos within a root folder
 function fzfproj() {
   if [ -z "$1" ]; then
@@ -24,6 +27,7 @@ function fzfproj() {
   echo "$1/$project"
 }
 
+# function for killing specific port
 function killport() {
   if [ -z "$1" ]; then
     echo "port agrument must be provided"
