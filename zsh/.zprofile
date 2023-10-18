@@ -44,7 +44,7 @@ if [[ -e "$HOME/Applications/Sublime Text.app/Contents/SharedSupport/bin" ]]; th
 fi
 
 if [[ -e "$HOME/.opam/opam-init/init.zsh" ]]; then
-    source "$HOME/.opam/opam-init/init.zsh"
+	source "$HOME/.opam/opam-init/init.zsh"
 fi
 
 if [[ -e "$HOME/.ghcup/env" ]]; then
