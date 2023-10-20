@@ -12,7 +12,7 @@ source ~/.vimrc
 :nmap <leader>t <Action>(Terminal.OpenInTerminal)
 
 :nmap <c-w>w <Action>(NextWindow)
-:nmap <leader>q <Action>(CloseContent)
+:nmap <leader>q <Action>(HideActiveWindow)
 :nmap <leader>Q <Action>(CloseAllEditors)
 :nmap <leader>x <Action>(HideAllWindows)
 
@@ -23,6 +23,7 @@ source ~/.vimrc
 :nmap ]m <Action>(MethodDown)
 :nmap [m <Action>(MethodUp)
 
+:nmap <leader>k <Action>(QuickJavaDoc)
 :nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
 :nmap <leader>= <Action>(ReformatCode)
 :nmap <leader>j <Action>(RecentFiles)
@@ -69,7 +70,6 @@ source ~/.vimrc
 :nmap <c-i> <Action>(Forward)
 :nmap <s-k> <Action>(ExpressionTypeInfo)
 :nmap <c-k> <Action>(ShowErrorDescription)
-:nmap <s-c-k> <Action>(QuickJavaDoc)
 
 :nmap <leader>uh <Action>(ToggleInlayHintsGloballyAction)
 :nmap <leader>uw <Action>(EditorToggleShowWhitespaces)
