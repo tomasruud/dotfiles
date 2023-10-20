@@ -5,6 +5,8 @@ source ~/.vimrc
 :nmap <s-u> <Action>($Redo)
 :nmap <c-c> <Action>(CommentByLineComment)
 :xmap <c-c> <Action>(CommentByLineComment)
+:nmap % <Action>($SelectAll)
+:vmap % <Action>($SelectAll)
 
 :nmap <c-t> <Action>(ActivateTerminalToolWindow)
 :nmap <leader>t <Action>(Terminal.OpenInTerminal)
@@ -23,7 +25,7 @@ source ~/.vimrc
 
 :nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
 :nmap <leader>= <Action>(ReformatCode)
-:nmap <leader>j <Action>(RecentLocations)
+:nmap <leader>j <Action>(RecentFiles)
 
 :nmap gr <Action>(FindUsages)
 :nmap gi <Action>(GotoImplementation)
@@ -41,6 +43,9 @@ source ~/.vimrc
 :xmap gs ^
 :xmap gl $
 :xmap ge G
+
+:nmap m <Action>(EditorMatchBrace)
+:vmap m <Action>(EditorMatchBrace)
 
 :nmap <leader>? <Action>(GotoAction)
 :nmap <leader>S <Action>(GotoSymbol)
