@@ -1,7 +1,3 @@
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
-
-[[language]]
-name = "html"
-file-types = ["html", "gohtml"]
