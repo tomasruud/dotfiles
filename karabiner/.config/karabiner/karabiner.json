@@ -138,7 +138,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "9",
+                    "key_code": "8",
                     "modifiers": [
                       "right_option",
                       "right_shift"
@@ -165,7 +165,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "8",
+                    "key_code": "9",
                     "modifiers": [
                       "right_option",
                       "right_shift"
@@ -507,7 +507,7 @@
                     }
                   },
                   {
-                    "key_code": "9",
+                    "key_code": "8",
                     "modifiers": [
                       "right_option",
                       "right_shift"
@@ -557,7 +557,7 @@
                     }
                   },
                   {
-                    "key_code": "8",
+                    "key_code": "9",
                     "modifiers": [
                       "right_option",
                       "right_shift"
