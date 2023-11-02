@@ -1,7 +1,8 @@
 import {
+  ModificationParameters,
   map,
   rule,
-  withModifier,
+  simlayer,
   writeToProfile,
 } from "karabiner.ts"
 
@@ -10,24 +11,25 @@ const rules = [
     map("caps_lock").to("left_control").toIfAlone("escape"),
   ]),
 
-  rule("left_control -> hyper").manipulators([
-    map("left_control").toHyper()
-  ]),
+  simlayer("f", "layer-2-mode").manipulators([
+    map("h").to("left_arrow"),
+    map("j").to("down_arrow"),
+    map("k").to("up_arrow"),
+    map("l").to("right_arrow"),
 
-  rule("hyper modifiers").manipulators([
-    withModifier("Hyper")([
-      map("h").to("left_arrow"),
-      map("j").to("down_arrow"),
-      map("k").to("up_arrow"),
-      map("l").to("right_arrow"),
-
-      map("0").to("9", ["right_option", "right_shift"]), // {
-      map("7").to("8", ["right_option", "right_shift"]), // }
-      map("8").to("8", "right_option"), // [
-      map("9").to("9", "right_option"), // ]
-      map("6").to("7", "left_option") // |
-    ]),
+    map("u").to("8", ["right_option", "right_shift"]), // {
+    map("i").to("9", ["right_option", "right_shift"]), // }
+    map("n").to("8", "right_option"), // [
+    map("m").to("9", "right_option"), // ]
+    map("o").to("8", "left_shift"), // (
+    map("p").to("9", "left_shift"), // )
+    map("y").to("7", "left_option"), // |
   ]),
 ]
 
-writeToProfile("k7r", rules)
+const params: ModificationParameters = {
+  "basic.simultaneous_threshold_milliseconds": 50,
+  "basic.to_if_alone_timeout_milliseconds": 500,
+}
+
+writeToProfile("k7r", rules, params)
