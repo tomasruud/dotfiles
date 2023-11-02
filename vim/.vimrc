@@ -24,5 +24,3 @@ let mapleader="\<space>"
 
 :nmap <leader>e :Explore<cr>
 :nmap <leader>sv :source $MYVIMRC<cr>
-:nmap - :m +1<cr>
-:nmap _ :m -2<cr>
