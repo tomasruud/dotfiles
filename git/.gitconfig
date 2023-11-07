@@ -6,7 +6,6 @@
 	autocrlf = input
 	editor = hx
 	excludesfile = ~/.gitignore
-	hooksPath = ~/.githooks
 
 [help]
 	autocorrect = 1
