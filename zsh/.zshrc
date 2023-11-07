@@ -61,6 +61,7 @@ alias ws="webstorm ."
 alias f="open ."
 alias note="hx ~/notes.txt"
 alias notes="note"
+alias yt="yt-dlp"
 
 alias pr="cd \$(fzfproj $HOME/projects || pwd)"
 alias axpc="cd \$(fzfproj $HOME/work/a2755 || pwd)"
