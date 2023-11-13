@@ -8,7 +8,6 @@ let mapleader="\<space>"
 :set incsearch
 :set ignorecase
 :set nohlsearch
-:set multiplecursors
 
 :set mouse="a"
 
