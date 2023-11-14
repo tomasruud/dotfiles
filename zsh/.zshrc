@@ -62,6 +62,7 @@ alias f="open ."
 alias note="hx ~/notes.txt"
 alias notes="note"
 alias yt="yt-dlp"
+alias todo="rg TODO"
 
 alias pr="cd \$(fzfproj $HOME/projects || pwd)"
 alias axpc="cd \$(fzfproj $HOME/work/a2755 || pwd)"
