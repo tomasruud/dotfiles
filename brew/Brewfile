@@ -1,5 +1,6 @@
 tap "hashicorp/tap"
 tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "openresty/brew"
 brew "bat"
@@ -39,13 +40,13 @@ brew "hashicorp/tap/terraform-ls"
 brew "openresty/brew/openresty"
 cask "docker"
 cask "firefox"
+cask "font-ibm-plex-mono"
 cask "gnucash"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "monitorcontrol"
 cask "spotify"
 cask "sublime-text"
-cask "vscodium"
 mas "Bitwarden", id: 1352778147
 mas "Boxy SVG", id: 611658502
 mas "Compressor", id: 424390742
