@@ -3,5 +3,6 @@ npm i -g \
   dockerfile-language-server-nodejs \
   intelephense \
   typescript-language-server \
+  typescript \
   vscode-langservers-extracted \
   bash-language-server
