@@ -45,9 +45,6 @@ source ~/.vimrc
 :xmap gl $
 :xmap ge G
 
-:nmap m <Action>(EditorMatchBrace)
-:vmap m <Action>(EditorMatchBrace)
-
 :nmap <leader>? <Action>(GotoAction)
 :nmap <leader>S <Action>(GotoSymbol)
 :nmap <leader>s <Action>(FileStructurePopup)
