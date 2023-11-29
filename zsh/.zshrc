@@ -37,6 +37,11 @@ function killport() {
   lsof -i tcp:$1 | awk 'NR!=1 {print $2}' | xargs kill
 }
 
+# function for queueing YouTube stuff
+function qyt() {
+  (cd $HOME/qyt && yt-dlp "$1")
+}
+
 # aliases
 alias dot="./dot"
 alias gti="git"
