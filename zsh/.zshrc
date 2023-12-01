@@ -18,7 +18,7 @@ function fzfproj() {
     return 1
   fi
   
-  project=$(cd "$1" && fd '.git$' --strip-cwd-prefix --prune -u -t d -x echo {//} | fzf --query="$2")
+  project=$(cd "$1" && fd '.git$' --strip-cwd-prefix --prune -u -t d -x echo {//} | fzf --query="$2" --layout reverse)
 
   if [ -z "$project" ]; then
     return 1
