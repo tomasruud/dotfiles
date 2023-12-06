@@ -14,14 +14,6 @@ secrets:backup)
     tar -zcvf secrets.backup.tgz $HOME/.ssh $HOME/.netrc $HOME/.env
     ;;
 
-brew:backup)
-    brew bundle dump --force --file "$HOME/dotfiles/brew/Brewfile"
-    ;;
-
-brew:setup)
-    brew bundle --file "$HOME/dotfiles/brew/Brewfile"
-    ;;
-
 *)
     echo "dotfiles manager
 
@@ -32,8 +24,6 @@ Available commands:
     install - install dotfiles
     uninstall - uninstalls dotfiles
     sync - sync dotfiles
-    secrets:backup - creates backup of secrets
-    brew:backup - dumps installed brew packages to Brewfile
-    brew:setup - installs brew packages from Brewfile"
+    secrets:backup - creates backup of secrets"
     exit 1
 esac

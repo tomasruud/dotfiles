@@ -1,2 +1,4 @@
 Brewfile
 Brewfile\.lock\.json
+backup
+setup
