@@ -25,7 +25,7 @@ source ~/.vimrc
 
 :nmap <leader>k <Action>(QuickJavaDoc)
 :nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
-:nmap <leader>= <Action>(ReformatCode)
+:nmap = <Action>(ReformatCode)
 :nmap <leader>j <Action>(RecentFiles)
 
 :nmap gr <Action>(FindUsages)

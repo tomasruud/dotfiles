@@ -7,5 +7,5 @@ line-number = "relative"
 [editor.file-picker]
 hidden = false
 
-[editor.statusline]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+[keys.normal]
+"=" = ":fmt"
