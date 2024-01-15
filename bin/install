@@ -1,2 +1,2 @@
 #!/bin/bash
-(cd $HOME/dotfiles/bin/src/gurl && go install)
+(cd $HOME/dotfiles/bin/src && go install ./...)

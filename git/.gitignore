@@ -2,3 +2,6 @@
 .vscode
 .DS_Store
 .fleet
+
+# custom todo file format
+.todo.md
