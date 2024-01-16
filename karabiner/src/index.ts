@@ -24,6 +24,8 @@ const rules = [
     map("o").to("8", "left_shift"), // (
     map("p").to("9", "left_shift"), // )
     map("y").to("7", "left_option"), // |
+    map("s").to("7", "left_shift"), // /
+    map("b").to("7", ["right_option", "right_shift"]), // \
   ]),
 ]
 
