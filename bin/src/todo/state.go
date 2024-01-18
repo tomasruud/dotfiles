@@ -7,215 +7,166 @@ import (
 	"unicode/utf8"
 )
 
-type TodoItem struct {
-	text string
-	done bool
-}
-
-type StatusLine struct {
-	left  string
-	right string
-}
-
 type State struct {
-	debug bool
-	key   rune
+	Debug bool
+	Key   rune
 
-	w int
-	h int
-	y int
-	x int
+	W int
+	H int
+	Y int
+	X int
 
-	mode string
+	Mode string
 
-	items      []TodoItem
-	statusline StatusLine
-}
-
-const (
-	modeNormal string = "normal"
-	modeInsert string = "insert"
-	modeExit   string = "exit"
-)
-
-func reduce(s State, action string, payload any) State {
-	switch action {
-	case "window-resized":
-		if p, ok := payload.([]int); ok {
-			s.w = p[0]
-			s.h = p[1]
-		}
-		return s
-
-	case "key-pressed":
-		key, ok := payload.(rune)
-		if !ok {
-			return s
-		}
-
-		s.key = key
-
-		switch s.mode {
-		case modeNormal:
-			switch key {
-			case 'h':
-				if s.x-1 >= 0 {
-					s.x--
-				}
-				return s
-
-			case 'j':
-				if s.y+1 < len(s.items) {
-					s.y++
-
-					if s.x >= utf8.RuneCountInString(s.items[s.y].text) {
-						s.x = utf8.RuneCountInString(s.items[s.y].text)
-					}
-				}
-				return s
-
-			case 'k':
-				if s.y-1 >= 0 {
-					s.y--
-
-					if s.x >= utf8.RuneCountInString(s.items[s.y].text) {
-						s.x = utf8.RuneCountInString(s.items[s.y].text)
-					}
-				}
-				return s
-
-			case 'l':
-				if s.x+1 <= utf8.RuneCountInString(s.items[s.y].text) {
-					s.x++
-				}
-				return s
-
-			case 9 /*<Tab>*/ :
-				s.items[s.y].done = true
-				return s
-
-			case ' ':
-				s.items[s.y].done = false
-				return s
-
-			case 3 /*<C-c>*/, 4 /*<C-d>*/, 'q':
-				s.mode = modeExit
-				return s
-
-			case 'o':
-				s.mode = modeInsert
-				s.statusline.right = "INS"
-
-				s.items = slices.Insert(s.items, s.y+1, TodoItem{})
-				s.y = s.y + 1
-				s.x = 0
-				return s
-
-			case 'O':
-				s.mode = modeInsert
-				s.statusline.right = "INS"
-
-				s.items = slices.Insert(s.items, s.y, TodoItem{})
-				s.x = 0
-				return s
-
-			case 'i':
-				s.mode = modeInsert
-				s.statusline.right = "INS"
-				return s
-
-			case 'a':
-				s.mode = modeInsert
-				s.statusline.right = "INS"
-				if s.x+1 <= utf8.RuneCountInString(s.items[s.y].text) {
-					s.x++
-				}
-				return s
-
-			case 'A':
-				s.mode = modeInsert
-				s.statusline.right = "INS"
-				s.x = utf8.RuneCountInString(s.items[s.y].text)
-				return s
-
-			case 'd':
-				if s.x >= utf8.RuneCountInString(s.items[s.y].text) {
-					return s
-				}
-
-				s.items[s.y].text = utf8Remove(s.items[s.y].text, s.x)
-				return s
-			}
-
-		case modeInsert:
-			if key == 27 /*<Esc>*/ {
-				s.mode = modeNormal
-				s.statusline.right = "NOR"
-				return s
-			}
-
-			if key == 127 /*<Bsp>*/ {
-				if s.x < 1 {
-					if s.y < 1 {
-						return s
-					}
-
-					// stitch lines together
-					s.x = utf8.RuneCountInString(s.items[s.y-1].text)
-					s.items[s.y-1].text += s.items[s.y].text
-
-					if s.y < len(s.items) {
-						s.items = append(s.items[0:s.y], s.items[s.y+1:]...)
-					} else {
-						s.items = s.items[0:s.y]
-					}
-
-					s.y--
-					return s
-				}
-
-				s.items[s.y].text = utf8Remove(s.items[s.y].text, s.x-1)
-				s.x--
-				return s
-			}
-
-			if key == 13 /*<Cr>*/ {
-				s.mode = modeNormal
-				return reduce(s, "key-pressed", 'o') // trigger new line
-			}
-
-			s.items[s.y].text = utf8Write(s.items[s.y].text, key, s.x)
-			s.x++
-			return s
-		}
-	}
-
-	return s
-}
-
-type Store struct {
-	state State
-	sub   func()
+	Items      []TodoItem
+	StatusLine StatusLine
 
 	sync.Mutex
 }
 
-func (s *Store) State() State {
-	return s.state
+type TodoItem struct {
+	Text string
+	Done bool
 }
 
-func (s *Store) Dispatch(action string, payload any) {
+type StatusLine struct {
+	Left  string
+	Right string
+}
+
+const (
+	ModeNormal string = "normal"
+	ModeInsert string = "insert"
+	ModeExit   string = "exit"
+)
+
+func (s *State) HandleKey(key rune) {
 	s.Lock()
 	defer s.Unlock()
 
-	next := reduce(s.state, action, payload)
-	s.state = next
+	s.Key = key
 
-	s.Update()
-}
+	switch s.Mode {
+	case ModeNormal:
+		switch key {
+		case 'h':
+			if s.X-1 >= 0 {
+				s.X--
+			}
 
-func (s *Store) Update() {
-	s.sub()
+		case 'j':
+			if s.Y+1 < len(s.Items) {
+				s.Y++
+
+				if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
+					s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+				}
+			}
+
+		case 'k':
+			if s.Y-1 >= 0 {
+				s.Y--
+
+				if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
+					s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+				}
+			}
+
+		case 'l':
+			if s.X+1 <= utf8.RuneCountInString(s.Items[s.Y].Text) {
+				s.X++
+			}
+
+		case 9 /*<Tab>*/ :
+			s.Items[s.Y].Done = true
+
+		case ' ':
+			s.Items[s.Y].Done = false
+
+		case 3 /*<C-c>*/, 4 /*<C-d>*/, 'q':
+			s.Mode = ModeExit
+
+		case 'o':
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+
+			s.Items = slices.Insert(s.Items, s.Y+1, TodoItem{})
+			s.Y = s.Y + 1
+			s.X = 0
+
+		case 'O':
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+
+			s.Items = slices.Insert(s.Items, s.Y, TodoItem{})
+			s.X = 0
+
+		case 'i':
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+
+		case 'a':
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+			if s.X+1 <= utf8.RuneCountInString(s.Items[s.Y].Text) {
+				s.X++
+			}
+
+		case 'A':
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+			s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+
+		case 'd':
+			if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
+				return
+			}
+
+			s.Items[s.Y].Text = utf8Remove(s.Items[s.Y].Text, s.X)
+		}
+
+	case ModeInsert:
+		switch key {
+		case 27 /*<Esc>*/ :
+			s.Mode = ModeNormal
+			s.StatusLine.Right = "NOR"
+
+		case 127 /*<Bsp>*/ :
+			if s.X < 1 {
+				if s.Y < 1 {
+					return
+				}
+
+				// stitch lines together
+				s.X = utf8.RuneCountInString(s.Items[s.Y-1].Text)
+				s.Items[s.Y-1].Text += s.Items[s.Y].Text
+
+				if s.Y < len(s.Items) {
+					s.Items = append(s.Items[0:s.Y], s.Items[s.Y+1:]...)
+				} else {
+					s.Items = s.Items[0:s.Y]
+				}
+
+				s.Y--
+				return
+			}
+
+			s.Items[s.Y].Text = utf8Remove(s.Items[s.Y].Text, s.X-1)
+			s.X--
+
+		case 13 /*<Cr>*/ :
+			s.Mode = ModeInsert
+			s.StatusLine.Right = "INS"
+
+			s.Items = slices.Insert(s.Items, s.Y+1, TodoItem{})
+			s.Y = s.Y + 1
+			s.X = 0
+
+		default:
+			s.Items[s.Y].Text = utf8Write(s.Items[s.Y].Text, key, s.X)
+			s.X++
+		}
+	}
 }
 
 func utf8Write(s string, r rune, i int) string {
