@@ -1,62 +1,152 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"os"
+	"path"
 	"slices"
-	"unicode/utf8"
 
 	"github.com/gdamore/tcell/v2"
+	"github.com/mattn/go-runewidth"
 )
 
 func main() {
-	flag := flag.NewFlagSet("todo", flag.ExitOnError)
-
-	fhelp := flag.Bool("help", false, "print help message")
-	fdebug := flag.Bool("debug", false, "toggle debug mode")
-	finit := flag.Bool("c", false, "create a new todo file in current folder")
-	fglobal := flag.Bool("g", false, "force global file (if there is a local file)")
-	ffname := flag.String("fname", ".todo.md", "name of generated todo file")
-	fhome := flag.String("home", os.ExpandEnv("$HOME"), "root home folder")
-
-	flag.Usage = func() {
-		fmt.Fprintln(os.Stderr, "Usage: todo [OPTIONS]")
-		fmt.Fprintln(os.Stderr, "")
-		fmt.Fprintln(os.Stderr, "Options:")
-		flag.PrintDefaults()
-	}
-
-	flag.Parse(os.Args[1:])
-
-	if *fhelp {
-		flag.Usage()
-		os.Exit(0)
-	}
-
-	if err := run(*ffname, *fhome, *fdebug, *finit, *fglobal); err != nil {
+	if err := cmd(os.Args); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v", err)
 		os.Exit(1)
 	}
 }
 
-func run(fname, home string, debug, init, global bool) error {
-	f := TodoFile{
-		Init:   init,
-		Global: global,
-		Name:   fname,
-		Home:   home,
+func cmd(args []string) error {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Fprintf(os.Stderr, "Fatal error: %v", r)
+		}
+	}()
+
+	flag := flag.NewFlagSet(args[0], flag.ExitOnError)
+
+	var (
+		fhelp    = flag.Bool("help", false, "print help message")
+		fsinit   = flag.Bool("c", false, "")
+		finit    = flag.Bool("create", *fsinit, "create a new todo file in current folder")
+		fsglobal = flag.Bool("g", false, "")
+		fglobal  = flag.Bool("global", *fsglobal, "force global file (if there is a local file)")
+		ffname   = flag.String("fname", ".todo.md", "name of generated todo file")
+	)
+
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage: %s [OPTIONS]\n\nOptions:\n", args[0])
+		flag.PrintDefaults()
 	}
-	if err := f.Open(); err != nil {
+
+	if err := flag.Parse(args[1:]); err != nil {
 		return err
 	}
-	defer f.Close()
 
-	state, err := f.CurrentState()
+	if *fhelp {
+		flag.Usage()
+		return nil
+	}
+
+	home, err := os.UserHomeDir()
 	if err != nil {
 		return err
 	}
 
+	fname := *ffname
+	if _, err := os.Stat(fname); *fglobal || (errors.Is(err, os.ErrNotExist) && !*finit) {
+		fname = path.Join(home, fname)
+	}
+
+	file, err := os.OpenFile(fname, os.O_CREATE|os.O_RDWR, 0o644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	app := &App{
+		Store: &FileStore{
+			File: file,
+		},
+	}
+
+	return app.Run()
+}
+
+type TodoItem struct {
+	Text string
+	Done bool
+}
+
+type TodoStore interface {
+	LoadItems() ([]TodoItem, error)
+	SaveItems([]TodoItem) error
+}
+
+const (
+	ModeNormal string = ""
+	ModeInsert string = "insert"
+	ModeExit   string = "exit"
+)
+
+type App struct {
+	Store TodoStore
+
+	screen tcell.Screen
+	items  []TodoItem
+	state  struct {
+		statusH int
+		checkW  int
+
+		listW int
+		listH int
+
+		y int
+		x int
+
+		selected int
+		mode     string
+		combo    rune
+	}
+}
+
+func (a *App) Run() error {
+	if err := a.init(); err != nil {
+		return err
+	}
+	defer a.screen.Fini()
+
+	a.draw()
+
+	for {
+		ev := a.screen.PollEvent()
+		switch ev := ev.(type) {
+		case *tcell.EventKey:
+			a.handleKey(ev)
+
+			if err := a.Store.SaveItems(a.items); err != nil {
+				return err
+			}
+
+			if a.state.mode == ModeExit {
+				return nil
+			}
+
+			a.draw()
+
+		case *tcell.EventResize:
+			w, h := a.screen.Size()
+			a.state.listW = w - a.state.checkW
+			a.state.listH = h - a.state.statusH
+			a.draw()
+		}
+	}
+}
+
+func (a *App) init() error {
 	tcell.SetEncodingFallback(tcell.EncodingFallbackASCII)
 
 	sc, err := tcell.NewScreen()
@@ -68,218 +158,246 @@ func run(fname, home string, debug, init, global bool) error {
 		return err
 	}
 
-	state.Mode = ModeNormal
-	state.StatusLine = StatusLine{
-		Left:  "[todos]",
-		Right: "NOR",
+	a.screen = sc
+	a.state.checkW = 4
+	a.state.statusH = 1
+
+	a.items, err = a.Store.LoadItems()
+	if err != nil {
+		return err
 	}
-
-	draw(state, sc)
-
-	quit := make(chan struct{})
-
-	go func() {
-		for {
-			ev := sc.PollEvent()
-			switch ev := ev.(type) {
-			case *tcell.EventKey:
-				handleKey(state, ev)
-
-				if state.Mode == ModeExit {
-					close(quit)
-					return
-				}
-
-				draw(state, sc)
-
-			case *tcell.EventResize:
-				draw(state, sc)
-			}
-		}
-	}()
-
-	<-quit
-
-	sc.Fini()
 
 	return nil
 }
 
-func draw(s *State, sc tcell.Screen) {
-	w, _ := sc.Size()
-	sc.Clear()
+func (a *App) emit(x, y int, style tcell.Style, str string) (rows, cols int) {
+	xstart := x
+	ystart := y
+	for _, c := range str {
+		if c == '\n' {
+			y++
+			x = xstart
+			continue
+		}
+
+		var comb []rune
+		w := runewidth.RuneWidth(c)
+		if w == 0 {
+			comb = []rune{c}
+			c = ' '
+			w = 1
+		}
+		a.screen.SetContent(x, y, c, comb, style)
+		x += w
+	}
+	return y - ystart + 1, x - xstart
+}
+
+func (a *App) draw() {
+	a.screen.Clear()
 
 	// Render status line
 	style := tcell.StyleDefault.Background(tcell.ColorBlack).Foreground(tcell.ColorWhite)
-	var x int
-	for _, c := range s.StatusLine.Left {
-		sc.SetContent(x, 0, c, nil, style)
-		x++
-	}
-	for ; x < w-utf8.RuneCountInString(s.StatusLine.Right); x++ {
-		sc.SetContent(x, 0, ' ', nil, style)
-		x++
-	}
-	for _, c := range s.StatusLine.Right {
-		sc.SetContent(x, 0, c, nil, style)
-		x++
+
+	left := "todo 📋"
+
+	var right string
+	switch a.state.mode {
+	case ModeInsert:
+		right = "INS"
+	case ModeNormal:
+		right = "NOR"
 	}
 
-	// // Render items
-	// for i, item := range s.Items {
-	// 	out.WriteString(ansi.MoveLineStart)
+	status := left + runewidth.FillLeft(right, a.state.listW-runewidth.StringWidth(left))
+	a.emit(0, 0, style, status)
 
-	// 	if item.Done {
-	// 		out.WriteString(ansi.StyleDim)
-	// 		out.WriteString("[x")
-	// 	} else {
-	// 		out.WriteString("[ ")
-	// 	}
+	// Render items
+	items := a.items
+	if len(items) == 0 {
+		items = []TodoItem{{}}
+	}
 
-	// 	if i == s.Y {
-	// 		out.WriteString("> ")
-	// 	} else {
-	// 		out.WriteString("] ")
-	// 	}
+	posY := a.state.statusH
+	posX := a.state.checkW
+	for i, item := range items {
+		style = tcell.StyleDefault
+		cstyle := style
 
-	// 	out.WriteString(item.Text)
-	// 	out.WriteString(ansi.StyleReset)
-	// 	out.WriteString(ansi.MoveDown(1))
-	// }
+		if item.Done {
+			style = tcell.StyleDefault.Dim(true)
+		}
 
-	// // Place cursor
-	// out.WriteString(ansi.MoveHome)
-	// out.WriteString(ansi.MoveDown(s.Y + 1))
-	// out.WriteString(ansi.MoveRight(s.X + 4))
+		if i == a.state.selected {
+			cstyle = tcell.StyleDefault.Reverse(true)
+		}
 
-	sc.Show()
+		if item.Done {
+			a.emit(0, posY, cstyle, "[x")
+		} else {
+			a.emit(0, posY, cstyle, "[ ")
+		}
+
+		if i == a.state.selected {
+			a.emit(2, posY, cstyle, ">")
+		} else {
+			a.emit(2, posY, cstyle, "]")
+		}
+
+		if i == a.state.selected {
+			// Place cursor
+			a.screen.ShowCursor(posX+a.state.x, posY+a.state.y)
+		}
+
+		rows, _ := a.emit(posX, posY, style, runewidth.Wrap(item.Text, a.state.listW-posX))
+		posY += rows
+	}
+
+	a.screen.Show()
 }
 
-func handleKey(s *State, key *tcell.EventKey) {
-	switch s.Mode {
+func (a *App) handleKey(key *tcell.EventKey) {
+	switch a.state.mode {
 	case ModeNormal:
-		switch key.Key() {
-		case tcell.KeyTab:
-			s.Items[s.Y].Done = true
+		combo := a.state.combo != 0
+		defer func() {
+			if combo {
+				// restores combo state after second keystroke
+				a.state.combo = 0
+			}
+		}()
 
+		switch key.Key() {
 		case tcell.KeyCtrlC, tcell.KeyCtrlD:
-			s.Mode = ModeExit
+			a.state.mode = ModeExit
+
+		case tcell.KeyCtrlN, tcell.KeyTab:
+			if a.state.selected+1 < len(a.items) {
+				a.state.selected++
+			}
+
+		case tcell.KeyCtrlP, tcell.KeyBacktab:
+			if a.state.selected-1 >= 0 {
+				a.state.selected--
+			}
 
 		case tcell.KeyRune:
 			switch key.Rune() {
+			case 'q':
+				if a.state.combo == 0 {
+					a.state.combo = 'q'
+					return
+				}
+
+				if a.state.combo == 'q' {
+					a.state.mode = ModeExit
+				}
+
+			case 't':
+				a.items[a.state.selected].Done = !a.items[a.state.selected].Done
+
 			case 'h':
-				if s.X-1 >= 0 {
-					s.X--
+				if a.state.x-1 >= 0 {
+					a.state.x--
 				}
 
 			case 'j':
-				if s.Y+1 < len(s.Items) {
-					s.Y++
+				if a.state.y+1 < len(a.items) {
+					a.state.y++
 
-					if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
-						s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+					if a.state.x >= runewidth.StringWidth(a.items[a.state.y].Text) {
+						a.state.x = runewidth.StringWidth(a.items[a.state.y].Text)
 					}
 				}
 
 			case 'k':
-				if s.Y-1 >= 0 {
-					s.Y--
+				if a.state.y-1 >= 0 {
+					a.state.y--
 
-					if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
-						s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+					if a.state.x >= runewidth.StringWidth(a.items[a.state.y].Text) {
+						a.state.x = runewidth.StringWidth(a.items[a.state.y].Text)
 					}
 				}
 
 			case 'l':
-				if s.X+1 <= utf8.RuneCountInString(s.Items[s.Y].Text) {
-					s.X++
+				if a.state.x+1 <= runewidth.StringWidth(a.items[a.state.y].Text) {
+					a.state.x++
 				}
-			case ' ':
-				s.Items[s.Y].Done = false
-
-			case 'q':
-				s.Mode = ModeExit
 
 			case 'o':
-				s.Mode = ModeInsert
-				s.StatusLine.Right = "INS"
+				a.state.mode = ModeInsert
 
-				s.Items = slices.Insert(s.Items, s.Y+1, TodoItem{})
-				s.Y = s.Y + 1
-				s.X = 0
+				a.items = slices.Insert(a.items, a.state.y+1, TodoItem{})
+				a.state.y = a.state.y + 1
+				a.state.x = 0
 
 			case 'O':
-				s.Mode = ModeInsert
-				s.StatusLine.Right = "INS"
+				a.state.mode = ModeInsert
 
-				s.Items = slices.Insert(s.Items, s.Y, TodoItem{})
-				s.X = 0
+				a.items = slices.Insert(a.items, a.state.y, TodoItem{})
+				a.state.x = 0
 
 			case 'i':
-				s.Mode = ModeInsert
-				s.StatusLine.Right = "INS"
+				a.state.mode = ModeInsert
 
 			case 'a':
-				s.Mode = ModeInsert
-				s.StatusLine.Right = "INS"
-				if s.X+1 <= utf8.RuneCountInString(s.Items[s.Y].Text) {
-					s.X++
+				a.state.mode = ModeInsert
+				if a.state.x+1 <= runewidth.StringWidth(a.items[a.state.y].Text) {
+					a.state.x++
 				}
 
 			case 'A':
-				s.Mode = ModeInsert
-				s.StatusLine.Right = "INS"
-				s.X = utf8.RuneCountInString(s.Items[s.Y].Text)
+				a.state.mode = ModeInsert
+				a.state.x = runewidth.StringWidth(a.items[a.state.y].Text)
 
 			case 'd':
-				if s.X >= utf8.RuneCountInString(s.Items[s.Y].Text) {
+				if a.state.x >= runewidth.StringWidth(a.items[a.state.y].Text) {
 					return
 				}
 
-				s.Items[s.Y].Text = utf8Remove(s.Items[s.Y].Text, s.X)
+				a.items[a.state.y].Text = utf8Remove(a.items[a.state.y].Text, a.state.x)
 			}
 		}
 
 	case ModeInsert:
 		switch key.Key() {
 		case tcell.KeyEsc:
-			s.Mode = ModeNormal
-			s.StatusLine.Right = "NOR"
+			a.state.mode = ModeNormal
 
-		case tcell.KeyBackspace:
-			if s.X < 1 {
-				if s.Y < 1 {
+		case tcell.KeyBackspace, tcell.KeyBackspace2:
+			if a.state.x < 1 {
+				if a.state.y < 1 {
 					return
 				}
 
 				// stitch lines together
-				s.X = utf8.RuneCountInString(s.Items[s.Y-1].Text)
-				s.Items[s.Y-1].Text += s.Items[s.Y].Text
+				a.state.x = runewidth.StringWidth(a.items[a.state.y-1].Text)
+				a.items[a.state.y-1].Text += a.items[a.state.y].Text
 
-				if s.Y < len(s.Items) {
-					s.Items = append(s.Items[0:s.Y], s.Items[s.Y+1:]...)
+				if a.state.y < len(a.items) {
+					a.items = append(a.items[0:a.state.y], a.items[a.state.y+1:]...)
 				} else {
-					s.Items = s.Items[0:s.Y]
+					a.items = a.items[0:a.state.y]
 				}
 
-				s.Y--
+				a.state.y--
+				a.state.selected--
 				return
 			}
 
-			s.Items[s.Y].Text = utf8Remove(s.Items[s.Y].Text, s.X-1)
-			s.X--
+			a.items[a.state.y].Text = utf8Remove(a.items[a.state.y].Text, a.state.x-1)
+			a.state.x--
 
 		case tcell.KeyEnter:
-			s.Mode = ModeInsert
-			s.StatusLine.Right = "INS"
+			a.state.mode = ModeInsert
 
-			s.Items = slices.Insert(s.Items, s.Y+1, TodoItem{})
-			s.Y = s.Y + 1
-			s.X = 0
+			a.items = slices.Insert(a.items, a.state.y+1, TodoItem{})
+			a.state.y = a.state.y + 1
+			a.state.x = 0
 
 		case tcell.KeyRune:
-			s.Items[s.Y].Text = utf8Write(s.Items[s.Y].Text, key.Rune(), s.X)
-			s.X++
+			a.items[a.state.y].Text = utf8Write(a.items[a.state.y].Text, key.Rune(), a.state.x)
+			a.state.x++
 		}
 	}
 }
