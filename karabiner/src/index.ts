@@ -31,7 +31,7 @@ const rules = [
 
 const params: ModificationParameters = {
   "basic.simultaneous_threshold_milliseconds": 50,
-  "basic.to_if_alone_timeout_milliseconds": 500,
+  "basic.to_if_alone_timeout_milliseconds": 300,
 }
 
 writeToProfile("k7r", rules, params)
