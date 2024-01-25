@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"slices"
+	"strings"
 
 	"github.com/gdamore/tcell/v2"
 	"github.com/mattn/go-runewidth"
@@ -51,13 +52,14 @@ func cmd(args []string) error {
 		return nil
 	}
 
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return err
-	}
-
 	fname := *ffname
 	if _, err := os.Stat(fname); *fglobal || (errors.Is(err, os.ErrNotExist) && !*finit) {
+		// use global todo file
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return err
+		}
+
 		fname = path.Join(home, fname)
 	}
 
@@ -98,15 +100,8 @@ type App struct {
 	screen tcell.Screen
 	items  []TodoItem
 	state  struct {
-		statusH int
-		checkW  int
-
-		listW int
-		listH int
-
-		y int
-		x int
-
+		y        int
+		x        int
 		selected int
 		mode     string
 		combo    rune
@@ -118,6 +113,7 @@ func (a *App) Run() error {
 		return err
 	}
 	defer a.screen.Fini()
+	defer a.Store.SaveItems(a.items)
 
 	a.draw()
 
@@ -127,10 +123,6 @@ func (a *App) Run() error {
 		case *tcell.EventKey:
 			a.handleKey(ev)
 
-			if err := a.Store.SaveItems(a.items); err != nil {
-				return err
-			}
-
 			if a.state.mode == ModeExit {
 				return nil
 			}
@@ -138,9 +130,6 @@ func (a *App) Run() error {
 			a.draw()
 
 		case *tcell.EventResize:
-			w, h := a.screen.Size()
-			a.state.listW = w - a.state.checkW
-			a.state.listH = h - a.state.statusH
 			a.draw()
 		}
 	}
@@ -159,8 +148,6 @@ func (a *App) init() error {
 	}
 
 	a.screen = sc
-	a.state.checkW = 4
-	a.state.statusH = 1
 
 	a.items, err = a.Store.LoadItems()
 	if err != nil {
@@ -194,6 +181,7 @@ func (a *App) emit(x, y int, style tcell.Style, str string) (rows, cols int) {
 }
 
 func (a *App) draw() {
+	w, _ := a.screen.Size()
 	a.screen.Clear()
 
 	// Render status line
@@ -209,13 +197,30 @@ func (a *App) draw() {
 		right = "NOR"
 	}
 
-	status := left + runewidth.FillLeft(right, a.state.listW-runewidth.StringWidth(left))
+	status := left + runewidth.FillLeft(right, w-runewidth.StringWidth(left))
 	a.emit(0, 0, style, status)
 
 	// Render items
 	items := a.items
 	if len(items) == 0 {
 		items = []TodoItem{{}}
+	}
+
+	table := make(map[int]struct {
+		done  bool
+		lines []string
+	}, len(items))
+
+	for i, item := range items {
+		all := runewidth.Wrap(item.Text, w-4)
+
+		table[i] = struct {
+			done  bool
+			lines []string
+		}{
+			done:  item.Done,
+			lines: strings.Split(all, "\n"),
+		}
 	}
 
 	posY := a.state.statusH
