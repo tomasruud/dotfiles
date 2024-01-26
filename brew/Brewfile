@@ -8,7 +8,6 @@ brew "ruby"
 brew "cocoapods"
 brew "php"
 brew "composer"
-brew "exa"
 brew "eza"
 brew "fd"
 brew "ffmpeg"
@@ -50,12 +49,6 @@ cask "sublime-text"
 cask "tomatobar"
 mas "Bitwarden", id: 1352778147
 mas "Boxy SVG", id: 611658502
-mas "Compressor", id: 424390742
-mas "Final Cut Pro", id: 424389933
-mas "Logic Pro", id: 634148309
-mas "Messenger", id: 1480068668
-mas "Motion", id: 434290957
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Slack", id: 803453959
 mas "Xcode", id: 497799835
