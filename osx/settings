@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Dock
+defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-others -array
+defaults write com.apple.dock recent-apps -array 
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock autohide -bool true
+
+# Menu bar
+defaults write com.apple.menuextra.clock ShowDayOfWeek -int 0
+defaults write com.apple.menuextra.clock ShowDate -int 2
+
+# Mouse and keyboard
+defaults write -g com.apple.mouse.scaling -int 1
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+defaults write -g KeyRepeatEnabled -int 1
+defaults write -g KeyRepeatDelay -float 0.5
+
+# Accessibility
+defaults write com.apple.Accessibility ReduceMotionEnabled -bool true
+sudo defaults write com.apple.universalaccess reduceMotion -bool true
+
+# Stage manager
+defaults write com.apple.WindowManager GloballyEnabled -bool true
+defaults write com.apple.WindowManager AutoHide -bool true
+
+# Restart
+killall Dock
+killall Finder
