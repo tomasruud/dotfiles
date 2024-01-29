@@ -1,7 +1,3 @@
-[user]
-	name = Tomas Ruud
-	email = git@me.2ms.no
-
 [core]
 	autocrlf = input
 	editor = hx
