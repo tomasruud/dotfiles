@@ -6,3 +6,6 @@ npm i -g \
   typescript \
   vscode-langservers-extracted \
   bash-language-server
+
+go install mvdan.cc/gofumpt@latest
+go install golang.org/x/tools/gopls@latest
