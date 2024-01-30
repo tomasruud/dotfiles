@@ -70,6 +70,4 @@ alias yt="yt-dlp"
 alias todos="rg TODO"
 
 alias pr="cd \$(fzfproj $HOME/projects || pwd)"
-alias axpc="cd \$(fzfproj $HOME/work/a2755 || pwd)"
-alias axpw="fzfproj $HOME/work/a2755 | xargs -I {} tmux new-window -c {}"
-alias axph="fzfproj $HOME/work/a2755 | xargs -I {} hx {}"
+alias axo="cd \$(fzfproj $HOME/work/a2755 || pwd)"
