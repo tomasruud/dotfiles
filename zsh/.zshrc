@@ -7,6 +7,7 @@ zstyle ':completion:*' menu select
 
 # prompt style
 PROMPT='%1~$(gitprompt)\$ '
+RPROMPT='%n@%m'
 
 # bind <C-r> to resume suspended job
 bindkey -s '^r' 'fg\n'
