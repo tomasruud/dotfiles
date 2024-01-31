@@ -1,2 +1,5 @@
-default\.terminal # make sure this is not stowed
-settings
+Brewfile
+Brewfile\.lock\.json
+backup
+setup
+default.terminal
