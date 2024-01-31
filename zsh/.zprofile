@@ -50,3 +50,7 @@ fi
 if [[ -e "$HOME/.ghcup/env" ]]; then
 	source "$HOME/.ghcup/env"
 fi
+
+if [[ -e "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
