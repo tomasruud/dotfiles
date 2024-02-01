@@ -13,9 +13,14 @@ fi
 
 if [[ -e "/opt/homebrew/opt/go/libexec" ]]; then
 	GOROOT="/opt/homebrew/opt/go/libexec"
-	GOPATH="$HOME/go"
-	PATH="$GOPATH/bin:$PATH"
 fi
+
+if [[ -e "/usr/local/go" ]]; then
+	PATH="$PATH:/usr/local/go/bin"
+fi
+
+GOPATH="$HOME/go"
+PATH="$PATH:$GOPATH/bin"
 
 if [[ -e "/opt/homebrew/opt/nvm/nvm.sh" ]]; then
 	source "/opt/homebrew/opt/nvm/nvm.sh"
