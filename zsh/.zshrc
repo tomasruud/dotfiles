@@ -1,6 +1,9 @@
 # allows for matching dotfiles
 setopt globdots
 
+# set man pages max width
+export MANWIDTH=80
+
 autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
