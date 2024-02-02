@@ -1,4 +1,15 @@
 #!/bin/bash
+
+if ! command -v "go" > /dev/null 2>&1; then
+  echo "You must install go to continue..."
+  exit 1
+fi
+
+if ! command -v "npm" > /dev/null 2>&1; then
+  echo "You must install npm/node to continue..."
+  exit 1
+fi
+
 npm i -g \
   dockerfile-language-server-nodejs \
   intelephense \
