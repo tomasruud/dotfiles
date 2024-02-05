@@ -59,3 +59,7 @@ fi
 if [[ -e "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
 fi
+
+if [[ -e "$HOME/.npm-global/bin" ]]; then
+	PATH="$PATH:$HOME/.npm-global/bin"
+fi
