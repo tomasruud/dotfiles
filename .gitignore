@@ -1,3 +1,4 @@
 *.backup.tgz
 .env
 .luarc.json
+helix/.config/helix/runtime
