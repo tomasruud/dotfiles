@@ -22,3 +22,12 @@
 
 [push]
 	autoSetupRemote = true
+
+[diff]
+	algorithm = histogram
+
+[rebase]
+	autosquash = true
+
+[merge]
+	conflictstyle = zdiff3
