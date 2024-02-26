@@ -1,1 +1,7 @@
+# Set gofumpt as Go formatter
 language-server.gopls.config.gofumpt = true
+
+# Add .tfvar as tfvars ext
+[[languages]]
+name = "tfvars"
+file-types = ["tfvars", "tfvar"]
