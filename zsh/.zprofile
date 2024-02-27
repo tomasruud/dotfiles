@@ -37,7 +37,8 @@ fi
 
 if command -v "ruby" > /dev/null 2>&1; then
 	GEMSDIR=$(gem environment gemdir)/bin
-	PATH="$PATH:$GEMSDIR"
+	GEMSUSRDIR=$(ruby -e 'print Gem.user_dir')/bin
+  PATH="$PATH:$GEMSUSRDIR:$GEMSIR"
 fi
 
 # Rust
