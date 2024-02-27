@@ -2,6 +2,6 @@
 language-server.gopls.config.gofumpt = true
 
 # Add .tfvar as tfvars ext
-[[languages]]
+[[language]]
 name = "tfvars"
 file-types = ["tfvars", "tfvar"]
