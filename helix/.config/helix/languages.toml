@@ -5,3 +5,8 @@ language-server.gopls.config.gofumpt = true
 [[language]]
 name = "tfvars"
 file-types = ["tfvars", "tfvar"]
+
+# Ruby should lint and format
+[[language]]
+name = "ruby"
+config = { solargraph = { diagnostics = true, formatting = true } }
