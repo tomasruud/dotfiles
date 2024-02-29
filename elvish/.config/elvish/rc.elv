@@ -46,7 +46,13 @@ if (has-external go) {
 }
 
 # --- Aliases
-fn ll {|@a| eza --group-directories-first -al $@a}
+fn ll {|@a| eza --group-directories-first -alF $@a}
 fn lt {|@a| eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a}
 fn gti {|@a| git $@a}
 fn got {|@a| git $@a}
+fn dc {|@a| docker compose $@a}
+fn d {|@a| dc run --rm $@a}
+fn dx {|@a| docker run --rm --interactive --tty --volume (pwd):/app --workdir /app $@a}
+fn ds {|@a| dc run --service-ports --rm $@a}
+fn home {|| cd ~}
+fn note {|| hx ~/notes.txt}
