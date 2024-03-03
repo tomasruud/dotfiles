@@ -1,7 +1,7 @@
 use os
 
 # -- System
-set-env LC_ALL "en_US.UTF-8"
+set-env LC_ALL en_US.UTF-8
 
 if (os:exists ~/.env.elv) {
 	eval (slurp < ~/.env.elv)
@@ -25,11 +25,11 @@ set-env MANWIDTH 80
 
 # --- Homebrew
 if (os:exists /opt/homebrew) {
-	set-env HOMEBREW_PREFIX "/opt/homebrew"
-	set-env HOMEBREW_CELLAR "/opt/homebrew/Cellar"
-	set-env HOMEBREW_REPOSITORY "/opt/homebrew"
-	set-env MANPATH "/opt/homebrew/share/man:"$E:MANPATH
-	set-env INFOPATH "/opt/homebrew/share/info:"$E:INFOPATH
+	set-env HOMEBREW_PREFIX /opt/homebrew
+	set-env HOMEBREW_CELLAR /opt/homebrew/Cellar
+	set-env HOMEBREW_REPOSITORY /opt/homebrew
+	set-env MANPATH /opt/homebrew/share/man:$E:MANPATH
+	set-env INFOPATH /opt/homebrew/share/info:$E:INFOPATH
 
 	set paths = [
 		/opt/homebrew/bin
@@ -40,7 +40,7 @@ if (os:exists /opt/homebrew) {
 
 # --- Go
 if (os:exists /opt/homebrew/opt/go/libexec) {
-	set-env GOROOT "opt/homebrew/opt/go/libexec"
+	set-env GOROOT opt/homebrew/opt/go/libexec
 }
 
 if (os:exists /usr/local/go) {
@@ -48,7 +48,7 @@ if (os:exists /usr/local/go) {
 }
 
 if (has-external go) {
-	set-env GOPATH "~/go"
+	set-env GOPATH ~/go
 	set paths = [~/go/bin $@paths]
 }
 
