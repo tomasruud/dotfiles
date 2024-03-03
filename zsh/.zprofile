@@ -75,7 +75,6 @@ if [[ -e "$HOME/.ghcup/env" ]]; then
 	source "$HOME/.ghcup/env"
 fi
 
-
 # Node
 if [[ -e "$HOME/.npm-global/bin" ]]; then
 	PATH="$PATH:$HOME/.npm-global/bin"
