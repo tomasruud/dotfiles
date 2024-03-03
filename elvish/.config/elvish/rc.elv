@@ -57,7 +57,19 @@ if (os:exists ~/.cargo/bin) {
 	set paths = [~/.cargo/bin $@paths]
 }
 
+# --- Ruby
+if (os:exists /opt/homebrew/opt/ruby) {
+	set paths = [/opt/homebrew/opt/ruby/bin $@paths]
+}
+
+if (has-external ruby) {
+	var gems = (gem environment gemdir)/bin
+	var usr_gems = (ruby -e 'print Gem.user_dir')/bin
+	set paths = [$usr_gems $gems $@paths]
+}
+
 # --- Aliases
+fn reload {|| eval (slurp < ~/.config/elvish/rc.elv)}
 fn ll {|@a| eza --group-directories-first -alF $@a}
 fn lt {|@a| eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a}
 fn gti {|@a| git $@a}
