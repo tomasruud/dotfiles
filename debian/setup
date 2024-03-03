@@ -3,10 +3,10 @@
 # install some dependencies
 sudo apt update
 sudo apt upgrade
-sudo apt install git zsh stow curl build-essential gcc make fzf tmux php php-common php-curl mosh
+sudo apt install git zsh stow curl build-essential gcc make fzf tmux php php-common php-curl mosh elvish
 
 # set zsh as default shell
-sudo chsh -s $(which zsh) $(whoami)
+sudo chsh -s $(which elvish) $(whoami)
 
 # install Rust
 if ! command -v "cargo" > /dev/null 2>&1; then
