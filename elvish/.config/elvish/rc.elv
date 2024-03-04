@@ -64,19 +64,34 @@ if (os:exists /opt/homebrew/opt/ruby) {
 
 if (has-external ruby) {
 	var gems = (gem environment gemdir)/bin
-	var usr_gems = (ruby -e 'print Gem.user_dir')/bin
-	set paths = [$usr_gems $gems $@paths]
+	var usr-gems = (ruby -e 'print Gem.user_dir')/bin
+	set paths = [$usr-gems $gems $@paths]
 }
 
-# --- Aliases
+# --- Functions
 fn reload {|| eval (slurp < ~/.config/elvish/rc.elv)}
-fn ll {|@a| eza --group-directories-first -alF $@a}
-fn lt {|@a| eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a}
-fn gti {|@a| git $@a}
-fn got {|@a| git $@a}
-fn dc {|@a| docker compose $@a}
-fn d {|@a| dc run --rm $@a}
-fn dx {|@a| docker run --rm --interactive --tty --volume (pwd):/app --workdir /app $@a}
-fn ds {|@a| dc run --service-ports --rm $@a}
 fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
+
+fn ll { |@a|
+	if (has-external eza) {
+		e:eza --group-directories-first -alF $@a
+	} else {
+		ls -alF $@a
+	}
+}
+
+fn lt { |@a|
+	if (has-external eza) {
+		e:eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a
+	} else {
+		tree --gitignore $@a
+	}
+}
+
+# --- Abbrs
+set edit:command-abbr['gti'] = 'git'
+set edit:command-abbr['got'] = 'git'
+set edit:command-abbr['d'] = 'docker compose run --rm'
+set edit:command-abbr['dc'] = 'docker compose'
+set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
