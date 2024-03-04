@@ -1,12 +1,12 @@
 use os
 
-# -- System
+# --- Global config
 set-env LC_ALL en_US.UTF-8
 
 if (os:exists ~/.env.elv) {
 	eval (slurp < ~/.env.elv)
 } else {
-	echo "No .env file loaded."
+	echo (styled "No .env file loaded." red)
 }
 
 set paths = [
@@ -14,6 +14,17 @@ set paths = [
 	/usr/bin
 	/bin
 ]
+
+# --- Nix
+if (os:exists /nix/var/nix/profiles/default/bin) {
+	set paths = [
+		~/.nix-profile/bin
+		/nix/var/nix/profiles/default/bin
+		$@paths
+	]
+} else {
+	echo (styled "Nix is not installed or incorrectly configured" red)
+}
 
 # --- User
 if (os:exists ~/.local/bin) {
