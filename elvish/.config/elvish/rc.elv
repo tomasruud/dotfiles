@@ -15,17 +15,6 @@ set paths = [
 	/bin
 ]
 
-# --- Nix
-if (os:exists /nix/var/nix/profiles/default/bin) {
-	set paths = [
-		~/.nix-profile/bin
-		/nix/var/nix/profiles/default/bin
-		$@paths
-	]
-} else {
-	echo (styled "Nix is not installed or incorrectly configured" red)
-}
-
 # --- User
 if (os:exists ~/.local/bin) {
 	set paths = [~/.local/bin $@paths]
@@ -106,3 +95,8 @@ set edit:command-abbr['got'] = 'git'
 set edit:command-abbr['d'] = 'docker compose run --rm'
 set edit:command-abbr['dc'] = 'docker compose'
 set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
+
+# --- Starship
+if (has-external starship) {
+	eval (starship init elvish)
+}
