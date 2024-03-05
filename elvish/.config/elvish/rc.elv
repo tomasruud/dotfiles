@@ -96,6 +96,30 @@ set edit:command-abbr['d'] = 'docker compose run --rm'
 set edit:command-abbr['dc'] = 'docker compose'
 set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
 
+# --- Elvish keybinds
+set edit:insert:binding[Ctrl-N] = $edit:end-of-history~
+set edit:insert:binding[Ctrl-P] = $edit:history:start~
+set edit:insert:binding[Ctrl-B] = $edit:move-dot-left~
+set edit:insert:binding[Ctrl-F] = $edit:move-dot-right~
+set edit:insert:binding[Ctrl-A] = $edit:move-dot-sol~
+set edit:insert:binding[Ctrl-E] = $edit:move-dot-eol~
+
+set edit:completion:binding[Ctrl-N] = $edit:completion:down~
+set edit:completion:binding[Ctrl-P] = $edit:completion:up~
+set edit:completion:binding[Ctrl-B] = $edit:completion:left~
+set edit:completion:binding[Ctrl-F] = $edit:completion:right~
+
+set edit:navigation:binding[Ctrl-B] = $edit:navigation:left~
+set edit:navigation:binding[Ctrl-F] = $edit:navigation:right~
+set edit:navigation:binding[Ctrl-N] = $edit:navigation:down~
+set edit:navigation:binding[Ctrl-P] = $edit:navigation:up~
+
+set edit:history:binding[Ctrl-N] = $edit:history:down-or-quit~
+set edit:history:binding[Ctrl-P] = $edit:history:up~
+
+set edit:listing:binding[Ctrl-N] = $edit:listing:down~
+set edit:listing:binding[Ctrl-P] = $edit:listing:up~
+
 # --- Starship
 if (has-external starship) {
 	eval (starship init elvish)
