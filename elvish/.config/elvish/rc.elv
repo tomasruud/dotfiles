@@ -1,5 +1,7 @@
 use os
 
+# --- Completions
+
 # --- Global config
 set-env LC_ALL en_US.UTF-8
 
@@ -97,28 +99,31 @@ set edit:command-abbr['dc'] = 'docker compose'
 set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
 
 # --- Elvish keybinds
-set edit:insert:binding[Ctrl-N] = $edit:end-of-history~
-set edit:insert:binding[Ctrl-P] = $edit:history:start~
-set edit:insert:binding[Ctrl-B] = $edit:move-dot-left~
-set edit:insert:binding[Ctrl-F] = $edit:move-dot-right~
-set edit:insert:binding[Ctrl-A] = $edit:move-dot-sol~
-set edit:insert:binding[Ctrl-E] = $edit:move-dot-eol~
+set edit:insert:binding[Ctrl-N] = { edit:end-of-history }
+set edit:insert:binding[Ctrl-P] = { edit:history:start }
+set edit:insert:binding[Ctrl-B] = { edit:move-dot-left }
+set edit:insert:binding[Ctrl-F] = { edit:move-dot-right }
+set edit:insert:binding[Ctrl-A] = { edit:move-dot-sol }
+set edit:insert:binding[Ctrl-E] = { edit:move-dot-eol }
 
-set edit:completion:binding[Ctrl-N] = $edit:completion:down~
-set edit:completion:binding[Ctrl-P] = $edit:completion:up~
-set edit:completion:binding[Ctrl-B] = $edit:completion:left~
-set edit:completion:binding[Ctrl-F] = $edit:completion:right~
+set edit:completion:binding[Ctrl-N] = { edit:completion:down }
+set edit:completion:binding[Ctrl-P] = { edit:completion:up }
+set edit:completion:binding[Ctrl-B] = { edit:completion:left }
+set edit:completion:binding[Ctrl-F] = { edit:completion:right }
 
-set edit:navigation:binding[Ctrl-B] = $edit:navigation:left~
-set edit:navigation:binding[Ctrl-F] = $edit:navigation:right~
-set edit:navigation:binding[Ctrl-N] = $edit:navigation:down~
-set edit:navigation:binding[Ctrl-P] = $edit:navigation:up~
+set edit:navigation:binding[Ctrl-B] = { edit:navigation:left }
+set edit:navigation:binding[Ctrl-F] = { edit:navigation:right }
+set edit:navigation:binding[Ctrl-N] = { edit:navigation:down }
+set edit:navigation:binding[Ctrl-P] = { edit:navigation:up }
 
-set edit:history:binding[Ctrl-N] = $edit:history:down-or-quit~
-set edit:history:binding[Ctrl-P] = $edit:history:up~
+set edit:history:binding[Ctrl-N] = { edit:history:down-or-quit }
+set edit:history:binding[Ctrl-P] = { edit:history:up }
 
-set edit:listing:binding[Ctrl-N] = $edit:listing:down~
-set edit:listing:binding[Ctrl-P] = $edit:listing:up~
+set edit:listing:binding[Ctrl-N] = { edit:listing:down }
+set edit:listing:binding[Ctrl-P] = { edit:listing:up }
+
+# TODO: figure out some fun binding for deleting dumb entries
+# set edit:histlist:binding[Meta-0] = { |a| put $a }
 
 # --- Starship
 if (has-external starship) {
