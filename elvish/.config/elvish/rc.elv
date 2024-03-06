@@ -125,7 +125,5 @@ set edit:listing:binding[Ctrl-P] = { edit:listing:up }
 # TODO: figure out some fun binding for deleting dumb entries
 set edit:histlist:binding[Meta-0] = {|a| put $a }
 
-# --- Starship
-if (has-external starship) {
-	eval (starship init elvish)
-}
+# --- Prompt
+use prompt
