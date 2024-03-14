@@ -13,6 +13,7 @@
 	fc = "!f() { git checkout ${1:-main} && git cl ${1:-main} && git pull; }; f"
 	sd = diff --staged
 	gpush = "!f() { git push $@ 2>&1 | gurl; }; f"
+	squash = "!f() { git reset --soft $(git merge-base ${1:-main} HEAD); }; f"
 
 [init]
 	defaultBranch = main
