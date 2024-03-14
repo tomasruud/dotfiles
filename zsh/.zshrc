@@ -9,8 +9,9 @@ autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
 # prompt style
-PROMPT='%1~$(gitprompt)\$ '
-RPROMPT='%n@%m'
+setopt PROMPT_SUBST
+PROMPT='$(tprompt -left)'
+RPROMPT='$(tprompt -right)'
 
 # bind <C-r> to resume suspended job
 bindkey -s '^r' 'fg\n'
