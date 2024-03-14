@@ -5,4 +5,4 @@ if ! command -v "go" > /dev/null 2>&1; then
   exit 1
 fi
 
-(cd $HOME/dotfiles/bin/src && go install ./...)
+(cd $HOME/dotfiles/bin/src && CGO_ENABLED=0 go install -ldflags="-s -w"  ./...)

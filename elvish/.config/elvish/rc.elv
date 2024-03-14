@@ -1,14 +1,12 @@
 use os
 
-# --- Completions
-
 # --- Global config
 set-env LC_ALL en_US.UTF-8
 
 if (os:exists ~/.env.elv) {
 	eval (slurp < ~/.env.elv)
 } else {
-	echo (styled "No .env file loaded." red)
+	echo (styled "[note]" bold red) "No .env file loaded."
 }
 
 set paths = [
@@ -79,6 +77,7 @@ fn ll { |@a|
 	if (has-external eza) {
 		e:eza --group-directories-first -alF $@a
 	} else {
+		echo (styled "[note]" bold blue) "eza is not installed, falling back to ls"
 		ls -alF $@a
 	}
 }
@@ -87,6 +86,7 @@ fn lt { |@a|
 	if (has-external eza) {
 		e:eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a
 	} else {
+		echo (styled "[note]" bold blue) "eza is not installed, falling back to tree"
 		tree --gitignore $@a
 	}
 }
@@ -126,4 +126,12 @@ set edit:listing:binding[Ctrl-P] = { edit:listing:up }
 set edit:histlist:binding[Meta-0] = {|a| put $a }
 
 # --- Prompt
-use prompt
+set edit:prompt = { tprompt -left }
+set edit:rprompt = { tprompt -right }
+
+# --- Completions
+if (has-external carapace) {
+  eval (carapace _carapace | slurp)
+} else {
+	echo (styled "[note]" bold red) "Carapace is not installed, completions are not enabled."
+}
