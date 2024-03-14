@@ -131,6 +131,7 @@ set edit:rprompt = { tprompt -right }
 
 # --- Completions
 if (has-external carapace) {
+	fn carapace {|@a| env NO_COLOR=1 carapace $@a }
   eval (carapace _carapace | slurp)
 } else {
 	echo (styled "[note]" bold red) "Carapace is not installed, completions are not enabled."
