@@ -4,17 +4,20 @@ setopt globdots
 # set man pages max width
 export MANWIDTH=80
 
-autoload -Uz compinit; compinit
-
-zstyle ':completion:*' menu select
-
 # prompt style
 setopt PROMPT_SUBST
 PROMPT='$(tprompt -left)'
 RPROMPT='$(tprompt -right)'
 
-# bind <C-r> to resume suspended job
-bindkey -s '^r' 'fg\n'
+# register completions
+autoload -Uz compinit; compinit
+
+if command -v "carapace" > /dev/null 2>&1; then
+  alias carapace="NO_COLOR=1 carapace"
+  source <(carapace _carapace)
+else
+  zstyle ':completion:*' menu select
+fi
 
 # function that locates git repos within a root folder
 function fzfproj() {
