@@ -105,6 +105,13 @@ set edit:insert:binding[Ctrl-B] = { edit:move-dot-left }
 set edit:insert:binding[Ctrl-F] = { edit:move-dot-right }
 set edit:insert:binding[Ctrl-A] = { edit:move-dot-sol }
 set edit:insert:binding[Ctrl-E] = { edit:move-dot-eol }
+set edit:insert:binding[Ctrl-D] = {
+  if (> (count $edit:current-command) 0) {
+    edit:kill-rune-right
+  } else {
+	  edit:return-eof
+  }
+}
 
 set edit:completion:binding[Ctrl-N] = { edit:completion:down }
 set edit:completion:binding[Ctrl-P] = { edit:completion:up }
