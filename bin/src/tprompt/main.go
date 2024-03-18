@@ -8,8 +8,6 @@ import (
 	"os/user"
 	"strconv"
 	"strings"
-
-	"github.com/gookit/color"
 )
 
 // This is really just a shell agnostic way of implementing my
@@ -97,8 +95,9 @@ func left() (string, error) {
 			return "", err
 		}
 
-		prompt.WriteRune(' ')
-		prompt.WriteString(color.Bold.Render(status.head))
+		prompt.WriteString(" \x1b[1m") // bold
+		prompt.WriteString(status.head)
+		prompt.WriteString("\x1b[0m") // reset
 
 		if status.dirty {
 			prompt.WriteRune('*')
@@ -113,7 +112,7 @@ func left() (string, error) {
 		}
 
 		if status.stash {
-			prompt.WriteString(color.Blue.Render("⚑"))
+			prompt.WriteString("\x1b[34m⚑\x1b[0m") // blue flag
 		}
 	}
 
