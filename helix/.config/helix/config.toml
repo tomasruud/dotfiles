@@ -3,6 +3,7 @@ theme = "ttox"
 [editor]
 rulers = [100]
 line-number = "relative"
+auto-pairs = false
 
 [editor.file-picker]
 hidden = false
