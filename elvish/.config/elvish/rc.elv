@@ -112,6 +112,7 @@ set edit:insert:binding[Ctrl-D] = {
 	  edit:return-eof
   }
 }
+set edit:insert:binding[Ctrl-T] = { edit:navigation:start }
 
 set edit:completion:binding[Ctrl-N] = { edit:completion:down }
 set edit:completion:binding[Ctrl-P] = { edit:completion:up }
