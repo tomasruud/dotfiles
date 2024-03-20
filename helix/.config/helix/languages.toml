@@ -18,7 +18,8 @@ scope = "source.openapi3.json"
 roots = []
 auto-format = true
 file-types = ["openapi.json"]
-language-servers = ["vacuum-lsp"]
+language-servers = [{ name = "vscode-json-language-server", only-features = ["format"] }, "vacuum-lsp" ]
+indent = { tab-width = 2, unit = "  " }
 
 [language-server.vacuum-lsp]
 command = "vacuum"
