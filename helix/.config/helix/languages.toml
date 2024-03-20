@@ -9,3 +9,17 @@ language-server.solargraph.config.diagnostics = true
 [[language]]
 name = "tfvars"
 file-types = ["tfvars", "tfvar"]
+
+# Add openapi lsp
+[[language]]
+name = "openapi3.json"
+grammar = "json"
+scope = "source.openapi3.json"
+roots = []
+auto-format = true
+file-types = ["openapi.json"]
+language-servers = ["vacuum-lsp"]
+
+[language-server.vacuum-lsp]
+command = "vacuum"
+args = ["language-server"]
