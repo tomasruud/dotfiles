@@ -1,24 +1,27 @@
 #!/bin/bash
 
-if ! command -v "go" > /dev/null 2>&1; then
-  echo "You must install go to continue..."
-  exit 1
+if command -v "go" > /dev/null 2>&1; then
+  go install mvdan.cc/gofumpt@latest
+  go install golang.org/x/tools/gopls@latest
+  go install github.com/go-delve/delve/cmd/dlv@latest
+  go install github.com/daveshanley/vacuum@latest
+else
+  echo "go is not installed, skipping some elements"
 fi
 
-if ! command -v "npm" > /dev/null 2>&1; then
-  echo "You must install npm/node to continue..."
-  exit 1
+if command -v "npm" > /dev/null 2>&1; then
+  npm i -g dockerfile-language-server-nodejs
+  npm i -g intelephense
+  npm i -g typescript-language-server
+  npm i -g typescript
+  npm i -g vscode-langservers-extracted
+  npm i -g bash-language-server
+else
+  echo "node/npm is not installed, skpping some elements"
 fi
 
-npm i -g \
-  dockerfile-language-server-nodejs \
-  intelephense \
-  typescript-language-server \
-  typescript \
-  vscode-langservers-extracted \
-  bash-language-server
-
-go install mvdan.cc/gofumpt@latest
-go install golang.org/x/tools/gopls@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
-go install github.com/daveshanley/vacuum@latest
+if command -v "gem" > /dev/null 2>&1; then
+  gem install ruby-lsp
+else
+  echo "ruby/gem is not installed, skpping some elements"
+fi
