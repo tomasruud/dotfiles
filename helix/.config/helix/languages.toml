@@ -1,6 +1,10 @@
 # Set gofumpt as Go formatter
 language-server.gopls.config.gofumpt = true
 
+# Ruby should lint and format
+language-server.solargraph.config.formatting = true
+language-server.solargraph.config.diagnostics = true
+
 # Add .tfvar as tfvars ext
 [[language]]
 name = "tfvars"
@@ -20,10 +24,3 @@ indent = { tab-width = 2, unit = "  " }
 [language-server.vacuum-lsp]
 command = "vacuum"
 args = ["language-server"]
-
-[[language]]
-name = "ruby"
-language-servers = ["ruby-lsp"]
-
-[language-server.ruby-lsp]
-command = "ruby-lsp"

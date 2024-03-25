@@ -10,18 +10,19 @@ else
 fi
 
 if command -v "npm" > /dev/null 2>&1; then
-  npm i -g dockerfile-language-server-nodejs
-  npm i -g intelephense
-  npm i -g typescript-language-server
-  npm i -g typescript
-  npm i -g vscode-langservers-extracted
-  npm i -g bash-language-server
+  npm i -g \
+    dockerfile-language-server-nodejs \
+    intelephense \
+    typescript-language-server \
+    typescript \
+    vscode-langservers-extracted \
+    bash-language-server
 else
   echo "node/npm is not installed, skpping some elements"
 fi
 
 if command -v "gem" > /dev/null 2>&1; then
-  gem install ruby-lsp
+  gem install solargraph
 else
   echo "ruby/gem is not installed, skpping some elements"
 fi
