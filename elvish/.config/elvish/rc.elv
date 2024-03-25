@@ -63,9 +63,8 @@ if (os:exists /opt/homebrew/opt/ruby) {
 }
 
 if (has-external ruby) {
-	var gems = (gem environment gemdir)/bin
-	var usr-gems = (ruby -e 'print Gem.user_dir')/bin
-	set paths = [$usr-gems $gems $@paths]
+	set-env GEM_HOME ~/.gems
+	set paths = [~/.gems/bin $@paths]
 }
 
 # --- Functions
