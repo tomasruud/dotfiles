@@ -1,10 +1,6 @@
 # Set gofumpt as Go formatter
 language-server.gopls.config.gofumpt = true
 
-# Ruby should lint and format
-language-server.solargraph.config.formatting = true
-language-server.solargraph.config.diagnostics = true
-
 # Add .tfvar as tfvars ext
 [[language]]
 name = "tfvars"
