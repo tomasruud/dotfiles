@@ -2,3 +2,4 @@
 .env
 .luarc.json
 helix/.config/helix/runtime
+helix/.config/helix/contrib
