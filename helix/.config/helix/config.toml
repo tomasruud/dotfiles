@@ -4,6 +4,7 @@ theme = "ttox"
 rulers = [100]
 line-number = "relative"
 auto-pairs = false
+popup-border = "all"
 
 [editor.file-picker]
 hidden = false
