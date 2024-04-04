@@ -4,7 +4,8 @@ theme = "ttox"
 rulers = [100]
 line-number = "relative"
 auto-pairs = false
-popup-border = "all"
+popup-border = "all" # needed to the current ttox theme
+jump-label-alphabet = "jklfdshgaø"
 
 [editor.file-picker]
 hidden = false
