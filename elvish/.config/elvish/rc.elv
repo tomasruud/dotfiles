@@ -41,9 +41,7 @@ if (os:exists /opt/homebrew) {
 # --- Go
 if (os:exists /opt/homebrew/opt/go/libexec) {
 	set-env GOROOT /opt/homebrew/opt/go/libexec
-}
-
-if (os:exists /usr/local/go) {
+} elif (os:exists /usr/local/go) {
 	set paths = [/usr/local/go/bin $@paths]
 }
 
@@ -63,12 +61,12 @@ if (os:exists /opt/homebrew/opt/ruby) {
 }
 
 if (has-external ruby) {
+	# Customizing the gem folder makes it possible to use without sudo.
 	set-env GEM_HOME ~/.gems
 	set paths = [~/.gems/bin $@paths]
 }
 
 # --- Functions
-fn reload {|| eval (slurp < ~/.config/elvish/rc.elv)}
 fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
 
@@ -138,6 +136,7 @@ set edit:rprompt = { tprompt -right }
 
 # --- Completions
 if (has-external carapace) {
+	set-env CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense'
 	fn carapace {|@a| env NO_COLOR=1 carapace $@a }
   eval (carapace _carapace | slurp)
 } else {
