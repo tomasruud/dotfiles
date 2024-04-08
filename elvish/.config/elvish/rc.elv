@@ -9,6 +9,8 @@ if (os:exists ~/.env.elv) {
 	echo (styled "[note]" bold red) "No .env file loaded."
 }
 
+set-env EDITOR hx
+
 set paths = [
 	/usr/local/bin
 	/usr/bin
