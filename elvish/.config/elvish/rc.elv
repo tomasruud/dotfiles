@@ -86,7 +86,7 @@ fn lt { |@a|
 		e:eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a
 	} else {
 		echo (styled "[note]" bold blue) "eza is not installed, falling back to tree"
-		tree --gitignore $@a
+		tree --dirsfirst $@a
 	}
 }
 
