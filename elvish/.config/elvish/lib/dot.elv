@@ -34,16 +34,9 @@ fn backup-secrets {
 
 # Install LSPs and tools
 fn setup-tools {
-  echo 'Installing local tools...'
-  
-  use utils
-  utils:do-in-dir ~/dotfiles/tprompt {
-    set-env CGO_ENABLED 0
-    go install -ldflags="-s -w"  .
-    unset-env CGO_ENABLED
-  }
-
   var tools = [
+    [sh ~/dotfiles/tprompt/install.sh]
+
     [go mvdan.cc/gofumpt]
     [go golang.org/x/tools/gopls]
     [go github.com/go-delve/delve/cmd/dlv]
@@ -82,6 +75,8 @@ fn setup-tools {
       gem install $pkg
     } elif (eq $t cargo) {
       cargo install $pkg
+    } elif (eq $t sh) {
+      sh $pkg
     } else {
      	echo (styled 'no install strategy for '$t bold red)
     }
