@@ -11,12 +11,3 @@ git clone --recurse-submodules https://github.com/tomasruud/dotfiles.git $HOME/d
 
 # install Homebrew packages
 brew bundle --file "$HOME/dotfiles/osx/Brewfile"
-
-# sync dotfiles
-$HOME/dotfiles/dot/sync
-
-# install LSPs
-$HOME/dotfiles/helix/setup-lsps
-
-# install binaries
-$HOME/dotfiles/bin/install

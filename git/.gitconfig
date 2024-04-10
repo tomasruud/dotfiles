@@ -12,7 +12,6 @@
 	cl = "!f() { git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done; }; f"
 	fc = "!f() { git checkout ${1:-main} && git cl ${1:-main} && git pull; }; f"
 	sd = diff --staged
-	gpush = "!f() { git push $@ 2>&1 | gurl; }; f"
 	squash = "!f() { git reset --soft $(git merge-base ${1:-main} HEAD); }; f"
 
 [init]

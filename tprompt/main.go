@@ -121,23 +121,23 @@ func left() (string, error) {
 	return prompt.String(), nil
 }
 
-var isRemote = func() bool {
+func isRemote() bool {
 	return os.Getenv("SSH_CONNECTION") != ""
 }
 
-var isRepo = func() bool {
+func isRepo() bool {
 	cmd := exec.Command("git", "--no-optional-locks", "rev-parse", "--is-inside-work-tree")
 	err := cmd.Run()
 	return err == nil
 }
 
-var repoPath = func() (string, error) {
+func repoPath() (string, error) {
 	cmd := exec.Command("git", "--no-optional-locks", "rev-parse", "--show-toplevel")
 	out, err := cmd.Output()
 	return string(out), err
 }
 
-var repoStatus = func() (status, error) {
+func repoStatus() (status, error) {
 	cmd := exec.Command("git", "--no-optional-locks", "status", "--show-stash", "--branch", "--porcelain=v2")
 	cmd.Env = append(cmd.Env, "LC_ALL=C")
 

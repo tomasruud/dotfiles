@@ -1,3 +1,4 @@
+use dot
 use os
 
 # --- Global config
@@ -72,7 +73,10 @@ if (has-external ruby) {
 fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
 
-fn ll { |@a|
+fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
+fn o {|| use utils; utils:open-url (slurp) }
+
+fn ll {|@a|
 	if (has-external eza) {
 		e:eza --group-directories-first -alF $@a
 	} else {
@@ -81,7 +85,7 @@ fn ll { |@a|
 	}
 }
 
-fn lt { |@a|
+fn lt {|@a|
 	if (has-external eza) {
 		e:eza --group-directories-first --tree --git-ignore --ignore-glob vendor $@a
 	} else {
