@@ -1,6 +1,3 @@
-Brewfile
-Brewfile\.lock\.json
 setup
 default.terminal
 settings
-backup

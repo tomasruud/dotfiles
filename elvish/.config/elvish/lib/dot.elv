@@ -32,6 +32,11 @@ fn backup-secrets {
   tar -zcvf $name ~/.ssh ~/.netrc ~/.env*
 }
 
+# Backs up brewfile
+fn backup-brew {
+  brew bundle dump --force --file ~/dotfiles/brew/Brewfile
+}
+
 # Install LSPs and tools
 fn setup-tools {
   var tools = [

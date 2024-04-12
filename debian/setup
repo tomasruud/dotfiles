@@ -19,16 +19,3 @@ if ! command -v "npm" > /dev/null 2>&1; then
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
     sudo apt install -y nodejs
 fi
-
-# install Rust based tools
-cargo install eza
-cargo install fd-find
-
-# sync dotfiles
-$HOME/dotfiles/dot/sync
-
-# install LSPs
-$HOME/dotfiles/helix/setup-lsps
-
-# install binaries
-$HOME/dotfiles/bin/install
