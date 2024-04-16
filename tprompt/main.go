@@ -118,7 +118,7 @@ func left() (string, error) {
 
 	prompt.WriteString("$ ")
 
-	return prompt.String(), nil
+	return fmt.Sprintf("%s", prompt.String()), nil
 }
 
 func isRemote() bool {
