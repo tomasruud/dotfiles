@@ -14,4 +14,4 @@ hidden = false
 "=" = ":fmt"
 
 [keys.insert]
-"j" = { k = "normal_mode" }
+j = { k = "normal_mode" }
