@@ -17,3 +17,8 @@ fn open-url {|in|
 		}
 	}
 }
+
+fn ssh-to-https {|in|
+	use str
+	str:replace ':' '/' $in | str:replace 'git@' 'https://' (all) | str:replace '.git' '' (all)
+}
