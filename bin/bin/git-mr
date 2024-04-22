@@ -1,0 +1,11 @@
+#!/usr/bin/env elvish
+
+use str
+
+git config --get remote.origin.url |
+  str:trim-space (slurp) |
+  str:replace ':' '/' (all) |
+  str:replace 'git@' 'https://' (all) |
+  str:replace '.git' '' (all) |
+  put (all)'/-/merge_requests/new?merge_request%5Bsource_branch%5D=' |
+  open (all)(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' | str:trim-prefix (all) 'origin/')

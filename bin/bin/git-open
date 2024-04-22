@@ -1,0 +1,10 @@
+#!/usr/bin/env elvish
+
+use str
+
+git config --get remote.origin.url |
+  str:trim-space (slurp) |
+  str:replace ':' '/' (all) |
+  str:replace 'git@' 'https://' (all) |
+  str:replace '.git' '' (all) |
+  open (all)

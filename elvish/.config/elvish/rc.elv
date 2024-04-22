@@ -13,15 +13,11 @@ if (os:exists ~/.env.elv) {
 set-env EDITOR hx
 
 set paths = [
+	~/bin
 	/usr/local/bin
 	/usr/bin
 	/bin
 ]
-
-# --- User
-if (os:exists ~/.local/bin) {
-	set paths = [~/.local/bin $@paths]
-}
 
 # --- Man
 set-env MANWIDTH 80
@@ -75,7 +71,6 @@ fn note {|| hx ~/notes.txt}
 
 fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
 fn o {|| use utils; utils:open-url (slurp) }
-fn repo {|| use utils; git config --get remote.origin.url | utils:ssh-to-https (slurp) | utils:open-url (all) }
 
 fn ll {|@a|
 	if (has-external eza) {
