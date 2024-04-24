@@ -54,6 +54,11 @@ if (os:exists ~/.cargo/bin) {
 	set paths = [~/.cargo/bin $@paths]
 }
 
+# --- Node
+if (os:exists ~/.npm-global) {
+	set paths = [~/.npm-global/bin $@paths]
+}
+
 # --- Ruby
 if (os:exists /opt/homebrew/opt/ruby) {
 	set paths = [/opt/homebrew/opt/ruby/bin $@paths]
