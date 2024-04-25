@@ -112,7 +112,7 @@ func left() (string, error) {
 		}
 
 		if status.stash {
-			prompt.WriteString("\x1b[34m⚑\x1b[0m") // blue flag
+			prompt.WriteString("\x1b[1m^\x1b[0m")
 		}
 	}
 
