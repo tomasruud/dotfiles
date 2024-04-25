@@ -1190,38 +1190,48 @@
 	<false/>
 	<key>BlinkText</key>
 	<true/>
+	<key>CommandString</key>
+	<string></string>
 	<key>CursorBlink</key>
 	<true/>
+	<key>CursorType</key>
+	<integer>0</integer>
 	<key>DisableANSIColor</key>
 	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
 	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
-	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA15TRk1v
-	bm8tUmVndWxhctIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250ohkbWE5TT2Jq
-	ZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlKOos7zDxgAAAAAAAAEBAAAAAAAAABwAAAAA
-	AAAAAAAAAAAAAADP
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QG0pl
+	dEJyYWluc01vbm8tUmVndWxhcl9MaWdodNIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNW
+	TlNGb250ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlLK3wsvS1QAAAAAA
+	AAEBAAAAAAAAABwAAAAAAAAAAAAAAAAAAADe
 	</data>
 	<key>FontAntialias</key>
-	<true/>
+	<false/>
 	<key>FontHeightSpacing</key>
 	<integer>1</integer>
 	<key>FontWidthSpacing</key>
 	<integer>1</integer>
 	<key>ProfileCurrentVersion</key>
 	<real>2.0699999999999998</real>
+	<key>RunCommandAsShell</key>
+	<true/>
+	<key>SetLanguageEnvironmentVariables</key>
+	<true/>
 	<key>ShowActiveProcessArgumentsInTabTitle</key>
-	<true/>
+	<false/>
 	<key>ShowActiveProcessArgumentsInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowActiveProcessInTabTitle</key>
 	<true/>
 	<key>ShowActiveProcessInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowActivityIndicatorInTab</key>
 	<true/>
 	<key>ShowCommandKeyInTitle</key>
+	<false/>
+	<key>ShowComponentsWhenTabHasCustomTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
@@ -1234,6 +1244,8 @@
 	<key>ShowRepresentedURLPathInTitle</key>
 	<false/>
 	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTabTitle</key>
 	<false/>
 	<key>ShowTTYNameInTitle</key>
 	<false/>
@@ -1253,6 +1265,21 @@
 	<integer>140</integer>
 	<key>name</key>
 	<string>default</string>
+	<key>noWarnProcesses</key>
+	<array>
+		<dict>
+			<key>ProcessName</key>
+			<string>screen</string>
+		</dict>
+		<dict>
+			<key>ProcessName</key>
+			<string>tmux</string>
+		</dict>
+		<dict>
+			<key>ProcessName</key>
+			<string>-elvish</string>
+		</dict>
+	</array>
 	<key>rowCount</key>
 	<integer>50</integer>
 	<key>shellExitAction</key>
