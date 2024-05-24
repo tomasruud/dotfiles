@@ -76,7 +76,6 @@ fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
 
 fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
-fn o {|| use utils; utils:open-url (slurp) }
 
 fn ll {|@a|
 	if (has-external eza) {
