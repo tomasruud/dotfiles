@@ -12,6 +12,8 @@ if (os:exists ~/.env.elv) {
 }
 
 set-env EDITOR hx
+set-env VISUAL hx
+set-env PAGER less
 
 set paths = [
 	~/bin
@@ -133,9 +135,6 @@ set edit:history:binding[Ctrl-P] = { edit:history:up }
 
 set edit:listing:binding[Ctrl-N] = { edit:listing:down }
 set edit:listing:binding[Ctrl-P] = { edit:listing:up }
-
-# TODO: figure out some fun binding for deleting dumb entries
-set edit:histlist:binding[Meta-0] = {|a| put $a }
 
 # --- Prompt
 set edit:prompt = { tprompt -left }
