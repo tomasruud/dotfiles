@@ -19,11 +19,17 @@ set paths = [
 	~/bin
 	/usr/local/bin
 	/usr/bin
+	/usr/sbin
 	/bin
 ]
 
 # --- Man
 set-env MANWIDTH 80
+
+# --- Docker
+if (os:exists ~/.docker/bin) {
+	set paths = [~/.docker/bin $@paths]
+}
 
 # --- Homebrew
 if (os:exists /opt/homebrew) {
