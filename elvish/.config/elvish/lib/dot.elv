@@ -47,6 +47,7 @@ fn setup-tools {
     [go github.com/go-delve/delve/cmd/dlv]
     [go github.com/daveshanley/vacuum]
     [go golang.org/x/tools/cmd/goimports]
+    [go github.com/gokcehan/lf]
 
     [npm dockerfile-language-server-nodejs]
     [npm intelephense]
