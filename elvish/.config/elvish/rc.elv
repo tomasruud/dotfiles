@@ -13,7 +13,7 @@ if (os:exists ~/.env.elv) {
 
 set-env EDITOR hx
 set-env VISUAL hx
-set-env PAGER less
+set-env PAGER bat
 
 set paths = [
 	~/bin

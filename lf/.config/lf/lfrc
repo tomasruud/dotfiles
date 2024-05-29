@@ -1,3 +1,19 @@
 set drawbox
 set hidden
-set relativenumber
+set ratios 1:2
+set period 1
+set scrolloff 5
+set shell elvish
+
+cmd edit-config ${{
+	eval $E:EDITOR" ~/.config/lf/lfrc"
+	lf -remote "send "$E:id" source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
+set previewer ~/.config/lf/preview.elv
+
+cmd trash %trash-put $fx
+map D trash
+
+map o $hx $E:fx
