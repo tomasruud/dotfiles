@@ -5,15 +5,39 @@ set period 1
 set scrolloff 5
 set shell elvish
 
+map a :push %mkdir<space>
+map n :push %touch<space>
+
+cmd q :quit
+
 cmd edit-config ${{
 	eval $E:EDITOR" ~/.config/lf/lfrc"
 	lf -remote "send "$E:id" source ~/.config/lf/lfrc"
 }}
-map C edit-config
 
 set previewer ~/.config/lf/preview.elv
 
-cmd trash %trash-put $fx
-map D trash
+cmd delete %{{
+	var d = (date "+%Y-%m-%dT%H-%M-%S")
+	var dest = /tmp/lf-trash/$d
+	mkdir -p $dest
+	mv $E:fx $dest
+}}
+map D :delete
 
-map o $hx $E:fx
+cmd alt-delete :push %rm<space>-rfd<space>$f
+
+cmd open ${{
+	use re
+	var mime = (file --mime-type -Lb $E:f)
+
+	if (re:match 'text/.*|application/json' $mime) {
+		eval $E:EDITOR" "$E:fx
+	} else {
+		open $E:fx
+	}
+}}
+map <enter> :open
+
+cmd edit $eval $E:EDITOR" "$E:fx
+map o :edit
