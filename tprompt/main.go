@@ -66,7 +66,7 @@ func right() (string, error) {
 		return "", err
 	}
 
-	return fmt.Sprintf("%s@%s", usr.Username, host), nil
+	return usr.Username + "@" + host, nil
 }
 
 func left() (string, error) {
@@ -74,12 +74,12 @@ func left() (string, error) {
 
 	wd, err := os.Getwd()
 	if err != nil {
-		return "", err
+		return prompt.String(), err
 	}
 
 	usr, err := user.Current()
 	if err != nil {
-		return "", err
+		return prompt.String(), err
 	}
 
 	if strings.HasPrefix(wd, usr.HomeDir) {
@@ -90,29 +90,31 @@ func left() (string, error) {
 	}
 
 	if isRepo() {
+		prompt.WriteString(" r")
+
 		status, err := repoStatus()
 		if err != nil {
-			return "", err
+			return prompt.String(), err
 		}
 
-		prompt.WriteString(" \x1b[1m") // bold
-		prompt.WriteString(status.head)
-		prompt.WriteString("\x1b[0m") // reset
+		if status.head != "main" && status.head != "master" {
+			prompt.WriteRune('c')
+		}
 
 		if status.dirty {
-			prompt.WriteRune('*')
+			prompt.WriteRune('d')
 		}
 
 		if status.behind > 0 {
-			prompt.WriteString("↓")
+			prompt.WriteRune('b')
 		}
 
 		if status.ahead > 0 {
-			prompt.WriteString("↑")
+			prompt.WriteRune('a')
 		}
 
 		if status.stash {
-			prompt.WriteString("\x1b[1m^\x1b[0m")
+			prompt.WriteRune('s')
 		}
 	}
 
