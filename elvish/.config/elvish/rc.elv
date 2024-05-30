@@ -23,10 +23,6 @@ set paths = [
 	/bin
 ]
 
-# --- Bat
-set-env BAT_STYLE plain
-set-env BAT_THEME ansi
-
 # --- Man
 set-env MANWIDTH 80
 
