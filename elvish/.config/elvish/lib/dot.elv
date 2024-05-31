@@ -61,6 +61,7 @@ fn setup-tools {
 
     [cargo eza]
     [cargo fd-find]
+    [cargo bat]
   ]
 
   for tool $tools {

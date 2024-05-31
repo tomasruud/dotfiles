@@ -59,7 +59,8 @@ if (has-external go) {
 }
 
 # --- Rust
-if (os:exists ~/.cargo/bin) {
+if (has-external cargo) {
+	set-env CARGO_HOME ~/.cargo
 	set paths = [~/.cargo/bin $@paths]
 }
 
@@ -132,10 +133,14 @@ set edit:completion:binding[Ctrl-P] = { edit:completion:up }
 set edit:completion:binding[Ctrl-B] = { edit:completion:left }
 set edit:completion:binding[Ctrl-F] = { edit:completion:right }
 
-set edit:navigation:binding[Ctrl-B] = { edit:navigation:left }
-set edit:navigation:binding[Ctrl-F] = { edit:navigation:right }
-set edit:navigation:binding[Ctrl-N] = { edit:navigation:down }
-set edit:navigation:binding[Ctrl-P] = { edit:navigation:up }
+set edit:navigation:binding[h] = { edit:navigation:left }
+set edit:navigation:binding[j] = { edit:navigation:down }
+set edit:navigation:binding[k] = { edit:navigation:up }
+set edit:navigation:binding[l] = { edit:navigation:right }
+set edit:navigation:binding[Ctrl-N] = { edit:navigation:page-down }
+set edit:navigation:binding[Ctrl-P] = { edit:navigation:page-up }
+set edit:navigation:binding[Ctrl-D] = { edit:navigation:file-preview-down }
+set edit:navigation:binding[Ctrl-U] = { edit:navigation:file-preview-up }
 
 set edit:history:binding[Ctrl-N] = { edit:history:down-or-quit }
 set edit:history:binding[Ctrl-P] = { edit:history:up }
