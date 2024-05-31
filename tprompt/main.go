@@ -90,7 +90,7 @@ func left() (string, error) {
 	}
 
 	if isRepo() {
-		prompt.WriteString(" r")
+		var flags string
 
 		status, err := repoStatus()
 		if err != nil {
@@ -98,23 +98,27 @@ func left() (string, error) {
 		}
 
 		if status.head != "main" && status.head != "master" {
-			prompt.WriteRune('c')
+			flags += "c"
 		}
 
 		if status.dirty {
-			prompt.WriteRune('d')
+			flags += "d"
 		}
 
 		if status.behind > 0 {
-			prompt.WriteRune('b')
+			flags += "b"
 		}
 
 		if status.ahead > 0 {
-			prompt.WriteRune('a')
+			flags += "a"
 		}
 
 		if status.stash {
-			prompt.WriteRune('s')
+			flags += "s"
+		}
+
+		if len(flags) > 0 {
+			prompt.WriteString(" " + flags)
 		}
 	}
 
