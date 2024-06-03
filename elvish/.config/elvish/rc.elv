@@ -59,8 +59,7 @@ if (has-external go) {
 }
 
 # --- Rust
-if (has-external cargo) {
-	set-env CARGO_HOME ~/.cargo
+if (os:exists ~/.cargo/bin) {
 	set paths = [~/.cargo/bin $@paths]
 }
 
