@@ -118,11 +118,11 @@ func left() (string, error) {
 		}
 
 		if len(flags) > 0 {
-			prompt.WriteString(" " + flags)
+			prompt.WriteString("|" + flags)
 		}
 	}
 
-	prompt.WriteString("$ ")
+	prompt.WriteString("> ")
 
 	return fmt.Sprintf("%s", prompt.String()), nil
 }
