@@ -15,6 +15,8 @@ set-env EDITOR hx
 set-env VISUAL hx
 set-env PAGER bat
 
+set-env XDG_CONFIG_HOME ~/.config
+
 set paths = [
 	~/bin
 	/usr/local/bin
@@ -77,6 +79,11 @@ if (has-external ruby) {
 	# Customizing the gem folder makes it possible to use without sudo.
 	set-env GEM_HOME ~/.gems
 	set paths = [~/.gems/bin $@paths]
+}
+
+# --- usql
+if (has-external usql) {
+	set-env USQL_CONFIG ~/.config/usql/config.yaml
 }
 
 # --- Functions

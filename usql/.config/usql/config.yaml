@@ -1,0 +1,4 @@
+init: |
+  \set SYNTAX_HL_FORMAT terminal16
+  \set SYNTAX_HL_STYLE algol
+  \set SYNTAX_HL_OVERRIDE_BG false
