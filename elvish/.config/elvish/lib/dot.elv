@@ -49,6 +49,7 @@ fn setup-tools {
     [go golang.org/x/tools/cmd/goimports]
     [go github.com/gokcehan/lf]
     [go gotest.tools/gotestsum]
+    [go github.com/tomasruud/serve]
 
     [npm dockerfile-language-server-nodejs]
     [npm intelephense]
