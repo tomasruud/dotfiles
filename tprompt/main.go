@@ -145,8 +145,6 @@ func repoPath() (string, error) {
 
 func repoStatus() (status, error) {
 	cmd := exec.Command("git", "--no-optional-locks", "status", "--show-stash", "--branch", "--porcelain=v2")
-	cmd.Env = append(cmd.Env, "LC_ALL=C")
-
 	out, err := cmd.Output()
 	if err != nil {
 		return status{}, err
