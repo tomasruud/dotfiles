@@ -7,6 +7,10 @@ language-server.gopls.config.local = "go.axofinance.io,github.com/tomasruud"
 name = "tfvars"
 file-types = ["tfvars", "tfvar"]
 
+[[language]]
+name = "sql"
+formatter = {command = "sleek", args = []}
+
 # Add openapi lsp
 [[language]]
 name = "openapi3.json"

@@ -60,11 +60,11 @@ fn setup-tools {
 
     [gem solargraph]
 
-    [cargo cargo-binstall]
     [cargo eza]
     [cargo fd-find]
     [cargo bat]
     [cargo ripgrep]
+    [cargo sleek]
   ]
 
   for tool $tools {
@@ -85,11 +85,7 @@ fn setup-tools {
     } elif (eq $t gem) {
       gem install $pkg
     } elif (eq $t cargo) {
-      if (eq $pkg "cargo-binstall") {
-        cargo install $pkg
-      } else {
-        cargo binstall $pkg
-      }
+      cargo install $pkg
     } elif (eq $t sh) {
       sh $pkg
     } else {
