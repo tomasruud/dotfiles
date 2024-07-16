@@ -21,7 +21,7 @@ cmd delete %{{
 	var d = (date "+%Y-%m-%dT%H-%M-%S")
 	var dest = /tmp/lf-trash/$d
 	mkdir -p $dest
-	mv $E:fx $dest
+	mv $E:f $dest
 }}
 map D :delete
 
@@ -32,12 +32,12 @@ cmd open ${{
 	var mime = (file --mime-type -Lb $E:f)
 
 	if (re:match 'text/.*|application/json' $mime) {
-		eval $E:EDITOR" "$E:fx
+		eval $E:EDITOR" "$E:f
 	} else {
-		open $E:fx
+		open $E:f
 	}
 }}
 map <enter> :open
 
-cmd edit $eval $E:EDITOR" "$E:fx
+cmd edit $eval $E:EDITOR" "$E:f
 map o :edit
