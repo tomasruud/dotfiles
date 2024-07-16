@@ -5,8 +5,8 @@ set period 1
 set scrolloff 5
 set shell elvish
 
-map a :push %mkdir<space>
-map n :push %touch<space>
+map m :push %mkdir<space>
+map t :push %touch<space>
 
 cmd q :quit
 
