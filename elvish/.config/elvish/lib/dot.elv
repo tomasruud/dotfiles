@@ -39,57 +39,29 @@ fn backup-brew {
 
 # Install LSPs and tools
 fn setup-tools {
-  var tools = [
-    [sh ~/dotfiles/tprompt/install.sh]
+  sh ~/dotfiles/tprompt/install.sh
 
-    [go mvdan.cc/gofumpt]
-    [go golang.org/x/tools/gopls]
-    [go github.com/go-delve/delve/cmd/dlv]
-    [go github.com/daveshanley/vacuum]
-    [go golang.org/x/tools/cmd/goimports]
-    [go github.com/gokcehan/lf]
-    [go gotest.tools/gotestsum]
-    [go github.com/tomasruud/serve]
+  go install mvdan.cc/gofumpt@latest
+  go install golang.org/x/tools/gopls@latest
+  go install github.com/go-delve/delve/cmd/dlv@latest
+  go install github.com/daveshanley/vacuum@latest
+  go install golang.org/x/tools/cmd/goimports@latest
+  go install github.com/gokcehan/lf@latest
+  go install gotest.tools/gotestsum@latest
+  go install github.com/tomasruud/serve@latest
 
-    [npm dockerfile-language-server-nodejs]
-    [npm intelephense]
-    [npm typescript-language-server]
-    [npm typescript]
-    [npm vscode-langservers-extracted]
-    [npm bash-language-server]
+  npm i -g dockerfile-language-server-nodejs
+  npm i -g intelephense
+  npm i -g typescript-language-server
+  npm i -g typescript
+  npm i -g vscode-langservers-extracted
+  npm i -g bash-language-server
 
-    [gem solargraph]
+  gem install solargraph
 
-    [cargo eza]
-    [cargo fd-find]
-    [cargo bat]
-    [cargo ripgrep]
-    [cargo sleek]
-  ]
-
-  for tool $tools {
-    var t = $tool[0]
-    var pkg = $tool[1]
-
-    if (not (has-external $t)) {
-    	echo (styled 'missing '$t' for '$pkg bold red)
-      continue
-    }
-
-    echo 'Installing ('$t'):' $pkg
-
-    if (eq $t go) {
-      go install $pkg'@latest'
-    } elif (eq $t npm) {
-      npm i -g $pkg
-    } elif (eq $t gem) {
-      gem install $pkg
-    } elif (eq $t cargo) {
-      cargo install $pkg
-    } elif (eq $t sh) {
-      sh $pkg
-    } else {
-     	echo (styled 'no install strategy for '$t bold red)
-    }
-  }
+  cargo install eza
+  cargo install fd-find
+  cargo install bat
+  cargo install ripgrep
+  cargo install sleek
 }
