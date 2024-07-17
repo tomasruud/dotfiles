@@ -31,7 +31,7 @@ cmd open ${{
 	use re
 	var mime = (file --mime-type -Lb $E:f)
 
-	if (re:match 'text/.*|application/json' $mime) {
+	if (re:match 'text/.*|application/json|inode/x-empty' $mime) {
 		eval $E:EDITOR" "$E:f
 	} else {
 		open $E:f
