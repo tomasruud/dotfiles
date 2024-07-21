@@ -7,6 +7,7 @@ set shell elvish
 
 map m :push %mkdir<space>
 map t :push %touch<space>
+map V :invert-below
 
 cmd q :quit
 
