@@ -1,7 +1,7 @@
 .PHONY: tools
 tools:
-	sh ./tprompt/install.sh
-	
+	CGO_ENABLED=0 go install -ldflags="-s -w" ./tprompt/main.go
+
 	go install mvdan.cc/gofumpt@latest
 	go install golang.org/x/tools/gopls@latest
 	go install github.com/go-delve/delve/cmd/dlv@latest
