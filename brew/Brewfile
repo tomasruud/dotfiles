@@ -28,7 +28,7 @@ brew "mosh"
 brew "neofetch"
 brew "node"
 brew "openjdk"
-brew "rustup-init"
+brew "rustup"
 brew "sevenzip"
 brew "stow"
 brew "taplo"
@@ -46,6 +46,7 @@ cask "docker"
 cask "firefox"
 cask "font-ibm-plex-mono"
 cask "font-jetbrains-mono"
+cask "font-meslo-lg-dz"
 cask "gnucash"
 cask "jetbrains-toolbox"
 cask "kitty"
@@ -55,7 +56,6 @@ cask "spotify"
 cask "sublime-text"
 mas "Bitwarden", id: 1352778147
 mas "Boxy SVG", id: 611658502
-mas "Hidden Bar", id: 1452453066
 mas "Kindle", id: 302584613
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
