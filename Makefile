@@ -11,6 +11,7 @@ tools:
 	go install gotest.tools/gotestsum@latest
 	go install github.com/tomasruud/dog@latest
 	go install github.com/tomasruud/serve@latest
+	go install github.com/tomasruud/urlr@latest
 	
 	npm i -g dockerfile-language-server-nodejs
 	npm i -g intelephense
