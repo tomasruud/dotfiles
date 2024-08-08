@@ -9,6 +9,7 @@ tools:
 	go install golang.org/x/tools/cmd/goimports@latest
 	go install github.com/gokcehan/lf@latest
 	go install gotest.tools/gotestsum@latest
+	go install github.com/noborus/ov@latest
 	go install github.com/tomasruud/dog@latest
 	go install github.com/tomasruud/serve@latest
 	go install github.com/tomasruud/urlr@latest
