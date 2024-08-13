@@ -20,7 +20,7 @@ tools:
 	npm i -g vscode-langservers-extracted
 	npm i -g bash-language-server
 	
-	gem install solargraph
+	gem install rubocop
 	
 	cargo install eza
 	cargo install fd-find

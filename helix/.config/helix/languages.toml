@@ -25,3 +25,15 @@ indent = { tab-width = 2, unit = "  " }
 [language-server.vacuum-lsp]
 command = "vacuum"
 args = ["language-server"]
+
+# Ruby
+[language-server.rubocop]
+command = "rubocop"
+args = ["--lsp"]
+
+[[language]]
+name = "ruby"
+auto-format = true
+language-servers = [
+  { name = "rubocop" }
+]
