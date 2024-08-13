@@ -153,8 +153,10 @@ set edit:listing:binding[Ctrl-N] = { edit:listing:down }
 set edit:listing:binding[Ctrl-P] = { edit:listing:up }
 
 # --- Prompt
-set edit:prompt = { tprompt -left }
-set edit:rprompt = { tprompt -right }
+if (has-external tprompt) {
+	set edit:prompt = { tprompt -left }
+	set edit:rprompt = { tprompt -right }
+}
 
 # --- Completions
 if (has-external carapace) {

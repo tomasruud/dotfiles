@@ -1,7 +1,5 @@
 .PHONY: tools
 tools:
-	CGO_ENABLED=0 go install -ldflags="-s -w" ./tprompt/main.go
-
 	go install mvdan.cc/gofumpt@latest
 	go install golang.org/x/tools/gopls@latest
 	go install github.com/go-delve/delve/cmd/dlv@latest
@@ -12,6 +10,7 @@ tools:
 	go install github.com/tomasruud/dog@latest
 	go install github.com/tomasruud/serve@latest
 	go install github.com/tomasruud/urlr@latest
+	go install github.com/tomasruud/tprompt@latest
 	
 	npm i -g dockerfile-language-server-nodejs
 	npm i -g intelephense
