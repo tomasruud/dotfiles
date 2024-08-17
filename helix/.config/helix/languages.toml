@@ -1,6 +1,6 @@
 # Set gofumpt as Go formatter
 language-server.gopls.config.gofumpt = true
-language-server.gopls.config.local = "go.axofinance.io,github.com/tomasruud"
+language-server.gopls.config.local = "go.axofinance.io,github.com/tomasruud,gitlab.com/2ms"
 
 # Add .tfvar as tfvars ext
 [[language]]
