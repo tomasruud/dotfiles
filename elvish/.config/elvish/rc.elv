@@ -87,6 +87,7 @@ if (has-external usql) {
 # --- Functions
 fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
+fn .. {|| cd ..}
 
 fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
 
