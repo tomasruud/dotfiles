@@ -1,0 +1,3 @@
+#!/usr/bin/env elvish
+
+open "https://gitlab.com/groups/a2755/-/saml/sso"
