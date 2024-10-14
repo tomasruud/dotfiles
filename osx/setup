@@ -7,7 +7,7 @@
 export PATH="PATH:/opt/homebrew/bin"
 
 # clone the repo
-git clone --recurse-submodules https://github.com/tomasruud/dotfiles.git $HOME/dotfiles
+git clone https://github.com/tomasruud/dotfiles.git $HOME/dotfiles
 
 # install Homebrew packages
 brew bundle --file "$HOME/dotfiles/osx/Brewfile"
