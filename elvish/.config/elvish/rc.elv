@@ -160,8 +160,8 @@ set edit:listing:binding[Ctrl-P] = { edit:listing:up }
 
 # --- Prompt
 if (has-external tprompt) {
-	# set edit:prompt = { tprompt -left }
-	# set edit:rprompt = { tprompt -right }
+	set edit:prompt = { tprompt -left }
+	set edit:rprompt = { tprompt -right }
 }
 
 # --- Completions
