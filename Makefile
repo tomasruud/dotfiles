@@ -27,8 +27,6 @@ tools:
 	cargo install ripgrep
 	cargo install sleek
 
-	composer global require phpactor/phpactor
-
 .PHONY: install
 install:
 	stow --verbose --target=$${HOME} --restow */
