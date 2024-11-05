@@ -1,4 +1,4 @@
-theme = "ttox"
+theme = "ttox-bg"
 
 [editor]
 rulers = [100]
