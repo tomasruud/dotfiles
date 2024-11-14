@@ -84,6 +84,11 @@ if (os:exists ~/.composer/vendor/bin) {
 	set paths = [~/.composer/vendor/bin $@paths]
 }
 
+# --- JetBrains
+if (os:exists /opt/jetbrains/bin) {
+	set paths = [/opt/jetbrains/bin $@paths]
+}
+
 # --- usql
 if (has-external usql) {
 	set-env USQL_CONFIG ~/.config/usql/config.yaml
