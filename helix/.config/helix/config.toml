@@ -12,6 +12,7 @@ hidden = false
 
 [keys.normal]
 "=" = ":fmt"
+" " = { w = ":reflow" } # Reflow text
 
 [keys.insert]
 j = { k = "normal_mode" }
