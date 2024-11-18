@@ -17,6 +17,7 @@ set-env XDG_CONFIG_HOME ~/.config
 
 set paths = [
 	~/bin
+	~/.local/bin
 	/usr/local/bin
 	/usr/bin
 	/usr/sbin
