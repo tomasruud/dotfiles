@@ -7,6 +7,10 @@ auto-pairs = false
 popup-border = "all" # needed to the current ttox theme
 jump-label-alphabet = "jklfdshgaø"
 
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
+
 [editor.file-picker]
 hidden = false
 
