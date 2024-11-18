@@ -7,6 +7,7 @@ tap "osx-cross/avr"
 tap "qmk/qmk"
 tap "rsteube/tap"
 tap "xo/xo"
+brew "amp"
 brew "ruby"
 brew "cocoapods"
 brew "php"
@@ -25,6 +26,7 @@ brew "lua-language-server"
 brew "luarocks"
 brew "marksman"
 brew "mas"
+brew "micro"
 brew "mosh"
 brew "neofetch"
 brew "node"
@@ -46,12 +48,14 @@ cask "darktable"
 cask "docker"
 cask "font-jetbrains-mono"
 cask "gnucash"
+cask "ollama"
 cask "qmk-toolbox"
 cask "rectangle"
 cask "spotify"
 cask "sublime-text"
 mas "Bitwarden", id: 1352778147
 mas "Boxy SVG", id: 611658502
+mas "Hidden Bar", id: 1452453066
 mas "Kindle", id: 302584613
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
