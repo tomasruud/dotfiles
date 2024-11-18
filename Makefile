@@ -26,6 +26,7 @@ tools:
 	cargo install bat
 	cargo install ripgrep
 	cargo install sleek
+	cargo install lsp-ai
 
 .PHONY: install
 install:

@@ -40,3 +40,49 @@ args = ["--lsp"]
 name = "ruby"
 auto-format = true
 language-servers = [{ name = "rubocop" }]
+
+# AI
+[language-server.lsp-ai]
+command = "lsp-ai"
+
+[language-server.lsp-ai.config.memory]
+file_store = {}
+
+[language-server.lsp-ai.config.models.model1]
+type = "ollama"
+model = "codellama"
+
+[[language-server.lsp-ai.config.chat]]
+action_display_name = "AI chat ✨"
+trigger = "!C"
+model = "model1"
+
+[language-server.lsp-ai.config.chat.parameters]
+max_context = 4096
+max_tokens = 1024
+system = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
+
+[[language-server.lsp-ai.config.chat]]
+action_display_name = "AI chat (context) ✨"
+trigger = "!CC"
+model = "model1"
+
+[language-server.lsp-ai.config.chat.parameters]
+max_context = 4096
+max_tokens = 1024
+system = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately given the code context:\n\n{CONTEXT}"
+
+[[language-server.lsp-ai.config.actions]]
+action_display_name = "AI complete ✨"
+model = "model1"
+# post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
+
+[language-server.lsp-ai.config.actions.parameters]
+max_context = 4096
+max_tokens = 4096
+system = ""
+messages = [{ role = "user", content = "{CODE}" }]
+
+[[language]]
+name = "go"
+language-servers = ["gopls", "lsp-ai"]
