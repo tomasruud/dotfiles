@@ -71,12 +71,3 @@ model = "model1"
 [language-server.lsp-ai.config.completion.parameters]
 max_context = 2000
 options = { num_predict = 128 }
-
-[[language]]
-name = "go"
-language-servers = ["gopls", "lsp-ai"]
-
-[[language]]
-name = "toml"
-language-servers = ["taplo", "lsp-ai"]
-
