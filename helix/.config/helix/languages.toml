@@ -50,7 +50,7 @@ file_store = {}
 
 [language-server.lsp-ai.config.models.model1]
 type = "ollama"
-model = "codellama"
+model = "deepseek-coder"
 
 [[language-server.lsp-ai.config.chat]]
 action_display_name = "AI chat ✨"
@@ -60,29 +60,23 @@ model = "model1"
 [language-server.lsp-ai.config.chat.parameters]
 max_context = 4096
 max_tokens = 1024
-system = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
 
-[[language-server.lsp-ai.config.chat]]
-action_display_name = "AI chat (context) ✨"
-trigger = "!CC"
+[[language-server.lsp-ai.config.chat.parameters.messages]]
+role = "system"
+content = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
+
+[language-server.lsp-ai.config.completion]
 model = "model1"
 
-[language-server.lsp-ai.config.chat.parameters]
-max_context = 4096
-max_tokens = 1024
-system = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately given the code context:\n\n{CONTEXT}"
-
-[[language-server.lsp-ai.config.actions]]
-action_display_name = "AI complete ✨"
-model = "model1"
-# post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
-
-[language-server.lsp-ai.config.actions.parameters]
-max_context = 4096
-max_tokens = 4096
-system = ""
-messages = [{ role = "user", content = "{CODE}" }]
+[language-server.lsp-ai.config.completion.parameters]
+max_context = 2000
+options = { num_predict = 128 }
 
 [[language]]
 name = "go"
 language-servers = ["gopls", "lsp-ai"]
+
+[[language]]
+name = "toml"
+language-servers = ["taplo", "lsp-ai"]
+
