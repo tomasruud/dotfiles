@@ -13,6 +13,7 @@ hidden = false
 [keys.normal]
 "=" = ":fmt"
 " " = { w = ":reflow" } # Reflow text
+"minus" = "flip_selections"
 
 [keys.insert]
 j = { k = "normal_mode" }
