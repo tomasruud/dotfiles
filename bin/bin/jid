@@ -1,0 +1,9 @@
+#!/usr/bin/env elvish
+
+use path
+use str
+
+var id = (pbpaste | str:split '?' (all) | path:base [(all)][0])
+echo $id | pbcopy
+
+echo ID copied to clipboard: $id
