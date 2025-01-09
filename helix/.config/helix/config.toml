@@ -10,12 +10,9 @@ jump-label-alphabet = "jklfdshgaø"
 [editor.file-picker]
 hidden = false
 
-[editor.inline-diagnostics]
-cursor-line = "error"
-
 [keys.normal]
 "=" = ":fmt"
-" " = { w = ":reflow" } # Reflow text
+" " = { w = ":reflow" }
 "minus" = "flip_selections"
 
 [keys.insert]
