@@ -12,7 +12,8 @@ tools:
 	go install github.com/tomasruud/serve@latest
 	go install github.com/tomasruud/urlr@latest
 	go install github.com/tomasruud/tprompt@latest
-	
+	go install github.com/tomasruud/go-test-skeleton@latest
+
 	npm i -g dockerfile-language-server-nodejs
 	npm i -g intelephense
 	npm i -g typescript-language-server
