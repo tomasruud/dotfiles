@@ -4,10 +4,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # add Homebrew binaries to path
-export PATH="PATH:/opt/homebrew/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 
 # clone the repo
 git clone https://github.com/tomasruud/dotfiles.git $HOME/dotfiles
 
 # install Homebrew packages
-brew bundle --file "$HOME/dotfiles/osx/Brewfile"
+brew bundle --file "$HOME/dotfiles/brew/Brewfile"
