@@ -36,4 +36,4 @@ let g:netrw_fastbrowse=0
 let mapleader="\<space>"
 nmap <leader>e :Explore<cr>
 
-inoremap jk <esc>
+inoremap jk <esc>`^
