@@ -11,3 +11,14 @@ git clone https://github.com/tomasruud/dotfiles.git $HOME/dotfiles
 
 # install Homebrew packages
 brew bundle --file "$HOME/dotfiles/brew/Brewfile"
+
+# set default rust toolchain
+rustup default stable
+
+# set elvish as default shell
+elvish "$HOME/dotfiles/osx/default-shell.elv"
+
+cd $HOME/dotfiles
+
+make install
+make tools
