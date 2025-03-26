@@ -1,0 +1,13 @@
+source ~/.vimrc
+
+nmap = <Action>(ReformatCode)
+nmap <leader>/ <Action>(FindInPath)
+nmap <leader>a <Action>(GoToAction)
+nmap <leader>b <Action>(RecentFiles)
+nmap <leader>f <Action>(GoToFile)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>s <Action>(GoToSymbol)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(FindUsages)
