@@ -1,6 +1,7 @@
 source ~/.vimrc
 
 nmap = <Action>(ReformatCode)
+nmap % <Action>($SelectAll)
 nmap <leader>/ <Action>(FindInPath)
 nmap <leader>a <Action>(GoToAction)
 nmap <leader>b <Action>(RecentFiles)
