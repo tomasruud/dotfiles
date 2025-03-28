@@ -32,7 +32,7 @@ tools:
 
 	if [ ! -d ~/external/helix ]; then \
 		git clone https://github.com/helix-editor/helix ~/external/helix; \
-	fi \
+	fi; \
 	cd ~/external/helix; \
 	git pull; \
 	cargo install --path helix-term --locked
