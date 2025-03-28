@@ -20,15 +20,23 @@ tools:
 	npm i -g typescript
 	npm i -g vscode-langservers-extracted
 	npm i -g bash-language-server
-	
+
 	gem install rubocop
-	
+
 	cargo install eza
 	cargo install fd-find
 	cargo install bat
 	cargo install ripgrep
 	cargo install sleek
 	cargo install lsp-ai
+
+	if [ ! -d ~/external/helix ]; then \
+		git clone https://github.com/helix-editor/helix ~/external/helix; \
+	else \
+		cd ~/external/helix; \
+		git pull; \
+	fi; \
+	cargo install --path helix-term --locked
 
 .PHONY: install
 install:
