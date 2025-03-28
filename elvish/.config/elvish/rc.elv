@@ -47,6 +47,11 @@ if (os:exists /opt/homebrew) {
 	]
 }
 
+# --- Helix
+if (os:exists ~/external/helix/runtime) {
+    set-env HELIX_RUNTIME ~/external/helix/runtime
+}
+
 # --- Go
 if (os:exists /opt/homebrew/opt/go/libexec) {
 	set-env GOROOT /opt/homebrew/opt/go/libexec
