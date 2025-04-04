@@ -4,7 +4,7 @@ theme = "ttox-mono"
 rulers = [100]
 line-number = "relative"
 auto-pairs = false
-popup-border = "all" # needed to the current ttox theme
+popup-border = "all"               # needed to the current ttox theme
 jump-label-alphabet = "jklfdshgaø"
 
 [editor.file-picker]
@@ -12,9 +12,12 @@ hidden = false
 
 [keys.normal]
 "=" = ":fmt"
-" " = { w = ":reflow" }
-"minus" = "flip_selections"
-"V" = "copy_selection_on_prev_line"
+minus = "flip_selections"
+V = "copy_selection_on_prev_line"
+
+[keys.normal." "]
+w = ":reflow"
+C-y = ":pipe-to pbcopy"
 
 [keys.insert]
 j = { k = "normal_mode" }
