@@ -47,7 +47,7 @@ uninstall:
 
 .PHONY: backup-secrets
 backup-secrets:
-	tar -zcvf $(shell hostname)-$(shell date +%Y-%m-%d)-secrets.backup.tgz ~/.ssh ~/.netrc ~/.env*
+	tar -zcvf $(shell hostname)-$(shell date +%Y-%m-%d)-secrets.backup.tgz ~/.ssh ~/.netrc ~/.env* ~/.gitconfig.local
 
 .PHONY: backup-brew
 backup-brew:
