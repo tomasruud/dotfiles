@@ -132,6 +132,7 @@ set edit:command-abbr['d'] = 'docker compose run --rm'
 set edit:command-abbr['dc'] = 'docker compose'
 set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
 set edit:command-abbr['gt'] = 'gotestsum'
+set edit:command-abbr['dd'] = 'docker desktop'
 
 # --- Elvish keybinds
 set edit:insert:binding[Ctrl-N] = { edit:end-of-history }
