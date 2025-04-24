@@ -20,6 +20,7 @@ tools:
 	npm i -g typescript
 	npm i -g vscode-langservers-extracted
 	npm i -g bash-language-server
+	npm i -g prettier
 
 	gem install rubocop
 
