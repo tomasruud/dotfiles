@@ -32,6 +32,11 @@ if (os:exists ~/.docker/bin) {
 	set paths = [~/.docker/bin $@paths]
 }
 
+# --- Garmin
+if (os:exists ~'/Library/Application Support/Garmin/ConnectIQ/current-sdk.cfg') {
+    set paths = [(cat ~'/Library/Application Support/Garmin/ConnectIQ/current-sdk.cfg')/bin $@paths]
+}
+
 # --- Homebrew
 if (os:exists /opt/homebrew) {
 	set-env HOMEBREW_PREFIX /opt/homebrew
