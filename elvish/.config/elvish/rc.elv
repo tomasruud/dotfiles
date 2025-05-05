@@ -105,6 +105,8 @@ fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
 fn .. {|| cd ..}
 
+fn bw {|| open -a Bitwarden }
+
 fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
 
 fn ll {|@a|
@@ -133,7 +135,6 @@ set edit:command-abbr['dc'] = 'docker compose'
 set edit:command-abbr['dx'] = 'docker run --rm --interactive --tty --volume (pwd):/app --workdir /app'
 set edit:command-abbr['gt'] = 'gotestsum'
 set edit:command-abbr['dd'] = 'docker desktop'
-set edit:command-abbr['bw'] = 'open -a Bitwarden'
 
 # --- Elvish keybinds
 set edit:insert:binding[Ctrl-N] = { edit:end-of-history }
