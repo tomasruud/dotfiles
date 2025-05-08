@@ -1,5 +1,9 @@
+set nocompatible
+
 filetype plugin indent on
+
 syntax off
+colorscheme default
 
 set autoread
 
@@ -34,6 +38,15 @@ let g:netrw_keepdir=0
 let g:netrw_fastbrowse=0
 
 let mapleader=" "
-nmap <leader>e :Explore<cr>
+
+" File explorer toggle.
+function! ToggleExplorer()
+    if exists(":Rexplore")
+        Rexplore
+    else
+        Explore
+    endif
+endfunction
+nnoremap <leader>e :call ToggleExplorer()<cr>
 
 inoremap jk <esc>`^
