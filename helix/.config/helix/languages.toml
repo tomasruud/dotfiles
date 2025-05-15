@@ -14,7 +14,7 @@ formatter = { command = "sleek", args = [] }
 
 # Add openapi lsp
 [[language]]
-name = "openapi3.json"
+name = "openapi3"
 grammar = "json"
 scope = "source.openapi3.json"
 roots = []
@@ -41,34 +41,3 @@ args = ["--lsp"]
 name = "ruby"
 auto-format = true
 language-servers = [{ name = "rubocop" }]
-
-# AI
-[language-server.lsp-ai]
-command = "lsp-ai"
-
-[language-server.lsp-ai.config.memory]
-file_store = {}
-
-[language-server.lsp-ai.config.models.model1]
-type = "ollama"
-model = "deepseek-coder"
-
-[[language-server.lsp-ai.config.chat]]
-action_display_name = "AI chat ✨"
-trigger = "!C"
-model = "model1"
-
-[language-server.lsp-ai.config.chat.parameters]
-max_context = 4096
-max_tokens = 1024
-
-[[language-server.lsp-ai.config.chat.parameters.messages]]
-role = "system"
-content = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
-
-[language-server.lsp-ai.config.completion]
-model = "model1"
-
-[language-server.lsp-ai.config.completion.parameters]
-max_context = 2000
-options = { num_predict = 128 }
