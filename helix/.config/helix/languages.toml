@@ -10,7 +10,7 @@ file-types = ["tfvars", "tfvar"]
 
 [[language]]
 name = "sql"
-formatter = { command = "sleek", args = [] }
+formatter = { command = "sql-formatter", args = [] }
 
 # Add openapi lsp
 [[language]]
@@ -21,10 +21,10 @@ roots = []
 auto-format = true
 file-types = ["openapi.json"]
 language-servers = [
-  { name = "vscode-json-language-server", only-features = [
-    "format",
-  ] },
-  "vacuum-lsp",
+    { name = "vscode-json-language-server", only-features = [
+        "format",
+    ] },
+    "vacuum-lsp",
 ]
 indent = { tab-width = 2, unit = "  " }
 
