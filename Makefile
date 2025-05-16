@@ -21,6 +21,7 @@ tools:
 	npm i -g vscode-langservers-extracted
 	npm i -g bash-language-server
 	npm i -g prettier
+	npm i -g sql-formatter
 
 	gem install rubocop
 
@@ -28,7 +29,6 @@ tools:
 	cargo install fd-find
 	cargo install bat
 	cargo install ripgrep
-	cargo install sleek
 	cargo install lsp-ai
 
 	if [ ! -d ~/external/helix ]; then \
