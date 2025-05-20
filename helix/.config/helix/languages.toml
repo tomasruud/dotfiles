@@ -10,7 +10,7 @@ file-types = ["tfvars", "tfvar"]
 
 [[language]]
 name = "sql"
-formatter = { command = "sql-formatter", args = [] }
+formatter = { command = "sleek", args = [] }
 
 # Add openapi lsp
 [[language]]
