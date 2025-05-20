@@ -132,6 +132,14 @@ fn lt {|@a|
 	}
 }
 
+fn notify {|msg|
+    if (has-external terminal-notifier) {
+        terminal-notifier -title "Terminal" -message $msg -sound default
+    } else {
+        echo (styled "terminal-notifier is not installed, can not send notification." red)
+    }
+}
+
 # --- Abbrs
 set edit:command-abbr['gti'] = 'git'
 set edit:command-abbr['got'] = 'git'
