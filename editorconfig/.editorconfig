@@ -22,3 +22,6 @@ indent_size = 3
 [*.json]
 indent_style = space
 indent_size = 2
+
+[*.snap]
+insert_final_newline = false
