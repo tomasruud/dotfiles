@@ -19,7 +19,7 @@ cmd edit-config ${{
 	lf -remote "send "$E:id" source ~/.config/lf/lfrc"
 }}
 
-set previewer ~/.config/lf/preview.elv
+set previewer bat
 
 cmd delete %{{
 	var d = (date "+%Y-%m-%dT%H-%M-%S")
