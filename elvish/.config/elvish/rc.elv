@@ -111,6 +111,7 @@ fn note {|| hx ~/notes.txt}
 fn .. {|| cd ..}
 
 fn bw {|| open -a Bitwarden }
+fn gg {|| go generate ./... }
 
 fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
 
@@ -187,7 +188,7 @@ set edit:listing:binding[Ctrl-P] = { edit:listing:up }
 
 # --- Prompt
 if (has-external tprompt) {
-	set edit:prompt = { tprompt -left }
+	set edit:prompt = { tprompt }
 	set edit:rprompt = { tprompt -right }
 }
 
