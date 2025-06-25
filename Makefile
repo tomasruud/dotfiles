@@ -37,6 +37,8 @@ tools:
 	cd ~/external/helix; \
 	git pull; \
 	cargo install --path helix-term --locked
+	hx -g fetch
+	hx -g build
 
 .PHONY: install
 install:
