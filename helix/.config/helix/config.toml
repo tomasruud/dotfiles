@@ -4,17 +4,20 @@ theme = "ttox-mono"
 rulers = [100]
 line-number = "relative"
 auto-pairs = false
-popup-border = "all"               # needed to the current ttox theme
-jump-label-alphabet = "jklfdshgaø"
+popup-border = "all"     # needed to the current ttox theme
 
 [editor.file-picker]
 hidden = false
 
+[editor.gutters]
+layout = ["diff", "diagnostics", "spacer"]
+
 [keys.normal]
 "=" = ":fmt"
-minus = "flip_selections"
+"-" = "flip_selections"
 V = "copy_selection_on_prev_line"
 "ø" = "repeat_last_motion"
+C-f = "@*<space>/<ret>"
 
 [keys.normal." "]
 w = ":reflow"
