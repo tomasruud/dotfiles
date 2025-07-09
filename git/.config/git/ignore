@@ -4,3 +4,5 @@
 .DS_Store
 .fleet
 .swp
+
+**/.claude/settings.local.json
