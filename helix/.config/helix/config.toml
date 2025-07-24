@@ -21,6 +21,7 @@ C-f = "@*<space>/<ret>"
 
 [keys.normal." "]
 w = ":reflow"
+o = ":pipe sort"
 C-y = ":pipe-to pbcopy"
 
 [keys.insert]
