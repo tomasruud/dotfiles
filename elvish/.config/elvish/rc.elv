@@ -15,9 +15,6 @@ set-env PAGER bat
 
 set-env XDG_CONFIG_HOME ~/.config
 
-# Disable colors for chalk-based (npm) apps, which usually look like christmas trees.
-set-env FORCE_COLOR 0
-
 set paths = [
 	~/bin
 	~/.local/bin

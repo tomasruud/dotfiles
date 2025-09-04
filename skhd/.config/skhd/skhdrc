@@ -1,4 +1,4 @@
-rcmd - 1 : open -a Terminal
+rcmd - 1 : open -a Ghostty
 rcmd - 2 : open -a Safari
 rcmd - 3 : open -a "Microsoft Teams"
 rcmd - 4 : open -a Firefox
