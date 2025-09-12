@@ -1,5 +1,3 @@
-set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
-
 set drawbox
 set hidden
 set ratios 1:2
@@ -13,13 +11,6 @@ map V :invert-below
 map u :unselect
 
 cmd q :quit
-
-cmd edit-config ${{
-	eval $E:EDITOR" ~/.config/lf/lfrc"
-	lf -remote "send "$E:id" source ~/.config/lf/lfrc"
-}}
-
-set previewer bat
 
 cmd delete %{{
 	var d = (date "+%Y-%m-%dT%H-%M-%S")
