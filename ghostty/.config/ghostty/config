@@ -3,4 +3,3 @@ font-size = 14
 adjust-cell-height = 13%
 
 theme = dark:ttox-dark,light:ttox-light
-window-decoration = false
