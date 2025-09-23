@@ -16,6 +16,15 @@ hidden = false
 [editor.gutters]
 layout = ["diff", "diagnostics", "spacer"]
 
+[editor.whitespace.render]
+nbsp = "all"
+nnbsp = "all"
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
 [keys.normal]
 "=" = ":fmt"
 "-" = "flip_selections"
