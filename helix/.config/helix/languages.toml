@@ -12,6 +12,11 @@ file-types = ["tfvars", "tfvar"]
 name = "sql"
 formatter = { command = "sleek", args = [] }
 
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+
 # Add openapi lsp
 [[language]]
 name = "openapi3"
