@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "alwaysThinkingEnabled": true,
+  "mcpServers": {
+    "gopls": {
+      "type": "stdio",
+      "command": "gopls",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(go build:*)",
+      "Bash(go list:*)",
+      "Bash(go test:*)",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Glob",
+      "Grep",
+      "mcp__gopls",
+      "Read",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(~/.env.elv)",
+      "Read(~/.env)",
+      "Read(~/.netrc)"
+    ],
+  }
+}
