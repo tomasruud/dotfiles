@@ -1,15 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "alwaysThinkingEnabled": true,
-  "mcpServers": {
-    "gopls": {
-      "type": "stdio",
-      "command": "gopls",
-      "args": [
-        "mcp"
-      ]
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(coderabbit:*)",
@@ -35,5 +25,25 @@
       "Read(~/.env)",
       "Read(~/.netrc)"
     ]
+  },
+  "alwaysThinkingEnabled": true,
+  "mcpServers": {
+    "gopls": {
+      "type": "stdio",
+      "command": "gopls",
+      "args": [
+        "mcp"
+      ]
+    },
+    "awslabs.cloudwatch-mcp-server": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "awslabs.cloudwatch-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    }
   }
 }
