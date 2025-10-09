@@ -12,6 +12,7 @@
   },
   "permissions": {
     "allow": [
+      "Bash(coderabbit:*)",
       "Bash(find:*)",
       "Bash(go build:*)",
       "Bash(go list:*)",
@@ -20,7 +21,12 @@
       "Bash(rg:*)",
       "Glob",
       "Grep",
-      "mcp__gopls",
+      "mcp__gopls__go_diagnostics",
+      "mcp__gopls__go_file_context",
+      "mcp__gopls__go_package_api",
+      "mcp__gopls__go_search",
+      "mcp__gopls__go_symbol_references",
+      "mcp__gopls__go_workspace",
       "Read",
       "WebSearch"
     ],
@@ -28,6 +34,6 @@
       "Read(~/.env.elv)",
       "Read(~/.env)",
       "Read(~/.netrc)"
-    ],
+    ]
   }
 }
