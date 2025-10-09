@@ -2,7 +2,9 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
+      "Bash(aws:*)",
       "Bash(coderabbit:*)",
+      "Bash(date:*)",
       "Bash(find:*)",
       "Bash(go build:*)",
       "Bash(go list:*)",
@@ -11,12 +13,8 @@
       "Bash(rg:*)",
       "Glob",
       "Grep",
-      "mcp__gopls__go_diagnostics",
-      "mcp__gopls__go_file_context",
-      "mcp__gopls__go_package_api",
-      "mcp__gopls__go_search",
-      "mcp__gopls__go_symbol_references",
-      "mcp__gopls__go_workspace",
+      "mcp__cloudwatch",
+      "mcp__gopls",
       "Read",
       "WebSearch"
     ],
@@ -34,16 +32,6 @@
       "args": [
         "mcp"
       ]
-    },
-    "awslabs.cloudwatch-mcp-server": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": [
-        "awslabs.cloudwatch-mcp-server@latest"
-      ],
-      "env": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      }
     }
   }
 }

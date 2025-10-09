@@ -1,0 +1,11 @@
+# always ask for approval mode
+approval_policy = "untrusted"
+sandbox_mode    = "read-only"
+
+# Optional: allow network in workspace-write mode
+[sandbox_workspace_write]
+network_access = true
+
+[mcp_servers.gopls]
+command = "gopls"
+args = ["mcp"]
