@@ -55,21 +55,27 @@ make sure you translate it into
 `Bash(aws --profile <some profile> --region <some region> <command args>)`.
 
 Also make sure the "--output json" option is passed as it makes it easier to
-parse the command output.
+parse the command output. Please also note that this only works for the AWS CLI
+described here and is not a general reccomendation for other CLIs.
 
 If you need help navigating the CLI, use "aws help" to read the docs.
 
 ## Gitlab and the glab CLI
 
-You have access to Gitlab through the `glab` CLI. Whenever you are asked to do something
-in Gitlab, you can use this CLI to perform the task.
+You have access to Gitlab through the `glab` CLI. Whenever you are asked to do
+something in Gitlab, you can use this CLI to perform the task.
 
 If you need help navigating the CLI, use "glab --help" to read the docs.
 
 ## Jira and the Atlassian acli CLI
 
-You have access to Jira through the `acli jira` CLI. Whenever you are asked to do something
-in Jira, you can use this CLI to perform the task.
+You have access to Jira through the `acli jira` CLI. Whenever you are asked to
+do something in Jira, you can use this CLI to perform the task.
+
+The acli does not have any options for specifying output type or format, so do
+not bother to include that in commands unless the help page shows an option for
+it, and it is needed.
+
+To tag people in Jira comments, use the `@username` notation.
 
 If you need help navigating the CLI, use "acli jira --help" to read the docs.
-
