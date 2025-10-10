@@ -6,6 +6,7 @@
       "Bash(coderabbit:*)",
       "Bash(date:*)",
       "Bash(find:*)",
+      "Bash(glab:*)",
       "Bash(go build:*)",
       "Bash(go list:*)",
       "Bash(go test:*)",
@@ -17,6 +18,12 @@
       "mcp__gopls",
       "Read",
       "WebSearch"
+    ],
+    "ask": [
+      "Bash(glab mr approve:*)",
+      "Bash(glab mr close:*)",
+      "Bash(glab mr delete:*)",
+      "Bash(glab mr note:*)"
     ],
     "deny": [
       "Read(~/.env.elv)",
