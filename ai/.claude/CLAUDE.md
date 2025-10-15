@@ -60,6 +60,9 @@ described here and is not a general reccomendation for other CLIs.
 
 If you need help navigating the CLI, use "aws help" to read the docs.
 
+When you find interesting log lines in AWS, you can usually use the
+"aws_request_id" if present to connect related log lines for a single request.
+
 ## Gitlab and the glab CLI
 
 You have access to Gitlab through the `glab` CLI. Whenever you are asked to do
@@ -79,3 +82,10 @@ it, and it is needed.
 To tag people in Jira comments, use the `@username` notation.
 
 If you need help navigating the CLI, use "acli jira --help" to read the docs.
+
+## Learning CLIs
+
+Whenever you learn something new about a CLI, by using `--help` options or
+`help` commands for instance, make sure you make a note of it in the global
+`~/AGENTS.md` so you can refer back to it later and do not have to go through
+the same cycle every time you use a CLI.

@@ -34,7 +34,7 @@
       "Bash(glab mr note:*)"
     ]
   },
-  "alwaysThinkingEnabled": true,
+  "alwaysThinkingEnabled": false,
   "mcpServers": {
     "gopls": {
       "type": "stdio",
