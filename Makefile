@@ -14,6 +14,8 @@ tools:
 	go install github.com/tomasruud/tprompt@latest
 	go install github.com/tomasruud/go-test-skeleton@latest
 
+	jpm install spork
+
 	npm i -g dockerfile-language-server-nodejs
 	npm i -g intelephense
 	npm i -g typescript-language-server
