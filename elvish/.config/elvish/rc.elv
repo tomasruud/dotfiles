@@ -114,8 +114,6 @@ fn bw {|| open -a Bitwarden }
 fn gg {|| go generate ./... }
 fn gt {|| gotestsum }
 
-fn jwt {|in| use str; echo [(str:split '.' $in)][1] | base64 -D }
-
 fn ll {|@a|
 	if (has-external eza) {
 		e:eza --group-directories-first -alF $@a

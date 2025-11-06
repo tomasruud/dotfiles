@@ -1,0 +1,25 @@
+#!/usr/bin/env janet
+
+(import spork/base64)
+
+(->>
+  (file/read stdin :all)
+
+  (peg/match
+    ~{:main (* :s* :jwt :s*)
+      :jwt (* :part "." (<- :part) "." :part)
+      :part (some (+ :w "-" "_"))})
+
+  array/pop
+
+  (peg/replace-all "-" "+")
+  (peg/replace-all "_" "/")
+
+  (|(case (% (length $) 4)
+      3 (string $ "=")
+      2 (string $ "==")
+      (string $)))
+
+  base64/decode
+
+  print)
