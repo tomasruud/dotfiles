@@ -105,6 +105,11 @@ if (has-external usql) {
 	set-env USQL_CONFIG ~/.config/usql/config.yaml
 }
 
+# --- Janet
+if (os:exists /opt/homebrew/opt/janet) {
+	set paths = [/opt/homebrew/opt/janet/bin $@paths]
+}
+
 # --- Functions
 fn home {|| cd ~}
 fn note {|| hx ~/notes.txt}
