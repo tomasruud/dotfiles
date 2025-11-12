@@ -39,3 +39,4 @@ C-y = ":pipe-to pbcopy"
 
 [keys.insert]
 j = { k = "normal_mode" }
+J = { K = "normal_mode" }
