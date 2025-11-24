@@ -20,6 +20,10 @@ formatter = { command = "prettier", args = ["--parser", "yaml"] }
 name = "markdown"
 formatter = { command = "prettier", args = ["--parser", "markdown", "--prose-wrap", "always"] }
 
+[[language]]
+name = "html"
+formatter = { command = "prettier", args = ["--parser", "html"] }
+
 # Add openapi lsp
 [[language]]
 name = "openapi3"
