@@ -112,7 +112,6 @@ if (os:exists /opt/homebrew/opt/janet) {
 
 # --- Functions
 fn home {|| cd ~}
-fn note {|| hx ~/notes.txt}
 fn .. {|| cd ..}
 
 fn bw {|| open -a Bitwarden }
