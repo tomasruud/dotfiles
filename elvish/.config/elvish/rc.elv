@@ -22,6 +22,7 @@ set paths = [
 	/usr/bin
 	/usr/sbin
 	/bin
+	/sbin
 ]
 
 # --- Man
