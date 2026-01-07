@@ -80,7 +80,6 @@ if (os:exists ~/.npm-global) {
 	set-env NPM_CONFIG_GLOBALCONFIG ~/.config/node/.npmrc
 
 	set paths = [
-    ./node_modules/.bin
     ~/.npm-global/bin
     $@paths
   ]
@@ -115,7 +114,6 @@ if (has-external usql) {
 # --- Janet
 if (os:exists /opt/homebrew/opt/janet) {
 	set paths = [
-    ./jpm_tree/bin
     /opt/homebrew/opt/janet/bin
     $@paths
   ]
