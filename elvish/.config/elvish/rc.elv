@@ -77,7 +77,13 @@ if (os:exists ~/.cargo/bin) {
 
 # --- Node
 if (os:exists ~/.npm-global) {
-	set paths = [~/.npm-global/bin $@paths]
+	set-env NPM_CONFIG_GLOBALCONFIG ~/.config/node/.npmrc
+
+	set paths = [
+    ./node_modules/.bin
+    ~/.npm-global/bin
+    $@paths
+  ]
 }
 
 # --- Ruby
@@ -108,7 +114,11 @@ if (has-external usql) {
 
 # --- Janet
 if (os:exists /opt/homebrew/opt/janet) {
-	set paths = [/opt/homebrew/opt/janet/bin $@paths]
+	set paths = [
+    ./jpm_tree/bin
+    /opt/homebrew/opt/janet/bin
+    $@paths
+  ]
 }
 
 # --- Functions
