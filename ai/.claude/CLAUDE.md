@@ -7,34 +7,6 @@ Everything in this document and referenced documents are equally important,
 meaning you should not at any point skip, ignore, or feel free to interpret them
 as optional.
 
-## Agent context
-
-Read @~/AGENTS.md
-
-## Motivation
-
-If you ever feel down or demotivated, try asking the motivator agent for a small
-pep talk.
-
-## Working with Golang (Go) projects
-
-Please make sure you always use the gopls MCP whenever you are working on a go
-project. Go projects are usually recognized by having a go.mod at the root of
-the project, and code files use the .go extension. If you start doing Find() or
-Search() for .go files, use this as a reminder that it might be a go project.
-
-Always read @go.md for instructions.
-
-## Code Review
-
-When working on code changes, use the CodeRabbit CLI to get feedback and iterate
-whenever you are working on a task. Use this feedback to improve and fix code.
-Start CodeRabbit in the background using: `coderabbit --prompt-only` when
-beginning any code work, and check with the output periodically during
-development and especially after completing features or fixes. Fix all
-identified issues immediately before moving to the next task. Repeat the review
-cycle until CodeRabbit reports no issues.
-
 ## AWS and the AWS CLI
 
 You have access to AWS through the "aws" CLI. Whenever you are asked to

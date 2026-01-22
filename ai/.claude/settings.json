@@ -35,13 +35,8 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "mcpServers": {
-    "gopls": {
-      "type": "stdio",
-      "command": "gopls",
-      "args": [
-        "mcp"
-      ]
-    }
+  "mcpServers": {},
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
   }
 }
