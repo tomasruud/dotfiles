@@ -1,4 +1,4 @@
-theme = "ttox"
+theme = "ttox-mono"
 
 [editor]
 rulers = [100]
