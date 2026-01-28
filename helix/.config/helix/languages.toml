@@ -53,3 +53,11 @@ args = ["--lsp"]
 name = "ruby"
 auto-format = true
 language-servers = [{ name = "rubocop" }]
+
+# Janet
+[language-server.janet-lsp]
+command = "janet-lsp"
+
+[[language]]
+name = "janet"
+language-servers = [{ name = "janet-lsp" }]

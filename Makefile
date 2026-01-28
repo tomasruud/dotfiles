@@ -16,6 +16,7 @@ tools:
 
 	jpm install https://github.com/janet-lang/spork.git
 	jpm install https://github.com/ianthehenry/judge.git
+	jpm install https://github.com/CFiggers/janet-lsp.git
 
 	npm i -g dockerfile-language-server-nodejs
 	npm i -g intelephense
