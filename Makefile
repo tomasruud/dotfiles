@@ -28,6 +28,7 @@ tools:
 
 	gem install rubocop
 
+	cargo install ast-grep
 	cargo install eza
 	cargo install fd-find
 	cargo install bat
