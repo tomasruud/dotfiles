@@ -2,4 +2,5 @@ font-family = "Maple Mono"
 font-size = 14
 adjust-cell-height = 13%
 
+title = " "
 theme = dark:ttox-dark,light:ttox-light
