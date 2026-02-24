@@ -2,6 +2,7 @@ rcmd - 1 : open -a Ghostty
 rcmd - 2 : open -a Safari
 rcmd - 3 : open -a "Microsoft Teams"
 rcmd - 5 : open -a Notes
-rcmd - 6 : open -a Firefox
+rcmd - 6 : open -a Messages
+rcmd - 7 : open -a DataGrip
 rcmd - 9 : open -a Spotify
 rcmd - 0 : open -a Bitwarden
