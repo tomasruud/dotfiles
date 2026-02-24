@@ -34,9 +34,10 @@
       "Bash(glab mr note:*)"
     ]
   },
-  "alwaysThinkingEnabled": true,
-  "mcpServers": {},
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  }
+    "gopls-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "mcpServers": {}
 }
