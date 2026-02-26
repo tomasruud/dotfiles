@@ -24,7 +24,10 @@
       @["github.com" "janet-lang/foo/spork"])
 
 (defn read-remote []
-  (parse-remote ($<_ git config --get remote.origin.url)))
+  (try
+    (parse-remote ($<_ git config --get remote.origin.url))
+    ([err]
+      (error "reading remote url"))))
 
 (defn parse-branch [branch]
   (last
@@ -36,11 +39,19 @@
 (test (parse-branch "origin/feat/foo-bar") "feat/foo-bar")
 
 (defn read-branch []
-  (parse-branch ($<_ git rev-parse --abbrev-ref --symbolic-full-name "@{u}")))
+  (try
+    (parse-branch ($<_ git rev-parse --abbrev-ref --symbolic-full-name "@{u}"))
+    ([err]
+      (error "reading branch (did you push it?)"))))
 
 (defn resolve-mr-url [[domain path] branch]
   (case domain
-    "gitlab.com" (string "https://gitlab.com/" path "/-/merge_requests/new?merge_request%5Bsource_branch%5D=" branch)
+    "gitlab.com" (string
+                   "https://gitlab.com/"
+                   path
+                   "/-/merge_requests/new?merge_request%5Bsource_branch%5D="
+                   branch)
+
     (errorf "no merge request config for domain: %s" domain)))
 
 (test (resolve-mr-url ["gitlab.com" "foo/bar/baz"] "feat/foo")
@@ -48,9 +59,7 @@
 
 (defn is-repo []
   (try
-    (do
-      ($<_ git rev-parse --is-inside-work-tree)
-      true)
+    (truthy? ($<_ git rev-parse --is-inside-work-tree))
     ([_]
       false)))
 
