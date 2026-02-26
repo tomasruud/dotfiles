@@ -1,11 +1,64 @@
-#!/usr/bin/env elvish
+#!/usr/bin/env janet
 
-use str
+(use judge)
+(use spork/sh-dsl)
 
-git config --get remote.origin.url |
-  str:trim-space (slurp) |
-  str:replace ':' '/' (all) |
-  str:replace 'git@' 'https://' (all) |
-  str:replace '.git' '' (all) |
-  put (all)'/-/merge_requests/new?merge_request%5Bsource_branch%5D=' |
-  open (all)(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' | str:trim-prefix (all) 'origin/')
+(defn parse-remote [remote]
+  (peg/match
+    ~{:main (+ :ssh :https)
+
+      :ssh (* "git@" :domain ":" :path :ext)
+      :https (* "https://" :domain "/" :path :ext)
+
+      :domain (<- (* (some :chars) (any (* "." (some :chars)))))
+      :path (<- (* (some :chars) (any (* "/" (some :chars)))))
+      :ext (any ".git")
+
+      :chars (+ :w "-" "_")}
+    remote))
+
+(test (parse-remote "git@github.com:janet-lang/foo/spork.git")
+      @["github.com" "janet-lang/foo/spork"])
+
+(test (parse-remote "https://github.com/janet-lang/foo/spork.git")
+      @["github.com" "janet-lang/foo/spork"])
+
+(defn read-remote []
+  (parse-remote ($<_ git config --get remote.origin.url)))
+
+(defn parse-branch [branch]
+  (last
+    (peg/match
+      '(* (some (if-not "/" 1)) "/" (<- (some 1)))
+      branch)))
+
+(test (parse-branch "origin/foo") "foo")
+(test (parse-branch "origin/feat/foo-bar") "feat/foo-bar")
+
+(defn read-branch []
+  (parse-branch ($<_ git rev-parse --abbrev-ref --symbolic-full-name "@{u}")))
+
+(defn resolve-mr-url [[domain path] branch]
+  (case domain
+    "gitlab.com" (string "https://gitlab.com/" path "/-/merge_requests/new?merge_request%5Bsource_branch%5D=" branch)
+    (errorf "no merge request config for domain: %s" domain)))
+
+(test (resolve-mr-url ["gitlab.com" "foo/bar/baz"] "feat/foo")
+      "https://gitlab.com/foo/bar/baz/-/merge_requests/new?merge_request%5Bsource_branch%5D=feat/foo")
+
+(defn is-repo []
+  (try
+    (do
+      ($<_ git rev-parse --is-inside-work-tree)
+      true)
+    ([_]
+      false)))
+
+(defn main [& args]
+  (unless (is-repo)
+    (os/exit 1))
+  (try
+    ($ open (resolve-mr-url (read-remote) (read-branch)))
+    ([err]
+      (printf "Error: %s" err)
+      (os/exit 1))))
