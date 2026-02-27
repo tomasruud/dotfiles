@@ -1,10 +1,12 @@
-#!/usr/bin/env elvish
+#!/usr/bin/env janet
 
-use str
+(use spork/sh-dsl)
 
-git config --get remote.origin.url |
-  str:trim-space (slurp) |
-  str:replace ':' '/' (all) |
-  str:replace 'git@' 'https://' (all) |
-  str:replace '.git' '' (all) |
-  open (all)
+(->>
+  ($<_ git config --get remote.origin.url)
+  (string/replace "https://" "")
+  (string/replace "git@" "")
+  (string/replace ":" "/")
+  (string/replace ".git" "")
+  (string "https://")
+  ($ open))
