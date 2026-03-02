@@ -52,6 +52,12 @@
                    "/-/merge_requests/new?merge_request%5Bsource_branch%5D="
                    branch)
 
+    "github.com" (string
+                   "https://github.com/"
+                   path
+                   "/pull/new/"
+                   branch)
+
     (errorf "no merge request config for domain: %s" domain)))
 
 (test (resolve-mr-url ["gitlab.com" "foo/bar/baz"] "feat/foo")
