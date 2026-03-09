@@ -2,6 +2,8 @@ font-family = "Maple Mono"
 font-size = 14
 adjust-cell-height = 13%
 
+macos-option-as-alt = true
+
 title = " "
 theme = dark:ttox-dark,light:ttox-light
 
