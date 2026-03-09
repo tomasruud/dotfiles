@@ -46,6 +46,13 @@ tools:
 	hx -g fetch
 	hx -g build
 
+	if [ ! -d ~/external/ki-editor ]; then \
+		git clone https://github.com/ki-editor/ki-editor.git ~/external/ki-editor; \
+	fi; \
+	cd ~/external/ki-editor; \
+	git pull; \
+	cargo install --locked --path .
+
 .PHONY: install
 install:
 	stow --verbose --target=$${HOME} --restow */
