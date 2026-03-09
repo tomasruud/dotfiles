@@ -48,5 +48,3 @@ function! ToggleExplorer()
     endif
 endfunction
 nnoremap <leader>e :call ToggleExplorer()<cr>
-
-inoremap jk <esc>`^

@@ -35,7 +35,3 @@ C-f = "@*<space>/<ret>"
 [keys.normal." "]
 w = ":reflow"
 o = ":pipe sort"
-
-[keys.insert]
-j = { k = "normal_mode" }
-J = { K = "normal_mode" }
