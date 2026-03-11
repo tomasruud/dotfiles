@@ -5,6 +5,9 @@ adjust-cell-height = 13%
 title = " "
 theme = dark:ttox-dark,light:ttox-light
 
-keybind = clear
 macos-option-as-alt = left
 mouse-hide-while-typing = true
+
+keybind = clear
+keybind = cmd+c=copy_to_clipboard
+keybind = cmd+v=paste_from_clipboard
