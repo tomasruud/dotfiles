@@ -9,8 +9,6 @@ set autoread
 
 set encoding=utf-8
 
-set number
-set relativenumber
 set ruler
 
 set showmatch

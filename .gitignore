@@ -3,3 +3,4 @@
 .luarc.json
 helix/.config/helix/runtime
 helix/.config/helix/contrib
+vim/.config/vim/.netrwhist
