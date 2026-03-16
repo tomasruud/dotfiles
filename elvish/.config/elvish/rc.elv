@@ -158,5 +158,5 @@ if (has-external carapace) {
 
 # --- Zoxide
 if (has-external zoxide) {
-  eval (zoxide init elvish | slurp)
+  eval (zoxide init --cmd j elvish | slurp)
 }
