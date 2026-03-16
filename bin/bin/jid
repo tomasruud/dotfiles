@@ -1,7 +1,9 @@
-#!/usr/bin/env elvish
+#!/usr/bin/env janet
 
-use path
-use str
+(import spork/path)
+(use spork/sh-dsl)
 
-var id = (pbpaste | str:split '?' (all) | path:base [(all)][0])
-print $id
+(->>
+  ($<_ pbpaste)
+  path/basename
+  prin)
