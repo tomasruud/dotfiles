@@ -36,6 +36,7 @@ tools:
 	cargo install ripgrep
 	cargo install sleek
 	cargo install lsp-ai
+	cargo install zoxide
 
 	if [ ! -d ~/external/helix ]; then \
 		git clone https://github.com/helix-editor/helix ~/external/helix; \
