@@ -38,12 +38,6 @@ tools:
 	cargo install lsp-ai
 	cargo install zoxide
 
-	if [ ! -d ~/external/helix ]; then \
-		git clone https://github.com/helix-editor/helix ~/external/helix; \
-	fi; \
-	cd ~/external/helix; \
-	git pull; \
-	cargo install --path helix-term --locked
 	hx -g fetch
 	hx -g build
 
