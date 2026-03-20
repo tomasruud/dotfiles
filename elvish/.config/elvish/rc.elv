@@ -151,5 +151,6 @@ if (has-external carapace) {
 
 # --- Zoxide
 if (has-external zoxide) {
+  set-env _ZO_EXCLUDE_DIRS "$HOME:/tmp/*:/private/*"
   eval (zoxide init --cmd j elvish | slurp)
 }
