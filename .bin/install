@@ -1,0 +1,5 @@
+#!/bin/sh
+
+brew install --quiet stow && \
+  (cd $HOME/dotfiles && stow --verbose --target=${HOME} --restow */)
+

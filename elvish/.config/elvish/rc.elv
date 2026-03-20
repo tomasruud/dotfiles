@@ -117,8 +117,6 @@ if (os:exists /opt/homebrew/opt/janet) {
 }
 
 # --- Functions
-fn home {|| cd ~}
-fn .. {|| cd ..}
 fn gg {|| go generate ./... }
 fn gt {|| gotestsum }
 

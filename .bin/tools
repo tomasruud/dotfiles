@@ -1,0 +1,25 @@
+#!/bin/sh
+
+brew bundle --global
+
+jpm install jpm
+jpm install spork
+jpm install judge
+jpm install https://github.com/CFiggers/janet-lsp.git
+
+npm i -g dockerfile-language-server-nodejs
+npm i -g intelephense
+npm i -g typescript-language-server
+npm i -g typescript
+npm i -g vscode-langservers-extracted
+npm i -g bash-language-server
+npm i -g prettier
+
+hx -g fetch
+hx -g build
+
+if [ ! -d $HOME/external/ki-editor ]; then
+	git clone https://github.com/ki-editor/ki-editor.git $HOME/external/ki-editor;
+fi
+(cd $HOME/external/ki-editor && git pull && cargo install --locked --path .)
+

@@ -6,9 +6,8 @@
 1. Transfer and unzip secrets
 1. Install Homebrew
 1. Clone the dotfiles repo `git clone https://github.com/tomasruud/dotfiles.git ~/dotfiles`
-1. Install bundle `brew bundle --file "~/dotfiles/brew/Brewfile"`
-1. Set default Rust version `rustup default stable`
-1. Load dotfiles `make install`
-1. Install tools `make tools`
-1. (Optional) make Elvish default shell `dot-default-shell`
-1. (Optional) install macOS settings `dot-macos-settings`
+1. (Maybe) Set default Rust version `rustup default stable`
+1. Install dotfiles `~/dotfiles/.bin/install`
+1. Install tools `~/dotfiles/.bin/tools`
+1. (Optional) make Elvish default shell `~/dotfiles/.bin/set-default-shell`
+1. (Optional) install macOS settings `~/dotfiles/.bin/set-macos-settings`

@@ -1,0 +1,47 @@
+cask 'docker-desktop'
+cask 'font-maple-mono'
+cask 'ghostty'
+cask 'rectangle'
+cask 'spotify'
+cask 'sublime-text'
+
+cask 'gnucash'
+cask 'jetbrains-toolbox'
+
+tap 'qmk/qmk'
+brew 'qmk/qmk/qmk'
+
+brew 'sleek'
+brew 'zoxide'
+brew 'bat'
+brew 'carapace'
+brew 'elvish'
+brew 'fzf'
+brew 'gopls'
+brew 'helix'
+brew 'lazygit'
+brew 'lf'
+brew 'stow'
+brew 'terminal-notifier'
+brew 'jq'
+brew 'tmux'
+brew 'ripgrep'
+brew 'vacuum'
+
+brew 'ruby'
+gem 'rubocop'
+
+brew 'janet'
+
+brew 'node@22'
+
+brew 'go'
+brew 'dlv'
+brew 'gotestsum'
+brew 'gofumpt'
+brew 'goimports'
+go 'github.com/tomasruud/urlr'
+go 'github.com/tomasruud/tprompt'
+go 'github.com/tomasruud/go-test-skeleton'
+
+brew 'rustup'
