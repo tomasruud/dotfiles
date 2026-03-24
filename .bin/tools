@@ -15,9 +15,6 @@ npm i -g vscode-langservers-extracted
 npm i -g bash-language-server
 npm i -g prettier
 
-hx -g fetch
-hx -g build
-
 if [ ! -d $HOME/external/ki-editor ]; then
 	git clone https://github.com/ki-editor/ki-editor.git $HOME/external/ki-editor;
 fi
