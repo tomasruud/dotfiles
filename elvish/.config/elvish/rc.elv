@@ -139,7 +139,7 @@ set edit:command-abbr['dd'] = 'docker desktop'
 # --- Prompt
 if (has-external tprompt) {
 	set edit:prompt = { tprompt }
-	set edit:rprompt = { tprompt remote }
+	set edit:rprompt = { pwd | tprompt path --width 30 }
 }
 
 # --- Completions
