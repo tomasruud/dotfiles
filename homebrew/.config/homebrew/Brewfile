@@ -1,5 +1,5 @@
 cask 'docker-desktop'
-cask 'font-maple-mono'
+cask 'font-maple-mono-normal'
 cask 'ghostty'
 cask 'rectangle'
 cask 'spotify'
