@@ -1,6 +1,6 @@
 theme "pencil-light"
 simplified_ui true
-pane_frames false
+pane_frames true
 default_layout "compact"
 show_startup_tips false
 

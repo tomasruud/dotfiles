@@ -139,7 +139,7 @@ set edit:command-abbr['dd'] = 'docker desktop'
 # --- Prompt
 if (has-external tprompt) {
 	set edit:prompt = { tprompt }
-	set edit:rprompt = { pwd | tprompt path --width 30 }
+	set edit:rprompt = { tprompt remote }
 }
 
 # --- Completions
@@ -157,14 +157,12 @@ if (has-external zoxide) {
 
 # --- Zellij
 if (has-env ZELLIJ) {
-  use path
+  fn _zellij-pwd {|@_| zellij action rename-pane (pwd | tprompt path --width 40) }
+
+  _zellij-pwd
 
   set after-chdir = [
     $@after-chdir
-    {|_|
-        zellij action rename-tab (path:base (pwd))
-      }
+    $_zellij-pwd~
   ]
-
-  zellij action rename-tab (path:base (pwd))
 }
