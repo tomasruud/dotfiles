@@ -1,4 +1,4 @@
-palette = 0=#3E3635
+palette = 0=#000000
 palette = 1=#BD4E36
 palette = 2=#617934
 palette = 3=#896D35
@@ -13,7 +13,7 @@ palette = 11=#DDB64F
 palette = 12=#A2B6EE
 palette = 13=#C2B1E8
 palette = 14=#70CEB2
-palette = 15=#EEEDED
+palette = 15=#FFFFFF
 
 background = #111111
 foreground = #FFFFFF

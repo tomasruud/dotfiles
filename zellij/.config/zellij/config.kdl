@@ -1,4 +1,4 @@
-theme "pencil-light"
+theme "terminal16"
 simplified_ui true
 pane_frames true
 default_layout "compact"
@@ -200,5 +200,78 @@ plugins {
     }
     filepicker location="zellij:strider" {
         cwd "/"
+    }
+}
+
+// +---+---+---+---+---+---+---+---+
+// |  0|  1|  2|  3|  4|  5|  6|  7|
+// +---+---+---+---+---+---+---+---+
+// |  8|  9| 10| 11| 12| 13| 14| 15|
+// +---+---+---+---+---+---+---+---+
+
+themes {
+    terminal16 {
+        ribbon_unselected {
+            base 0
+            background 15
+            emphasis_0 15
+            emphasis_1 15
+            emphasis_2 15
+            emphasis_3 15
+        }
+
+        ribbon_selected {
+            base 0
+            background 11
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
+
+        text_unselected {
+            base 0
+            background 15
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
+
+        text_selected {
+            base 0
+            background 7
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
+
+        frame_unselected {
+            base 7
+            background 15
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
+
+        frame_selected {
+            base 0
+            background 15
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
+
+        frame_highlight {
+            base 2
+            background 15
+            emphasis_0 1
+            emphasis_1 2
+            emphasis_2 3
+            emphasis_3 4
+        }
     }
 }
