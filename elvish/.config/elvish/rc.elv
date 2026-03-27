@@ -154,3 +154,17 @@ if (has-external zoxide) {
   set-env _ZO_EXCLUDE_DIRS "$HOME:/tmp/*:/private/*"
   eval (zoxide init --cmd j elvish | slurp)
 }
+
+# --- Zellij
+if (has-env ZELLIJ) {
+  use path
+
+  set after-chdir = [
+    $@after-chdir
+    {|_|
+        zellij action rename-tab (path:base (pwd))
+      }
+  ]
+
+  zellij action rename-tab (path:base (pwd))
+}
