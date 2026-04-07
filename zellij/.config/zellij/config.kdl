@@ -46,7 +46,7 @@ keybinds clear-defaults=true {
         bind "s" { NewPane "stacked"; SwitchToMode "locked"; }
         bind "o" {
             SwitchToMode "locked";
-            Run "elvish" {
+            Run "sh" "-c" "$SHELL" {
                 floating true
                 close_on_exit true
                 x "10%"
