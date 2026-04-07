@@ -68,7 +68,15 @@ glab mr diff 123                     # View diff
 ### MR comments
 
 ```bash
+# View all comments on an MR
+glab mr view 123 --comments                # Show MR with all comments
+glab api "projects/:id/merge_requests/123/notes" | jq '.[] | {author: .author.name, body: .body, created_at: .created_at}'
+
+# Add a comment to an MR
 glab mr note 123 -m "Comment text"
+
+# Add a comment and resolve a discussion
+glab mr note 123 -m "Comment text" --resolve-discussion
 ```
 
 ## Issues
