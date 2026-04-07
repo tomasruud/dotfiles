@@ -68,15 +68,27 @@ glab mr diff 123                     # View diff
 ### MR comments
 
 ```bash
-# View all comments on an MR
-glab mr view 123 --comments                # Show MR with all comments
-glab api "projects/:id/merge_requests/123/notes" | jq '.[] | {author: .author.name, body: .body, created_at: .created_at}'
-
-# Add a comment to an MR
+# Add a top-level comment to an MR
 glab mr note 123 -m "Comment text"
 
-# Add a comment and resolve a discussion
-glab mr note 123 -m "Comment text" --resolve-discussion
+# List comments/discussions on an MR
+glab mr note list 123
+
+# Resolve a discussion by note ID
+glab mr note 123 --resolve <note-id>
+
+# Unresolve a discussion by note ID
+glab mr note 123 --unresolve <note-id>
+```
+
+**Limitation:** `glab` does NOT support replying to a specific discussion thread.
+`glab mr note` only creates top-level comments. To reply within a thread
+(e.g. to respond to a CodeRabbit review comment), the user must do it
+manually in the GitLab UI. You can use `glab api` to find discussion/note IDs:
+
+```bash
+# List discussions with IDs
+glab api "projects/:id/merge_requests/123/discussions" | jq '.[] | {id: .id, resolved: .notes[0].resolved, body: .notes[0].body[:100]}'
 ```
 
 ## Issues
