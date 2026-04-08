@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Global git hook to automatically add AI co-authoring to commits in ~/work repositories
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Get the current repository path
+REPO_PATH=$(git rev-parse --show-toplevel 2>/dev/null)
+
+# Check if we're in a git repository and if it's under ~/work
+if [[ $? -eq 0 && "$REPO_PATH" == "$HOME/work"* ]]; then
+    # Read the current commit message
+    COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+    # Check if co-authored-by line already exists (case insensitive)
+    if ! echo "$COMMIT_MSG" | grep -qi "co-authored-by.*anthropic\.com"; then
+        # Add a blank line if the commit message doesn't end with one
+        if [[ -n "$COMMIT_MSG" && ! "$COMMIT_MSG" =~ $'\n'$ ]]; then
+            echo "" >> "$COMMIT_MSG_FILE"
+        fi
+
+        # Append the co-authored-by line
+        echo "" >> "$COMMIT_MSG_FILE"
+        echo "Co-Authored-By: truAI (Claude)" >> "$COMMIT_MSG_FILE"
+    fi
+fi
