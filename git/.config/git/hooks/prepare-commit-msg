@@ -14,7 +14,7 @@ if [[ $? -eq 0 && "$REPO_PATH" == "$HOME/work"* ]]; then
     COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
     # Check if co-authored-by line already exists (case insensitive)
-    if ! echo "$COMMIT_MSG" | grep -qi "co-authored-by.*anthropic\.com"; then
+    if ! echo "$COMMIT_MSG" | grep -qi "co-authored-by.*truAI"; then
         # Add a blank line if the commit message doesn't end with one
         if [[ -n "$COMMIT_MSG" && ! "$COMMIT_MSG" =~ $'\n'$ ]]; then
             echo "" >> "$COMMIT_MSG_FILE"
