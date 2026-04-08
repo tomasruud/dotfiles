@@ -22,6 +22,6 @@ if [[ $? -eq 0 && "$REPO_PATH" == "$HOME/work"* ]]; then
 
         # Append the co-authored-by line
         echo "" >> "$COMMIT_MSG_FILE"
-        echo "Co-Authored-By: truAI (Claude)" >> "$COMMIT_MSG_FILE"
+        echo "Co-Authored-By: truAI - not copilot" >> "$COMMIT_MSG_FILE"
     fi
 fi
