@@ -3,6 +3,7 @@
 ## Behavior
 
 - Do NOT start implementing, designing, or modifying code unless explicitly asked.
+- ALWAYS ask for approval before making a commit.
 - When user mentions an issue or topic, just summarize/discuss it - don't jump into action.
 - Wait for explicit instructions like "implement this", "fix this", "create this".
 - No unnecessary comments and emojis.
