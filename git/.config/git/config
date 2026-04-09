@@ -2,7 +2,6 @@
 	autocrlf = input
 	editor = $EDITOR
 	pager = $PAGER
-	hooksPath = ~/.config/git/hooks
 
 [help]
 	autocorrect = 1

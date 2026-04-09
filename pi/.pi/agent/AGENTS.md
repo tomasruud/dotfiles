@@ -6,6 +6,8 @@
 - When user mentions an issue or topic, just summarize/discuss it - don't jump into action.
 - Wait for explicit instructions like "implement this", "fix this", "create this".
 - No unnecessary comments and emojis.
+- Prefer adding new commits to amending existing ones.
+- Make sure all your commits include "Co-Authored-By: truAI copilot" on the last line.
 
 ## Writing Style
 
