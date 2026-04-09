@@ -22,6 +22,7 @@ keybinds clear-defaults=true {
         bind "r" { SwitchToMode "resize"; }
         bind "o" { SwitchToMode "session"; }
         bind "p" { SwitchToMode "pane"; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "s" { EditScrollback; SwitchToMode "locked"; }
         bind "t" { SwitchToMode "tab"; }
     }
@@ -71,6 +72,10 @@ keybinds clear-defaults=true {
         bind "l" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "locked"; }
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
+    }
+
+    renametab {
+        bind "enter" { SwitchToMode "locked"; }
     }
 
     shared_among "tab" "normal" {
