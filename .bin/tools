@@ -14,9 +14,4 @@ npm i -g typescript
 npm i -g vscode-langservers-extracted
 npm i -g bash-language-server
 npm i -g prettier
-
-if [ ! -d $HOME/external/ki-editor ]; then
-	git clone https://github.com/ki-editor/ki-editor.git $HOME/external/ki-editor;
-fi
-(cd $HOME/external/ki-editor && git pull && cargo install --locked --path .)
-
+npm i -g @mariozechner/pi-coding-agent
