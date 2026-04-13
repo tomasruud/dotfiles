@@ -28,6 +28,13 @@ keybinds clear-defaults=true {
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "s" { EditScrollback; SwitchToMode "locked"; }
         bind "t" { SwitchToMode "tab"; }
+
+        bind "h" { MoveFocus "left"; }
+        bind "j" { MoveFocus "down"; }
+        bind "k" { MoveFocus "up"; }
+        bind "l" { MoveFocus "right"; }
+        bind "u" { GoToPreviousTab; }
+        bind "i" { GoToNextTab; }
     }
 
     pane {
