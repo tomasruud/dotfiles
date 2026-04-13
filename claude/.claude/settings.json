@@ -2,51 +2,20 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Bash(acli jira:*)",
-      "Bash(aws:*)",
-      "Bash(coderabbit:*)",
-      "Bash(date:*)",
-      "Bash(find:*)",
-      "Bash(glab:*)",
-      "Bash(go build:*)",
-      "Bash(go list:*)",
-      "Bash(go test:*)",
-      "Bash(head:*)",
-      "Bash(ls:*)",
-      "Bash(rg:*)",
-      "Glob",
-      "Grep",
-      "mcp__cloudwatch",
-      "mcp__gopls",
-      "Read",
-      "WebSearch"
+      "Bash",
+      "Edit",
+      "Write",
+      "Read"
     ],
     "deny": [
-      "Read(~/.env.elv)",
-      "Read(~/.env)",
-      "Read(~/.netrc)"
+      "WebFetch",
+      "WebSearch",
+      "Agent",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
     ],
-    "ask": [
-      "Bash(acli jira workitem comment create:*)",
-      "Bash(glab mr approve:*)",
-      "Bash(glab mr close:*)",
-      "Bash(glab mr delete:*)",
-      "Bash(glab mr note:*)"
-    ]
+    "defaultMode": "bypassPermissions"
   },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
-    }
-  },
-  "alwaysThinkingEnabled": true,
-  "mcpServers": {}
+  "skipDangerousModePermissionPrompt": true
 }
