@@ -18,44 +18,19 @@ keybinds clear-defaults=true {
     normal {
         bind "Ctrl a" { Write 1; SwitchToMode "locked"; }
 
-        bind "," { SwitchToMode "renametab"; TabNameInput 0; }
-        bind "a" { FocusNextPane; SwitchToMode "locked"; }
-        bind "c" { NewTab; SwitchToMode "locked"; }
         bind "m" { SwitchToMode "move"; }
         bind "r" { SwitchToMode "resize"; }
-        bind "o" { SwitchToMode "session"; }
-        bind "p" { SwitchToMode "pane"; }
-        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
-        bind "s" { EditScrollback; SwitchToMode "locked"; }
-        bind "t" { SwitchToMode "tab"; }
+        bind "q" { SwitchToMode "session"; }
+        bind "y" { EditScrollback; SwitchToMode "locked"; }
 
-        bind "h" { MoveFocus "left"; }
-        bind "j" { MoveFocus "down"; }
-        bind "k" { MoveFocus "up"; }
-        bind "l" { MoveFocus "right"; }
-        bind "u" { GoToPreviousTab; }
-        bind "i" { GoToNextTab; }
-    }
-
-    pane {
-        bind "left" { MoveFocus "left"; }
-        bind "down" { MoveFocus "down"; }
-        bind "up" { MoveFocus "up"; }
-        bind "right" { MoveFocus "right"; }
-        bind "d" { NewPane "down"; SwitchToMode "locked"; }
-        bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
-        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "h" { MoveFocus "left"; }
-        bind "i" { TogglePanePinned; SwitchToMode "locked"; }
-        bind "j" { MoveFocus "down"; }
-        bind "k" { MoveFocus "up"; }
-        bind "l" { MoveFocus "right"; }
-        bind "n" { NewPane; SwitchToMode "locked"; }
-        bind "p" { SwitchFocus; }
-        bind "r" { NewPane "right"; SwitchToMode "locked"; }
+        // Pane
+        bind "d" { NewPane; SwitchToMode "locked"; }
         bind "s" { NewPane "stacked"; SwitchToMode "locked"; }
-        bind "o" {
+        bind "-" { NewPane "down"; SwitchToMode "locked"; }
+        bind "|" { NewPane "right"; SwitchToMode "locked"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+        bind "f" {
             SwitchToMode "locked";
             Run "sh" "-c" "$SHELL" {
                 floating true
@@ -66,23 +41,24 @@ keybinds clear-defaults=true {
                 height "80%"
             }
         }
-    }
+        bind "a" { SwitchFocus; SwitchToMode "locked"; }
+        bind "h" { MoveFocus "left"; }
+        bind "j" { MoveFocus "down"; }
+        bind "k" { MoveFocus "up"; }
+        bind "l" { MoveFocus "right"; }
+        bind "left" { MoveFocus "left"; }
+        bind "down" { MoveFocus "down"; }
+        bind "up" { MoveFocus "up"; }
+        bind "right" { MoveFocus "right"; }
 
-    tab {
-        bind "left" { GoToPreviousTab; }
-        bind "down" { GoToNextTab; }
-        bind "up" { GoToPreviousTab; }
-        bind "right" { GoToNextTab; }
+        // Tab
+        bind "c" { NewTab; SwitchToMode "locked"; }
+        bind "," { SwitchToMode "renametab"; TabNameInput 0; }
         bind "b" { BreakPane; SwitchToMode "locked"; }
-        bind "h" { GoToPreviousTab; }
-        bind "j" { GoToNextTab; }
-        bind "k" { GoToPreviousTab; }
-        bind "l" { GoToNextTab; }
-        bind "n" { NewTab; SwitchToMode "locked"; }
-        bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
-    }
-
-    shared_among "tab" "normal" {
+        bind "u" { GoToPreviousTab; }
+        bind "i" { GoToNextTab; }
+        bind "PageUp" { GoToPreviousTab; }
+        bind "PageDown" { GoToNextTab; }
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
         bind "3" { GoToTab 3; SwitchToMode "locked"; }
@@ -95,13 +71,8 @@ keybinds clear-defaults=true {
     }
 
     resize {
-        bind "left" { Resize "Increase left"; }
-        bind "down" { Resize "Increase down"; }
-        bind "up" { Resize "Increase up"; }
-        bind "right" { Resize "Increase right"; }
         bind "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
-        bind "=" { Resize "Increase"; }
         bind "H" { Resize "Decrease left"; }
         bind "J" { Resize "Decrease down"; }
         bind "K" { Resize "Decrease up"; }
