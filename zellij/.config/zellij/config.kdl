@@ -12,12 +12,15 @@ keybinds clear-defaults=true {
 
     shared_except "locked" {
         bind "esc" { SwitchToMode "locked"; }
+        bind "enter" { SwitchToMode "locked"; }
     }
 
     normal {
         bind "Ctrl a" { Write 1; SwitchToMode "locked"; }
 
+        bind "," { SwitchToMode "renametab"; TabNameInput 0; }
         bind "a" { FocusNextPane; SwitchToMode "locked"; }
+        bind "c" { NewTab; SwitchToMode "locked"; }
         bind "m" { SwitchToMode "move"; }
         bind "r" { SwitchToMode "resize"; }
         bind "o" { SwitchToMode "session"; }
@@ -63,8 +66,6 @@ keybinds clear-defaults=true {
         bind "down" { GoToNextTab; }
         bind "up" { GoToPreviousTab; }
         bind "right" { GoToNextTab; }
-        bind "[" { BreakPaneLeft; SwitchToMode "locked"; }
-        bind "]" { BreakPaneRight; SwitchToMode "locked"; }
         bind "b" { BreakPane; SwitchToMode "locked"; }
         bind "h" { GoToPreviousTab; }
         bind "j" { GoToNextTab; }
@@ -72,10 +73,6 @@ keybinds clear-defaults=true {
         bind "l" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "locked"; }
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
-    }
-
-    renametab {
-        bind "enter" { SwitchToMode "locked"; }
     }
 
     shared_among "tab" "normal" {
