@@ -8,8 +8,6 @@
       "Read"
     ],
     "deny": [
-      "WebFetch",
-      "WebSearch",
       "Agent",
       "Read(./.env)",
       "Read(./.env.*)",
@@ -17,5 +15,9 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "janet ~/.claude/statusline.janet"
+  }
 }
