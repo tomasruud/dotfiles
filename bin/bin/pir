@@ -1,2 +1,0 @@
-#!/bin/sh
-pi --tools read,grep,find,ls $@
