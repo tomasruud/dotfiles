@@ -50,6 +50,7 @@ keybinds clear-defaults=true {
         bind "down" { MoveFocus "down"; }
         bind "up" { MoveFocus "up"; }
         bind "right" { MoveFocus "right"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
 
         // Tab
         bind "c" { NewTab; SwitchToMode "locked"; }
