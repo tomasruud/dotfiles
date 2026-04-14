@@ -157,6 +157,18 @@ if (has-external zoxide) {
 
 # --- Zellij
 if (has-env ZELLIJ) {
+  fn _zellij-name-pane {||
+    var current = (zellij action current-tab-info -j | jq -r ".name")
+
+    use str
+    if (str:has-prefix $current "Tab ") {
+      var words = [(cat /usr/share/dict/words | from-lines)]
+      zellij action rename-tab $words[(randint (count $words))]
+    }
+  }
+
+  _zellij-name-pane
+
   fn _zellij-pwd {|@_| zellij action rename-pane (pwd | tprompt path --width 40) }
 
   _zellij-pwd
