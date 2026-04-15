@@ -9,3 +9,4 @@ macos-option-as-alt = left
 mouse-hide-while-typing = true
 
 keybind = cmd+t=unbind
+keybind = cmd+enter=unbind
