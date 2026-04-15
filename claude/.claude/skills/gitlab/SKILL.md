@@ -1,9 +1,9 @@
 ---
 name: gitlab
 description:
-  Interact with GitLab using the glab CLI. Manage merge requests, issues,
-  CI/CD pipelines, and repositories. Use when the user asks about MRs,
-  GitLab issues, pipelines, CI jobs, or GitLab projects.
+  Interact with GitLab using the glab CLI. Manage merge requests, issues, CI/CD
+  pipelines, and repositories. Use when the user asks about MRs, GitLab issues,
+  pipelines, CI jobs, or GitLab projects.
 ---
 
 # GitLab
@@ -81,10 +81,10 @@ glab mr note 123 --resolve <note-id>
 glab mr note 123 --unresolve <note-id>
 ```
 
-**Limitation:** `glab` does NOT support replying to a specific discussion thread.
-`glab mr note` only creates top-level comments. To reply within a thread
-(e.g. to respond to a CodeRabbit review comment), the user must do it
-manually in the GitLab UI. You can use `glab api` to find discussion/note IDs:
+**Limitation:** `glab` does NOT support replying to a specific discussion
+thread. `glab mr note` only creates top-level comments. To reply within a thread
+(e.g. to respond to a CodeRabbit review comment), the user must do it manually
+in the GitLab UI. You can use `glab api` to find discussion/note IDs:
 
 ```bash
 # List discussions with IDs
@@ -184,5 +184,7 @@ glab repo clone GROUP/PROJECT        # Clone a project
 - Use `-R OWNER/REPO` or `-R GROUP/NAMESPACE/REPO` to target another project
 - Use `--web` on view commands to open in the browser
 - Use `-o json` or `--output json` where supported for machine-readable output
-- Use `glab api <endpoint>` for direct GitLab API calls when a specific
-  command is not available
+- Use `glab api <endpoint>` for direct GitLab API calls when a specific command
+  is not available
+- Whenever you are asked to create a new MR, make sure you also open it in the
+  browser and set the creator as assignee
