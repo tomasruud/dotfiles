@@ -30,17 +30,6 @@ keybinds clear-defaults=true {
         bind "|" { NewPane "right"; SwitchToMode "locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
-        bind "f" {
-            SwitchToMode "locked";
-            Run "sh" "-c" "$SHELL" {
-                floating true
-                close_on_exit true
-                x "10%"
-                y "10%"
-                width "80%"
-                height "80%"
-            }
-        }
         bind "a" { SwitchFocus; SwitchToMode "locked"; }
         bind "h" { MoveFocus "left"; }
         bind "j" { MoveFocus "down"; }
