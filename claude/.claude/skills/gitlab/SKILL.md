@@ -188,3 +188,5 @@ glab repo clone GROUP/PROJECT        # Clone a project
   is not available
 - Whenever you are asked to create a new MR, make sure you also open it in the
   browser and set the creator as assignee
+- If you get an SSO error when pushing, use the `git auth` command to
+  reauthenticate

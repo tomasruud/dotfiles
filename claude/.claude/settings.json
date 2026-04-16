@@ -16,6 +16,7 @@
     "defaultMode": "bypassPermissions"
   },
   "skipDangerousModePermissionPrompt": true,
+  "prefersReducedMotion": true,
   "statusLine": {
     "type": "command",
     "command": "janet ~/.claude/statusline.janet"
