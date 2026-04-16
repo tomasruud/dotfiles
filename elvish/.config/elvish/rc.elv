@@ -119,6 +119,7 @@ if (os:exists /opt/homebrew/opt/janet) {
 # --- Functions
 fn gg {|| go generate ./... }
 fn gt {|| gotestsum }
+fn cl {|| claude }
 
 fn notify {|msg|
     if (has-external terminal-notifier) {
