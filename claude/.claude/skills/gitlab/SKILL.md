@@ -190,3 +190,5 @@ glab repo clone GROUP/PROJECT        # Clone a project
   browser and set the creator as assignee
 - If you get an SSO error when pushing, use the `git auth` command to
   reauthenticate
+- MR titles should preferably be prefixed with a Jira ticket id, please ask for
+  the ticket if you need it. An example title could be "AB-123: changed something"

@@ -17,7 +17,7 @@
                         (< used 80) "😦🤚"
                         (< used 90) "😧✊"
                         "🥵🤚")]
-       (string emoji "[" used "%]"))
+       (string "[" used "%]-" emoji))
 
      (when-let [used (get-in data ["rate_limits" "five_hour" "used_percentage"])
                 emoji (cond
@@ -27,7 +27,7 @@
                         (< used 80) "😳🕶🤏"
                         (< used 90) "🫣"
                         "😵")]
-       emoji)
+       (string "[" used "%]-" emoji))
 
      (when-let [used (get-in data ["rate_limits" "seven_day" "used_percentage"])
                 _ (> used 90)]

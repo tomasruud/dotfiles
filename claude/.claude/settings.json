@@ -15,10 +15,12 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "skipDangerousModePermissionPrompt": true,
-  "prefersReducedMotion": true,
   "statusLine": {
     "type": "command",
     "command": "janet ~/.claude/statusline.janet"
-  }
+  },
+  "effortLevel": "medium",
+  "prefersReducedMotion": true,
+  "autoMemoryDirectory": "~/.claude-private/memory",
+  "skipDangerousModePermissionPrompt": true
 }
