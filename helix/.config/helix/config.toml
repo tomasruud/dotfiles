@@ -4,7 +4,7 @@ theme = "ttox"
 rulers = [100]
 line-number = "relative"
 auto-pairs = false
-popup-border = "all"     # needed to the current ttox theme
+popup-border = "all"                # needed to the current ttox theme
 end-of-line-diagnostics = "disable"
 
 [editor.inline-diagnostics]
@@ -35,3 +35,7 @@ C-f = "@*<space>/<ret>"
 [keys.normal." "]
 w = ":reflow"
 o = ":pipe sort"
+x = [
+  ":sh zellij ac focus-next-pane",
+  ":pipe-to sh -c 'zellij ac write-chars \"$(cat)\"'"
+]

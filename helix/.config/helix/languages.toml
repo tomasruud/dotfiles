@@ -24,6 +24,11 @@ formatter = { command = "prettier", args = ["--parser", "markdown", "--prose-wra
 name = "html"
 formatter = { command = "prettier", args = ["--parser", "html"] }
 
+[[language]]
+name = "clojure"
+formatter = { command = "cljfmt", args = [ "fix", "-" ] }
+auto-format = true
+
 # Add openapi lsp
 [[language]]
 name = "openapi3"
