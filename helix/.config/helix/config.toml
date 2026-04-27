@@ -28,14 +28,11 @@ skip-levels = 1
 [keys.normal]
 "=" = ":fmt"
 "-" = "flip_selections"
-V = "copy_selection_on_prev_line"
-"ø" = "repeat_last_motion"
-C-f = "@*<space>/<ret>"
 
 [keys.normal." "]
 w = ":reflow"
 o = ":pipe sort"
 x = [
   ":sh zellij ac focus-next-pane",
-  ":pipe-to sh -c 'zellij ac write-chars \"$(cat)\"'"
+  ":pipe-to sh -c 'zellij ac write-chars \"$(cat)\"'",
 ]
