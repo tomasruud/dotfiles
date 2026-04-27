@@ -21,5 +21,7 @@
   },
   "prefersReducedMotion": true,
   "autoMemoryDirectory": "~/.claude-private/memory",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "light",
+  "agentPushNotifEnabled": true
 }
