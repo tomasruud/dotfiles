@@ -23,5 +23,6 @@
   "autoMemoryDirectory": "~/.claude-private/memory",
   "skipDangerousModePermissionPrompt": true,
   "theme": "light",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "model": "opus[1m]"
 }
