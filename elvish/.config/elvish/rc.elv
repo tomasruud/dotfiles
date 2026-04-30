@@ -169,7 +169,7 @@ if (has-env ZELLIJ) {
 
   _zellij-name-pane
 
-  fn _zellij-pwd {|@_| zellij action rename-pane (pwd | tprompt path --width 40) }
+  fn _zellij-pwd {|@_| zellij action rename-pane (pwd | tprompt path --width 80) }
 
   _zellij-pwd
 
