@@ -1,3 +1,4 @@
 --theme=ansi
 --style=plain
 --tabs=4
+--paging=always

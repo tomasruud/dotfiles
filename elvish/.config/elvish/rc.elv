@@ -3,19 +3,11 @@ use os
 # --- Global config
 use readline-binding
 
-set-env LC_ALL en_US.UTF-8
-
 if (os:exists ~/.env.elv) {
 	eval (slurp < ~/.env.elv)
 } else {
 	echo (styled "[note]" bold red) "No .env file loaded."
 }
-
-set-env EDITOR hx
-set-env VISUAL hx
-set-env PAGER bat
-
-set-env XDG_CONFIG_HOME ~/.config
 
 set paths = [
 	~/bin
@@ -26,9 +18,6 @@ set paths = [
 	/bin
 	/sbin
 ]
-
-# --- Man
-set-env MANWIDTH 80
 
 # --- Docker
 if (os:exists ~/.docker/bin) {

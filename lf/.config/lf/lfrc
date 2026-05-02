@@ -1,16 +1,10 @@
 set drawbox
 set hidden
-set ratios 1:2:3
-set period 1
-set scrolloff 5
-set shell elvish
+
+cmd open $$VISUAL $fx
 
 map m :push %mkdir<space>
 map t :push %touch<space>
-map V :invert-below
-map u :unselect
-
-cmd q :quit
 
 cmd delete %{{
 	var d = (date "+%Y-%m-%dT%H-%M-%S")
@@ -19,20 +13,3 @@ cmd delete %{{
 	mv $E:f $dest
 }}
 map D :delete
-
-cmd alt-delete :push %rm<space>-rfd<space>$f
-
-cmd open ${{
-	use re
-	var mime = (file --mime-type -Lb $E:f)
-
-	if (re:match 'text/.*|application/json|inode/x-empty' $mime) {
-		eval $E:EDITOR" "$E:f
-	} else {
-		open $E:f
-	}
-}}
-map <enter> :open
-
-cmd edit $eval $E:EDITOR" "$E:f
-map o :edit
