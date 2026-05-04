@@ -9,5 +9,4 @@
 1. (Maybe) Set default Rust version `rustup default stable`
 1. Install dotfiles `~/dotfiles/.bin/install`
 1. Install tools `~/dotfiles/.bin/tools`
-1. (Optional) make Elvish default shell `~/dotfiles/.bin/set-default-shell`
 1. (Optional) install macOS settings `~/dotfiles/.bin/set-macos-settings`
