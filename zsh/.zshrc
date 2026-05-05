@@ -66,3 +66,7 @@ fi
 # Aliases
 alias gg="go generate ./..."
 alias gt="gotestsum"
+alias ll="ls -al"
+alias notes="hx ~/notes.md"
+alias cl="claude --add-dir ~/.claude-private"
+
