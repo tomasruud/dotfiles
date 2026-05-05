@@ -5,6 +5,7 @@ adjust-cell-height = 13%
 title = " "
 theme = dark:ttox-dark,light:ttox-light
 
+macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = left
 mouse-hide-while-typing = true
 
