@@ -1,0 +1,3 @@
+#!/bin/sh
+
+open "https://gitlab.com/groups/a2755/-/saml/sso"
