@@ -1,7 +1,8 @@
-# Carapace
+# Completions
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
+
 if command -v carapace >/dev/null 2>&1; then
-  autoload -U compinit && compinit
-  zstyle ':completion:*' format $'Completing %d'
   source <(carapace _carapace)
 fi
 
@@ -69,4 +70,3 @@ alias gt="gotestsum"
 alias ll="ls -al"
 alias notes="hx ~/notes.md"
 alias cl="claude --add-dir ~/.claude-private"
-
