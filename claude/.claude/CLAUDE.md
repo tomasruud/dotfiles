@@ -34,8 +34,6 @@ files, executing commands, editing code, and writing new files.
   this".
 - No unnecessary comments and emojis.
 - Prefer adding new commits to amending existing ones.
-- Make sure all your commits include "Co-Authored-By: truAI copilot" on the last
-  line.
 
 ## Writing Style
 
