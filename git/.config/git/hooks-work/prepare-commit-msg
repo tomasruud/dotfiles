@@ -1,0 +1,6 @@
+#!/bin/sh
+
+git interpret-trailers \
+	--if-exists addIfDifferent \
+	--trailer "Co-Authored-By: Claude <noreply@anthropic.com>" \
+	--in-place "$1"
