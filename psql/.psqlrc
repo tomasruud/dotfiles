@@ -1,0 +1,11 @@
+\set QUIET 1
+\pset null '∅'
+\pset linestyle unicode
+\pset border 2
+\x auto
+\set COMP_KEYWORD_CASE upper
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set PROMPT1 '%n@%/%R%# '
+\timing on
+\unset QUIET
