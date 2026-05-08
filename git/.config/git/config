@@ -39,3 +39,5 @@
 
 [includeIf "gitdir:~/work/"]
 	path = ~/.config/git/config.work
+[coderabbit]
+	machineId = cli/027dfe6eb334484ead81ff745e1f842a

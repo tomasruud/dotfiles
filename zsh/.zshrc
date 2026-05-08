@@ -40,12 +40,31 @@ if [[ -v ZELLIJ ]]; then
   add-zsh-hook precmd _zellij_set_tab_name
 
   # -- pane names
+  _zellij_panme_pgm_threshold=1
+
+  function _zellij_pwd() {
+    pwd | tprompt path --width 80
+  }
+
   function _zellij_set_pane_name() {
-    zellij action rename-pane $(pwd | tprompt path --width 80)
+    if [[ -n "$_zellij_rename_pid" ]]; then
+      # Try to kill the pending rename; if it already fired, this is harmless
+      if kill -0 $_zellij_rename_pid 2>/dev/null; then
+        kill $_zellij_rename_pid 2>/dev/null
+      else
+        # The rename already fired, so we need to reset
+        zellij action rename-pane $(_zellij_pwd)
+      fi
+      unset _zellij_rename_pid
+    else
+      zellij action rename-pane $(_zellij_pwd)
+    fi
   }
 
   function _zellij_set_pane_name_with_pgm() {
-    zellij action rename-pane "${1%% *}($(pwd | tprompt path --width 80))"
+    local cmd="${1%% *}"
+    ( sleep $_zellij_panme_pgm_threshold && zellij action rename-pane "$cmd($(_zellij_pwd))" ) &!
+    _zellij_rename_pid=$!
   }
 
   _zellij_set_pane_name
