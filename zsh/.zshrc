@@ -23,7 +23,10 @@ fi
 
 # Zellij
 if [[ -v ZELLIJ ]]; then
-  function _setup_zellij() {
+  autoload -Uz add-zsh-hook
+
+  # -- tab names
+  function _zellij_set_tab_name() {
     current=$(zellij action current-tab-info -j | jq -r ".name")
 
     if [[ $current == "Tab "* ]]; then
@@ -31,20 +34,25 @@ if [[ -v ZELLIJ ]]; then
       zellij action rename-tab $words[RANDOM%${#words[@]}+1]
     fi
 
-    function _zellij-pwd {
-      zellij action rename-pane $(pwd | tprompt path --width 80)
-    }
-
-    _zellij-pwd
-
-    function chpwd() {
-      _zellij-pwd
-    }
-
-    add-zsh-hook -d precmd _setup_zellij
+    add-zsh-hook -d precmd _zellij_set_tab_name
   }
-  autoload -Uz add-zsh-hook
-  add-zsh-hook precmd _setup_zellij
+
+  add-zsh-hook precmd _zellij_set_tab_name
+
+  # -- pane names
+  function _zellij_set_pane_name() {
+    zellij action rename-pane $(pwd | tprompt path --width 80)
+  }
+
+  function _zellij_set_pane_name_with_pgm() {
+    zellij action rename-pane "${1%% *}($(pwd | tprompt path --width 80))"
+  }
+
+  _zellij_set_pane_name
+
+  add-zsh-hook chpwd _zellij_set_pane_name
+  add-zsh-hook precmd _zellij_set_pane_name
+  add-zsh-hook preexec _zellij_set_pane_name_with_pgm
 fi
 
 # FZF history
