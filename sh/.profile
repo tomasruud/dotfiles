@@ -81,6 +81,7 @@ fi
 
 # --- Janet
 if [ -d /opt/homebrew/opt/janet ]; then
+  export JANET_PROFILE="$HOME/.config/janet/profile.janet"
   PATH="/opt/homebrew/opt/janet/bin:$PATH"
 fi
 
