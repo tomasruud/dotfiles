@@ -22,6 +22,11 @@ if command -v tprompt >/dev/null 2>&1; then
   }
 fi
 
+# Prompt editing
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^o' edit-command-line
+
 # Zellij
 if [[ -v ZELLIJ ]]; then
   autoload -Uz add-zsh-hook
