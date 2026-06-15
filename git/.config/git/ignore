@@ -4,6 +4,8 @@
 .DS_Store
 .fleet
 .swp
+.clj-kondo/
+.lsp/
 
 **/.claude/settings.local.json
 *.claude.md
