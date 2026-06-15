@@ -1,0 +1,14 @@
+{
+  "trustedformulae": [
+    "atlassian/acli/acli",
+    "clojure/tools/clojure",
+    "hashicorp/tap/terraform-ls",
+    "koekeishiya/formulae/skhd",
+    "osx-cross/arm/arm-none-eabi-binutils",
+    "osx-cross/arm/arm-none-eabi-gcc",
+    "osx-cross/avr/avr-binutils",
+    "osx-cross/avr/avr-gcc",
+    "qmk/qmk/qmk",
+    "rsteube/tap/carapace"
+  ]
+}
