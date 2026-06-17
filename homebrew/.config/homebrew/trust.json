@@ -5,9 +5,12 @@
     "hashicorp/tap/terraform-ls",
     "koekeishiya/formulae/skhd",
     "osx-cross/arm/arm-none-eabi-binutils",
-    "osx-cross/arm/arm-none-eabi-gcc",
+    "osx-cross/arm/arm-none-eabi-gcc@8",
     "osx-cross/avr/avr-binutils",
     "osx-cross/avr/avr-gcc",
+    "osx-cross/avr/avr-gcc@8",
+    "qmk/qmk/hid_bootloader_cli",
+    "qmk/qmk/mdloader",
     "qmk/qmk/qmk",
     "rsteube/tap/carapace"
   ]
