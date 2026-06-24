@@ -25,5 +25,6 @@
   "autoMemoryDirectory": "~/.claude-private/memory",
   "skipDangerousModePermissionPrompt": true,
   "theme": "light",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "tui": "fullscreen"
 }
