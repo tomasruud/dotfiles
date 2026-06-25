@@ -256,3 +256,5 @@ aws apigatewayv2 get-integrations --api-id API_ID
 - Use `--no-paginate` or `--max-items` to control pagination
 - Pipe JSON output through `jq` for advanced filtering
 - Use `aws sts get-caller-identity` to verify which account/role you're using
+- If authentication is required, you can run `aws sso login` commands without
+  asking permission
