@@ -14,4 +14,4 @@ npm i -g typescript
 npm i -g vscode-langservers-extracted
 npm i -g bash-language-server
 npm i -g prettier
-npm i -g @mariozechner/pi-coding-agent
+npm i -g @earendil-works/pi-coding-agent
