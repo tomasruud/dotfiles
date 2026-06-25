@@ -1,2 +1,6 @@
 [core]
 	hooksPath = ~/.config/git/hooks-work
+
+[alias]
+	pmr = "!git push && git mr"
+	njb = "!f() { git switch -c $(jid)-${1}; }; f"
