@@ -3,6 +3,9 @@
 	editor = $EDITOR
 	pager = $PAGER
 
+[user]
+    useConfigOnly = true
+
 [help]
 	autocorrect = 1
 
@@ -35,8 +38,8 @@
 [merge]
 	conflictstyle = zdiff3
 
-[include]
-    path = ~/.gitconfig.local
+[includeIf "gitdir:~/personal/"]
+	path = ~/.config/git/config.personal
 
 [includeIf "gitdir:~/work/"]
 	path = ~/.config/git/config.work

@@ -1,3 +1,6 @@
+[include]
+    path = ~/.gitconfig.work
+
 [core]
 	hooksPath = ~/.config/git/hooks-work
 
