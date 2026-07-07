@@ -15,16 +15,16 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "janet ~/.claude/statusline.janet"
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "medium",
+  "tui": "fullscreen",
   "prefersReducedMotion": true,
   "autoMemoryDirectory": "~/.claude-private/memory",
   "skipDangerousModePermissionPrompt": true,
   "theme": "light",
-  "agentPushNotifEnabled": true,
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": true
 }
