@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Output directory (default to ~/.ssh)
+OUTPUT_DIR="${1:-$HOME/.ssh}"
+
+# Make sure the directory exists
+mkdir -p "$OUTPUT_DIR"
+
+# Loop over each key in the agent
+ssh-add -L | while read -r key type comment; do
+  # Sanitize the comment to be safe as a filename
+  safe_name=$(echo "$comment" | sed 's/[\/: ]/_/g')
+  filename="${OUTPUT_DIR}/${safe_name}.pub"
+
+  # Write the key to file
+  echo "$key $type $comment" > "$filename"
+  chmod 600 "$filename"
+
+  echo "✅ Saved: $filename"
+done
+
+echo "🎉 Done saving all agent keys!"
+
