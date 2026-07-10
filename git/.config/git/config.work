@@ -7,3 +7,4 @@
 [alias]
 	pmr = "!git push && git mr"
 	njb = "!f() { git switch -c $(jid)-${1}; }; f"
+	auth = "!f() { open 'https://gitlab.com/groups/a2755/-/saml/sso'; }; f"
