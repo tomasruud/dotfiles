@@ -15,9 +15,9 @@
 (test (ticket-from-branch "AB-1234-foo-bar") "AB-1234")
 (test (ticket-from-branch "my-new-feature") nil)
 
-(defn main [_ file & args]
-  (when-let [source (get args 0 "")
-             is-regular-commit? (peg/match '(+ "message" "") source)
+(defn main [_ & [file source hash]]
+  (when-let [is-not-amend-commit? (nil? hash)
+             is-regular-commit? (or (nil? source) (= "message" source))
              branch ($<_ git symbolic-ref --short HEAD)
              ticket (ticket-from-branch branch)]
     (spit file (string ticket ": " (slurp file))))
