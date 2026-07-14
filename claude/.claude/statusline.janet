@@ -6,16 +6,16 @@
     (json/decode input false true) _
 
     [(when-let [model (get-in _ ["model" "display_name"])]
-       (string model))
+       (string model "/mod" ))
 
      (when-let [used (get-in _ ["context_window" "used_percentage"])]
-       (string/format "ctx/%.0f%%" used))
+       (string/format "%.0f%%/ctx" used))
 
      (when-let [used (get-in _ ["rate_limits" "five_hour" "used_percentage"])]
-       (string/format "5h/%.0f%%" used))
+       (string/format "%.0f%%/5h" used))
 
      (when-let [used (get-in _ ["rate_limits" "seven_day" "used_percentage"])]
-       (string/format "7d/%.0f%%" used))]
+       (string/format "%.0f%%/7d" used))]
 
     (filter identity _)
 
@@ -112,4 +112,4 @@
 }
 ```)
 
-(test (render test-input) "Fable ctx/78% 5h/24% 7d/41%")
+(test (render test-input) "Fable/mod 78%/ctx 24%/5h 41%/7d")
