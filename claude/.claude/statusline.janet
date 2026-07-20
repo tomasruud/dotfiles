@@ -6,7 +6,10 @@
     (json/decode input false true) _
 
     [(when-let [model (get-in _ ["model" "display_name"])]
-       (string model "/mod" ))
+       (string model "/mod"))
+
+     (when-let [effort (get-in _ ["effort" "level"])]
+       (string effort "/eff"))
 
      (when-let [used (get-in _ ["context_window" "used_percentage"])]
        (string/format "%.0f%%/ctx" used))
