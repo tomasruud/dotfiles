@@ -15,12 +15,12 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "model": "claude-sonnet-5",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "janet ~/.claude/statusline.janet"
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "prefersReducedMotion": true,
   "autoMemoryDirectory": "~/.claude-private/memory",
