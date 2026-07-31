@@ -3,6 +3,10 @@ language-server.gopls.config.gofumpt = true
 language-server.gopls.config.staticcheck = true
 language-server.gopls.config.local = "go.axofinance.io,github.com/tomasruud,gitlab.com/2ms"
 
+[[language]]
+name = "gotmpl"
+file-types = ["gotmpl", "tmpl"]
+
 # Add .tfvar as tfvars ext
 [[language]]
 name = "tfvars"
