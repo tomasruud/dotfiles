@@ -8,6 +8,7 @@ claude/.claude/policy-limits.json
 claude/.claude/projects
 claude/.claude/remote-settings.json
 claude/.claude/sessions
+claude/.claude/shell-snapshots
 helix/.config/helix/contrib
 helix/.config/helix/runtime
 vim/.config/vim/.netrwhist
