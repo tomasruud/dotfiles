@@ -115,4 +115,4 @@
 }
 ```)
 
-(test (render test-input) "Fable/mod 78%/ctx 24%/5h 41%/7d")
+(test (render test-input) "Fable/mod high/eff 78%/ctx 24%/5h 41%/7d")
