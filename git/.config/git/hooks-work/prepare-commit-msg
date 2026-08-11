@@ -6,13 +6,15 @@
 (defn ticket-from-branch [branch]
   (first
     (peg/match
-      '{:main (+ (<- :ticket) "-" (thru -1))
+      '{:main (* :prefix? (<- :ticket) "-" (thru -1))
+        :prefix? (any (thru "/"))
         :ticket (* :project "-" :id)
         :project (some (range "AZ"))
         :id (some (range "09"))}
       branch)))
 
 (test (ticket-from-branch "AB-1234-foo-bar") "AB-1234")
+(test (ticket-from-branch "feat/AB-1234-foo-bar") "AB-1234")
 (test (ticket-from-branch "my-new-feature") nil)
 
 (defn main [_ & [file source hash]]
