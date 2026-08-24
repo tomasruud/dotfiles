@@ -31,23 +31,9 @@ bindkey '^o' edit-command-line
 if [[ -v ZELLIJ ]]; then
   autoload -Uz add-zsh-hook
 
-  # -- tab names
-  function _zellij_set_tab_name() {
-    current=$(zellij action current-tab-info -j | jq -r ".name")
-
-    if [[ $current == "Tab "* ]]; then
-      words=("${(f)$(</usr/share/dict/words)}")
-      zellij action rename-tab $words[RANDOM%${#words[@]}+1]
-    fi
-
-    add-zsh-hook -d precmd _zellij_set_tab_name
-  }
-
-  add-zsh-hook precmd _zellij_set_tab_name
-
   # -- pane names
   function _zellij_pwd() {
-    pwd | tprompt path --width 80
+    pwd | tprompt path --width 30
   }
 
   function _zellij_set_pane_name() {
