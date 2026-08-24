@@ -2,6 +2,7 @@ theme "terminal16"
 simplified_ui true
 stacked_pane_list false
 show_startup_tips false
+pane_frame_style "full"
 default_layout "compact"
 default_mode "locked"
 
