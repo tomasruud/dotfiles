@@ -21,9 +21,8 @@
     ],
     "deny": [
       "Agent",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)"
+      "Read(**/.env*)",
+      "Read(**/secrets/**)"
     ],
     "defaultMode": "bypassPermissions"
   },
