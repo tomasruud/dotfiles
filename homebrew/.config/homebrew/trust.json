@@ -1,5 +1,6 @@
 {
   "trustedformulae": [
+    "asmvik/formulae/skhd",
     "atlassian/acli/acli",
     "clojure/tools/clojure",
     "hashicorp/tap/terraform-ls",
