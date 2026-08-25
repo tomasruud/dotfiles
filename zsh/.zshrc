@@ -33,7 +33,7 @@ if [[ -v ZELLIJ ]]; then
 
   # -- pane names
   function _zellij_pwd() {
-    pwd | tprompt path --width 30
+    pwd | tprompt path --width 80
   }
 
   function _zellij_set_pane_name() {
