@@ -49,20 +49,16 @@ if [ -d "$HOME/.cargo/bin" ]; then
 fi
 
 # --- Node
-if [ -d "$HOME/.npm-global" ]; then
-  export NPM_CONFIG_GLOBALCONFIG="$HOME/.config/node/.npmrc"
-  PATH="$HOME/.npm-global/bin:$PATH"
-fi
+export NPM_CONFIG_GLOBALCONFIG="$HOME/.config/node/.npmrc"
+PATH="$HOME/.npm-global/bin:$PATH"
 
 # --- Ruby
 if [ -d /opt/homebrew/opt/ruby ]; then
   PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
-if command -v ruby >/dev/null 2>&1; then
-  export GEM_HOME="$HOME/.gems"
-  PATH="$HOME/.gems/bin:$PATH"
-fi
+export GEM_HOME="$HOME/.gems"
+PATH="$HOME/.gems/bin:$PATH"
 
 # --- PHP
 if [ -d "$HOME/.composer/vendor/bin" ]; then
@@ -88,7 +84,7 @@ fi
 export PATH
 
 if [ -e "$HOME/.env" ]; then
-  source "$HOME/.env"
+  . "$HOME/.env"
 else
-  echo "** Notice: no .env file loaded"
+  echo "** Notice: no .env file loaded" 1>&2
 fi
