@@ -1,11 +1,10 @@
-.idea
-.vscode
-.DS_Store
+.clj-kondo/
 .DS_Store
 .fleet
-.swp
-.clj-kondo/
+.idea
 .lsp/
+.vscode
+*.swp
 
 **/.claude/settings.local.json
 *.claude.md
