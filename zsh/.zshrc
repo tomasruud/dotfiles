@@ -70,6 +70,7 @@ if command -v fzf >/dev/null 2>&1; then
 fi
 
 # Aliases
+alias dd="docker desktop"
 alias gg="go generate ./..."
 alias gt="gotestsum"
 alias ll="ls -al"
