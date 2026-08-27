@@ -41,6 +41,7 @@ keybinds clear-defaults=true {
         bind "up" { MoveFocus "up"; }
         bind "right" { MoveFocus "right"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "p" { TogglePanePinned; SwitchToMode "locked"; }
 
         // Tab
         bind "c" { NewTab; SwitchToMode "locked"; }
@@ -64,10 +65,10 @@ keybinds clear-defaults=true {
     resize {
         bind "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
-        bind "H" { Resize "Decrease left"; }
-        bind "J" { Resize "Decrease down"; }
-        bind "K" { Resize "Decrease up"; }
-        bind "L" { Resize "Decrease right"; }
+        bind "a" { Resize "Decrease right"; }
+        bind "s" { Resize "Decrease up"; }
+        bind "w" { Resize "Decrease down"; }
+        bind "d" { Resize "Decrease left"; }
         bind "h" { Resize "Increase left"; }
         bind "j" { Resize "Increase down"; }
         bind "k" { Resize "Increase up"; }
