@@ -1,17 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "model": "opus[1m]",
-  "effortLevel": "high",
-  "theme": "auto",
-  "tui": "fullscreen",
-  "prefersReducedMotion": true,
-  "autoMemoryDirectory": "~/.claude-private/memory",
-  "skipDangerousModePermissionPrompt": true,
-  "enableArtifact": false,
-  "statusLine": {
-    "type": "command",
-    "command": "janet ~/.claude/statusline.janet"
-  },
   "permissions": {
     "allow": [
       "Bash",
@@ -26,9 +14,22 @@
     ],
     "defaultMode": "bypassPermissions"
   },
+  "model": "opus[1m]",
   "allowedMcpServers": [
     {
       "serverUrl": "https://microsoft365.mcp.claude.com/*"
     }
-  ]
+  ],
+  "enableArtifact": false,
+  "statusLine": {
+    "type": "command",
+    "command": "janet ~/.claude/statusline.janet"
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "prefersReducedMotion": true,
+  "autoMemoryDirectory": "~/.claude-private/memory",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "agentPushNotifEnabled": true
 }
