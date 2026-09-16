@@ -7,4 +7,5 @@ claude/.claude/*
 !claude/.claude/statusline.janet
 helix/.config/helix/contrib
 helix/.config/helix/runtime
+homebrew/.config/homebrew/trust.json.lock
 vim/.config/vim/.netrwhist

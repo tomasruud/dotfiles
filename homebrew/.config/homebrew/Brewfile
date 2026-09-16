@@ -24,7 +24,7 @@ brew 'zoxide'
 
 brew 'vacuum'
 
-brew 'postgresql@18'
+brew 'postgresql'
 brew 'sleek'
 
 brew 'ruby'
