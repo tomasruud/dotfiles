@@ -3,7 +3,6 @@ cask 'font-maple-mono'
 cask 'ghostty'
 cask 'rectangle'
 cask 'spotify'
-cask 'sublime-text'
 
 tap 'qmk/qmk'
 brew 'qmk/qmk/qmk'
@@ -18,7 +17,6 @@ brew 'jq'
 brew 'lf'
 brew 'ripgrep'
 brew 'stow'
-brew 'terminal-notifier'
 brew 'zellij'
 brew 'zoxide'
 
@@ -32,7 +30,7 @@ gem 'rubocop'
 
 brew 'janet'
 
-brew 'node@22'
+brew 'node'
 
 brew 'dlv'
 brew 'go'

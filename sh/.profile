@@ -65,11 +65,6 @@ if [ -d "$HOME/.composer/vendor/bin" ]; then
   PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 
-# --- JetBrains
-if [ -d /opt/jetbrains/bin ]; then
-  PATH="/opt/jetbrains/bin:$PATH"
-fi
-
 # --- usql
 if command -v usql >/dev/null 2>&1; then
   export USQL_CONFIG="$HOME/.config/usql/config.yaml"
