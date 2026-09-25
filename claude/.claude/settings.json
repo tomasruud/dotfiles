@@ -15,7 +15,6 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus[1m]",
   "allowedMcpServers": [
     {
       "serverUrl": "https://microsoft365.mcp.claude.com/*"
