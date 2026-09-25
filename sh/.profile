@@ -12,9 +12,7 @@ export LC_ALL="en_US.UTF-8"
 PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 # --- Docker
-if [ -d "$HOME/.docker/bin" ]; then
-  PATH="$HOME/.docker/bin:$PATH"
-fi
+PATH="$HOME/.docker/bin:$PATH"
 
 # --- Garmin
 if [ -f "$HOME/Library/Application Support/Garmin/ConnectIQ/current-sdk.cfg" ]; then
@@ -32,49 +30,28 @@ if [ -d /opt/homebrew ]; then
 fi
 
 # --- Go
-if [ -d /opt/homebrew/opt/go/libexec ]; then
-  export GOROOT=/opt/homebrew/opt/go/libexec
-elif [ -d /usr/local/go ]; then
-  PATH="/usr/local/go/bin:$PATH"
-fi
-
-if command -v go >/dev/null 2>&1; then
-  export GOPATH="$HOME/go"
-  PATH="$GOPATH/bin:$PATH"
-fi
+export GOPATH="$HOME/go"
+PATH="/usr/local/go/bin:$PATH"
+PATH="$GOPATH/bin:$PATH"
 
 # --- Rust
-if [ -d "$HOME/.cargo/bin" ]; then
-  PATH="$HOME/.cargo/bin:$PATH"
-fi
+PATH="$HOME/.cargo/bin:$PATH"
 
 # --- Node
 export NPM_CONFIG_GLOBALCONFIG="$HOME/.config/node/.npmrc"
 PATH="$HOME/.npm-global/bin:$PATH"
 
 # --- Ruby
-if [ -d /opt/homebrew/opt/ruby ]; then
-  PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-fi
-
 export GEM_HOME="$HOME/.gems"
+PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 PATH="$HOME/.gems/bin:$PATH"
 
 # --- PHP
-if [ -d "$HOME/.composer/vendor/bin" ]; then
-  PATH="$HOME/.composer/vendor/bin:$PATH"
-fi
-
-# --- usql
-if command -v usql >/dev/null 2>&1; then
-  export USQL_CONFIG="$HOME/.config/usql/config.yaml"
-fi
+PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # --- Janet
-if [ -d /opt/homebrew/opt/janet ]; then
-  export JANET_PROFILE="$HOME/.config/janet/profile.janet"
-  PATH="/opt/homebrew/opt/janet/bin:$PATH"
-fi
+export JANET_PROFILE="$HOME/.config/janet/profile.janet"
+PATH="/opt/homebrew/opt/janet/bin:$PATH"
 
 export PATH
 
